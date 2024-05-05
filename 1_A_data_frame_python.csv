@@ -1,0 +1,950 @@
+judgeId,problemId,sourceCode
+8240200,ALDS1_1_A,"def insert(N,A):
+    x = map(str,A)
+    print("" "".join(x))
+    for i in range(1,N):
+        v = A[i]
+        j = i-1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        y = map(str,A)
+        print("" "".join(y))
+    return A
+    
+n = int(input())
+A = list(map(int,input().split()))
+z = insert(n,A)
+"
+8246017,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+for n in range(N):
+    B = sorted(A[:n+1]) + A[n+1:]
+    print(*B)
+    A = B
+"
+8246655,ALDS1_1_A,"N = int(input())
+L = input()
+print(L)
+L = list(map(int,L.split()))
+
+for i in range(1,N):
+    v = L[i]
+    j = i - 1
+    while j >= 0 and L[j] > v:
+        L[j+1] = L[j]
+        j -= 1
+    L[j+1] = v
+    print(' '.join(list(map(str,L))))
+    
+"
+8253993,ALDS1_1_A,"n = int(input())
+a = list(map(int, input().split()))
+
+for i in range(1, n):
+  print(*a)
+  v = a[i]
+  j = i-1
+  while j>=0 and a[j]>v:
+    a[j+1] = a[j]
+    j -= 1
+  a[j+1] = v
+print(*a)
+"
+8255239,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+for i in range(N):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j + 1] = A[j]
+        j -= 1
+    A[j + 1] = v
+    for k in range(N):
+        if k == N - 1:
+            print(A[k])
+        else:
+            print(A[k], end = ' ')
+"
+8255553,ALDS1_1_A,"num=int(input())
+num_list=list(map(int,input().split("" "")))
+
+
+# for i in range(1,num):
+#     v=num_list[i]
+#     j=i-1
+#     #vの手前がvより小さかったら交換
+#     while j>=0 and num_list[j]<v:
+#         num_list[j+1]=num_list[j]
+#         j-=1
+#         num_list[j+1]=v
+#         print(num_list)
+
+        
+for i in range(1,num):
+    v=num_list[i]
+    j=i-1
+    print(*num_list,sep =' ')
+    #jは入れ替えの対象となる左側
+    while j>=0 and num_list[j]>v:
+        num_list[j+1]=num_list[j]
+        num_list[j]=v
+        j-=1
+    
+print(*num_list,sep =' ')
+"
+8270645,ALDS1_1_A,"def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+        print("" "".join(map(str, arr)))
+
+# Read input
+N = int(input())
+sequence = list(map(int, input().split()))
+
+# Initial sequence
+print("" "".join(map(str, sequence)))
+
+# Perform Insertion Sort
+insertion_sort(sequence)
+
+"
+8272986,ALDS1_1_A,"n = int(input())
+data = [int(s) for s in input().split()]
+print(*data)
+for i in range(1, n):
+    for j in range(1, i + 1):
+        if data[i-j+1] < data[i-j]:
+            data[i-j], data[i-j+1] = data[i-j+1], data[i-j]
+        else:
+            break
+    print(*data)
+"
+8290047,ALDS1_1_A,"N=eval(input())
+l=list(map(int,input().split()))
+print(*l)
+for n in range(1,N):
+    v=l[n]
+    m=n-1
+    while m>=0 and l[m]>v:
+        l[m+1]=l[m]
+        m=m-1
+    l[m+1]=v
+    print("" "".join(map(str,l)))
+"
+8291098,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+for i in range(N):
+    v = A[i]
+    j = i-1
+    while j >= 0 and A[j] > v :
+        A[j+1] = A[j]
+        j = j-1
+    A[j+1] = v
+    print("" "".join(map(str,A)))
+"
+8292891,ALDS1_1_A,"def sort_list(unsorted_list:list, sort_revel:int) -> list:
+    """"""{sort_level}回だけsortした配列を返す
+
+    Args:
+        unsorted_list (list): 入力配列
+        sort_revel (int):ソートする回数
+
+    Returns:
+        list: ソートされた配列
+    """"""
+    for count in range(sort_revel):
+        while((unsorted_list[count] > unsorted_list[count+1]) and count >= 0):
+            tmp = unsorted_list[count]
+            unsorted_list[count] = unsorted_list[count+1]
+            unsorted_list[count+1] = tmp
+            count -= 1
+    sorted_list = unsorted_list
+
+    return sorted_list
+
+def make_input_list(query_count:int) -> list:
+    """"""入力から長さ{query_count}の配列を返す
+
+    Args:
+        query_count (int): 配列の長さ
+
+    Returns:
+        list: 入力された配列
+    """"""
+    input_list:list = []
+    input_str = input()
+    for i in range(query_count):
+        input_list.append(int(input_str.split("" "")[i]))
+
+    return input_list
+
+def make_sorted_list_collection(input_list:list, query_count:int) -> list:
+    """"""0回~{query_count}回ソートした配列を格納した配列を返す
+
+    Args:
+        input_list (list): 入力された配列
+        query_count (int): 配列の長さ
+
+    Returns:
+        list: ソートした配列を格納した配列
+    """"""
+    sorted_list_collection:list = []
+    for i in range(query_count):
+        sorted_list:list = sort_list(input_list, i)
+        sorted_list_collection.append(sorted_list.copy())
+
+    return sorted_list_collection
+
+def print_list_collection(list_collection:list) -> None:
+    """"""配列を格納した配列から、I行ずつ配列を表示する
+
+    Args:
+        list_collection (list): 表示する配列を格納した配列
+    """"""
+    for list in list_collection:
+        print_str = ''
+        length = len(list)
+        for i in range(length):
+            if (i == length - 1):
+                print_str += f'{list[i]}'
+            else:
+                print_str += f'{list[i]} '
+        print(print_str)
+        
+query_count = int(input())
+input_list_collection = make_input_list(query_count)
+sorted_list_collection = make_sorted_list_collection(input_list_collection, query_count)
+print_list_collection(sorted_list_collection)
+"
+8294819,ALDS1_1_A,"n = int(input()) 
+numbers = list(map(int, input().split()))  # 空白区切りの数字を読み込んでリストに変換
+
+def insertion_sort(list, n):
+    print("" "".join(map(str, list)))
+    for i in range(1, n):
+        v = list[i]
+        j = i - 1
+        while j >= 0 and list[j] > v:
+            list[j+1] = list[j]
+            j -= 1
+        list[j+1] = v
+        print("" "".join(map(str, list)))
+
+insertion_sort(numbers, n)
+"
+8295303,ALDS1_1_A,"n = int(input())
+A = list(map(int, input().split()))
+
+for i in range(n):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j+1] = A[j]
+        j -= 1
+    A[j+1] = v
+    for k in range(n):
+        if k < n-1:
+            print(f""{A[k]} "", end="""")
+        else:
+            print(A[k])
+"
+8317392,ALDS1_1_A,"a = input()
+a = input().split(' ')
+print(' '.join(a))
+
+for i in range(1, len(a)):
+    for j in range(i - 1, -1, -1):
+        if int(a[i]) > int(a[j]):
+            a.insert(j + 1, a.pop(i))
+            break
+    else:
+        a.insert(0, a.pop(i))
+
+    print(' '.join(a))
+"
+8338685,ALDS1_1_A,"def insertion_sort(n,A):
+    print(*A)
+    for i in range(1,n):
+       v = A[i]
+       j = i - 1
+       while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+            A[j+1] = v
+       print(*A)
+
+n = int(input())
+A = list(map(int, input().split()))
+insertion_sort(n,A)
+
+"
+8338785,ALDS1_1_A,"def insertionSort(a,n):
+    for i in range(n):
+        v=a[i]
+        j=i-1
+        while j>=0 and a[j]>v:
+            a[j+1]=a[j]
+            j=j-1
+        a[j+1]=v
+        for i in range(len(a)):
+            if i==len(a)-1:
+                print(a[i],end="""")
+            else:
+                print(a[i],end="" "")
+        print()
+
+n=int(input())
+a=list(map(int,input().split()))
+insertionSort(a,n)
+"
+8338849,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+print(*A)
+
+for i in range(1, len(A)):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j + 1] = A[j]
+        j -= 1
+    A[j + 1] = v
+    print(*A)
+"
+8341864,ALDS1_1_A,"N=int(input())
+A=list(map(int,input().split()))
+def insertionSort(A, N):
+    for i in range(N):
+        v=A[i]
+        j=i-1
+        while j>=0 and A[j]>v:
+            A[j+1]=A[j]
+            j-=1
+        A[j+1]=v
+        print(*A) 
+insertionSort(A, N)
+"
+8348192,ALDS1_1_A,"def print_array(A: list):
+    for i in range(len(A)):
+        if i == (len(A) - 1):
+            print(A[i])
+        else:
+            print(A[i], end="" "")
+
+
+def main():
+    N = int(input())
+
+    A = list(map(int, input().split()))
+    print_array(A)
+
+    for i in range(1, N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v:
+            A[j + 1] = A[j]
+            j -= 1
+        A[j + 1] = v
+        print_array(A)
+
+
+if __name__ == ""__main__"":
+    main()
+
+"
+8349318,ALDS1_1_A,"def insertionSort(A, N):
+    print(*A)
+    for i in range(1, N):
+        v = A[i]
+        j = i -1
+        while j >= 0 and A[j] > v:
+            A[j + 1] = A[j]
+            j -= 1
+        A[j + 1] = v
+        print(*A)
+
+N = int(input())
+
+A = list(map(int, input().split()))
+
+insertionSort(A, N)
+"
+8351830,ALDS1_1_A,"n = int(input())
+a = list(map(int, input().split()))
+
+for i in range(n):
+    j = i - 1
+    while j >= 0 and a[j] > a[j + 1]:
+        a[j], a[j + 1] = a[j + 1], a[j]
+        j -= 1
+
+    print("" "".join(map(str, a)))
+
+"
+8367862,ALDS1_1_A,"def my_insertionSort(A, N):
+    print(*A)
+    for i in range(1,N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v: #挿入したい要素より大きい要素は配列の後ろに送る
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        print(*A)
+
+
+n = int(input())
+a = list(map(int, input().split()))
+my_insertionSort(a, n)
+"
+8369075,ALDS1_1_A,"N = int(input())
+lst = list(map(int, input().split()))
+for k in range(N):
+    if k != N-1:
+      print(lst[k],end="" "")
+    else:
+      print(lst[k])
+
+for i in range(N-1):
+  v = lst[i+1]
+  j = i-1
+  while lst[j+1] > v and j+1 >= 0:
+    lst[j+2] = lst[j+1]
+    j -= 1
+  lst[j+2] = v
+  for k in range(N):
+    if k != N-1:
+      print(lst[k],end="" "")
+    else:
+      print(lst[k])
+"
+8381629,ALDS1_1_A,"def insertionSort(A,N):
+    for i in range(N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+
+        for j in range(N):
+          if j != N-1:
+            print(A[j], end = ' ')
+          else:
+            print(A[j])
+
+        
+N = int(input())
+
+A = list(map(int, input().split()))
+
+insertionSort(A,N)
+"
+8389211,ALDS1_1_A,"n = int(input())
+a = list(map(int, input().split()))
+
+for i in range(0, n):
+    v =a[i]
+    j = i -1
+    while j>=0 and a[j] > v:
+        a[j+1] = a[j]
+        j -= 1
+        a[j+1] = v
+    print(*a)
+    
+"
+8401601,ALDS1_1_A,"def insert_sort(A, N):
+    for i in range(1,N):
+        v = A[i]
+        j = i -1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j-=1
+        A[j+1] = v
+        print(' '.join(map(str, A)))
+    return A
+N = int(input())
+A = list(map(int, input().split()))
+print(' '.join(map(str, A)))
+insert_sort(A, len(A))
+"
+8413484,ALDS1_1_A,"N=int(input())
+A=list(map(int, input().split()))
+
+#print(N, A)
+
+for i in range(N):
+    v=A[i]
+    j=i-1
+    while j>=0 and A[j]>v:
+        A[j+1]=A[j]
+        j-=1
+    A[j+1]=v
+    print(*A)
+"
+8414547,ALDS1_1_A,"n = int(input())
+A = list(map(int, input().split()))
+for i in range(n):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j+1] = A[j]
+        j -= 1
+    A[j+1] = v
+    print(*A)
+"
+8416530,ALDS1_1_A,"def insertionSort(A, N):
+    for i in range(1, N):
+        v = A[i]
+        j = i-1
+        while j >= 0 and A[j] >v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j + 1] = v
+        print(*A)
+    return A
+
+N = int(input())
+A =[int(j) for j in input().split()]
+
+print(*A)
+
+insertionSort(A, N)
+
+"
+8421670,ALDS1_1_A,"N = int(input())
+A = [*map(int, input().split())]
+
+for i in range(N):
+    v = A[i]
+    j = i-1
+    while j >= 0 and A[j] > v:
+        A[j+1] = A[j]
+        j -= 1
+    A[j+1] = v
+    print(*A)
+"
+8426894,ALDS1_1_A,"def insertionSort(a, n):
+    for i in range(1,n):
+        v = a[i]
+        j = i-1
+        while j >= 0 and a[j] > v:
+            a[j+1] = a[j]
+            j -= 1
+        a[j+1] = v
+        print(' '.join(list(map(str, a))))
+
+
+n = int(input())
+a = list(map(int, input().split()))
+print(' '.join(list(map(str, a))))
+insertionSort(a, n)
+"
+8429077,ALDS1_1_A,"import sys
+
+input = sys.stdin.readline
+
+def print_list(array):
+    print("" "".join(map(str, array)))
+
+def insertion_sort(n, array):
+    print_list(array)
+    for i in range(1, n):
+        temp = array[i]
+        j = i - 1
+        while j >= 0 and array[j] > temp:
+            array[j + 1] = array[j]
+            j -= 1
+        
+        array[j + 1] = temp
+        print_list(array)
+
+def main():
+    n = int(input())
+    array = list(map(int, input().split()))
+    
+    insertion_sort(n, array)
+
+if __name__ == ""__main__"":
+    main()
+"
+8435038,ALDS1_1_A,"n = int(input())
+
+a = list(map(int,input().split()))
+
+for i in range(n):
+    v = a[i]
+    j = i -1
+    while j >= 0 and a[j] > v:
+        a[j + 1] = a[j]
+        j -=1
+        
+    a[j+1] = v
+        
+    print(*a)
+    
+"
+8442718,ALDS1_1_A,"def insertion_sort(arr, n):
+    for i in range(n):
+        v = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > v:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = v
+        print(' '.join(map(str, arr)))
+
+n = int(input().strip())
+arr = list(map(int, input().strip().split()))
+insertion_sort(arr, n)
+
+"
+8446596,ALDS1_1_A,"def insertionSort(A, N): #N個の要素を含む0-オリジンの配列A
+    for i in range(1,N):
+        v = A[i]
+        j = i -1
+        while j >=0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        print(*A)
+    return A
+    
+
+N = int(input()) #配列の要素数
+A = list(map(int, input().split())) #配列の要素
+print(*A)
+sort_A = insertionSort(A,N)
+"
+8456553,ALDS1_1_A,"n = int(input())
+A = list(map(int,input().split()))
+for i in range(n):
+    j=i
+    while j>0 and A[j-1]>A[j]:
+        A[j],A[j-1]=A[j-1],A[j]
+        j-=1
+    print(*A)
+        
+"
+8461928,ALDS1_1_A,"def printArr(intArr):
+    n = len(intArr)
+    s = """"
+
+    for k in range(0,n):
+        if k < n-1:
+            s += str(intArr[k]) + "" ""
+        else:
+            s += str(intArr[k])
+
+    print(s)
+
+n = int(input())
+strArr = input().split()
+intArr = [int(s) for s in strArr]
+
+printArr(intArr)
+
+for i in range(1,n):
+    v = intArr[i]
+    j = i - 1
+    while j >= 0 and intArr[j] > v:
+        intArr[j+1] = intArr[j]
+        j -= 1
+
+    intArr[j+1] = v
+    printArr(intArr)
+
+
+"
+8463754,ALDS1_1_A,"n = int(input())
+a = list(map(int, input().split()))
+for i in range(n):
+    a = sorted(a[:i+1])+a[i+1:]
+    print(*a)
+"
+8464407,ALDS1_1_A,"import math as ma
+
+N = int(input())
+
+A = list( map( int,input().split() ) )
+
+for i in range(N):
+
+    v = A[i]
+    j = i - 1
+
+    while (j >= 0) & (A[j] > v):
+
+        A[j+1] = A[j]
+        j-=1
+
+    A[j+1] = v
+
+    print(*A)
+"
+8475596,ALDS1_1_A,"def insertion_sort(A,n):
+    for i in range(1,n):
+        print(*A)
+        v=A[i]
+        j=i-1
+        while j>=0 and A[j]>v:
+            A[j+1]=A[j]
+            j-=1
+        A[j+1]=v
+
+
+n=int(input())
+A=[int(i) for i in input().split()]
+insertion_sort(A,n)
+print(*A)
+'''
+python .\Insertion_sort.py
+6
+5 2 4 6 1 3
+
+2 5 4 6 1 3
+2 4 5 6 1 3
+2 4 5 6 1 3
+1 2 4 5 6 3
+1 2 3 4 5 6
+'''
+"
+8484667,ALDS1_1_A,"N = int(input())
+A = input().split()
+
+for i in A:
+    if i != A[len(A)-1]:    
+        print(i,end="" "")
+    else:
+        print(i)
+
+for i in range(1,len(A)):
+    key = int(A[i])
+    j = i-1
+    while j >= 0 and int(A[j]) > key:
+        A[j+1] = A[j]
+        j -= 1
+    A[j+1] = key
+    for j in A:
+        if j != A[len(A)-1]:    
+            print(j,end="" "")
+        else:
+            print(j)
+    
+"
+8490148,ALDS1_1_A,"num = int(input())
+a = list(map(int, input().split()))
+
+for i in range(num ):
+    key = a[i]
+    j = i - 1
+    while j >= 0 and a[j] > key:
+       # print(j)
+        a[j+1] = a[j]
+        j = j-1
+    a[j+1] = key
+    for i in range(num):
+        if i != num-1:print(a[i], end=' ')
+        else:print(a[i])
+
+"
+8507623,ALDS1_1_A,"N = int(input())
+A = [*map(int, input().split())]
+for i in range(N):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and  A[j] > v:
+       A[j+1] = A[j]
+       j -= 1
+    A[j+1] = v
+    print(*A)
+
+    
+"
+8508392,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+print("" "".join(map(str, A)))  # 配列の初期状態を出力
+for i in range(1, N):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j + 1] = A[j]
+        j -= 1
+    A[j + 1] = v
+    print("" "".join(map(str, A)))  # 各ステップでの配列の状態を出力
+
+"
+8510503,ALDS1_1_A,"count = int(input())
+card = list(map(int,input().split()))
+for i in range(0,count) :
+    v = card[i]
+    j = i - 1
+    while j >= 0 and card[j] > v :
+        card[j + 1] = card[j]
+        j -= 1
+    card[j + 1] = v
+    print("" "".join(map(str,card)))
+
+"
+8519983,ALDS1_1_A,"cnt = int(input())
+ten = []
+ten = list(map(int, input().split()))
+for n in range(cnt-1):
+      print(ten[n],end="" "")
+print(ten[cnt-1])
+
+for n in range(1,cnt,1):
+    tmp = ten[n]
+    m = n -1
+    while (m >=0 and ten[m] > tmp):
+        ten[m+1] = ten[m]
+        m = m - 1
+    ten[m+1] = tmp
+    for n in range(cnt-1):
+      print(ten[n],end="" "")
+    print(ten[cnt-1])
+"
+8527905,ALDS1_1_A,"def show_list(A):
+    for i, num in enumerate(A):
+        if i != len(A)-1:
+            print(num, end="" "")
+        else:
+            print(num)
+
+
+def insertionSort(A, N):
+    show_list(A)
+    for i in range(1, N):
+        tmp = A[i]
+        j = i - 1
+        while (j >= 0) and (A[j] > tmp):
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = tmp
+        show_list(A)
+
+N = int(input())
+A = list(map(int, input().split()))
+insertionSort(A, N)
+"
+8532599,ALDS1_1_A,"def insertion_sort(A, N):
+    for i in range(N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        print(' '.join(list(map(str, A))))
+
+def main():
+    N = int(input())
+    A = list(map(int, input().split(' '))) 
+
+    insertion_sort(A, N)
+
+if __name__ == '__main__':
+    main()
+"
+8550539,ALDS1_1_A,"#!/usr/bin/python
+
+def print_array(in_list: list):
+    for i in range(len(in_list)):
+        if i < len(in_list) - 1:
+            sep = "" ""
+        else:
+            sep = ""\n""
+        print(in_list[i], end=sep)
+
+    return()
+
+
+if __name__ == ""__main__"":
+    import sys
+
+    prompt_1 = ""input number of array elements: ""
+    prompt_2 = ""input integers to fill in each elements: ""
+
+    N = int(input().strip())
+    A = list(map(int, input().strip().split()))
+
+    print_array(A)
+
+    for i in range(1, N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        print_array(A)
+
+    sys.exit()
+
+"
+8561658,ALDS1_1_A,"N = int(input())
+a_list = list(map(int, input().split()))
+
+print(*a_list)
+for i in range(1, N):
+    a = a_list[i]
+    j = i - 1
+    while j >= 0 and a_list[j] > a:
+        a_list[j + 1] = a_list[j]
+        j = j - 1
+    a_list[j + 1] = a
+    print(*a_list)
+
+"
+8569745,ALDS1_1_A,"def print_moji(seq):
+  for i in range(len(seq)):
+    if i!=len(seq)-1:
+      print(seq[i], end=' ')
+    else:
+      print(seq[i])
+
+N=int(input())
+s=list(input().split())
+for i in range(len(s)):
+  s[i]=int(s[i])
+print_moji(s)
+for i in range(1,len(s)):
+  v=s[i]
+  j=i-1
+  while s[j]>v and j>=0:
+    s[j+1]=s[j]
+    j-=1
+  s[j+1]=v
+  print_moji(s)
+
+
+
+"
+8570505,ALDS1_1_A,"n = int(input())
+nums = list(map(int, input().split()))
+
+for i in range(n):
+    j = 0
+
+    while(i > j):
+        if(nums[j] > nums[i]):
+            nums.insert(j, nums[i])
+            del nums[i + 1]
+
+            break
+
+        j += 1
+
+    print(*nums)
+"

@@ -1,0 +1,3753 @@
+judgeId,problemId,sourceCode
+8240200,ALDS1_1_A,"def insert(N,A):
+    x = map(str,A)
+    print("" "".join(x))
+    for i in range(1,N):
+        v = A[i]
+        j = i-1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        y = map(str,A)
+        print("" "".join(y))
+    return A
+    
+n = int(input())
+A = list(map(int,input().split()))
+z = insert(n,A)
+"
+8246017,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+for n in range(N):
+    B = sorted(A[:n+1]) + A[n+1:]
+    print(*B)
+    A = B
+"
+8246655,ALDS1_1_A,"N = int(input())
+L = input()
+print(L)
+L = list(map(int,L.split()))
+
+for i in range(1,N):
+    v = L[i]
+    j = i - 1
+    while j >= 0 and L[j] > v:
+        L[j+1] = L[j]
+        j -= 1
+    L[j+1] = v
+    print(' '.join(list(map(str,L))))
+    
+"
+8253993,ALDS1_1_A,"n = int(input())
+a = list(map(int, input().split()))
+
+for i in range(1, n):
+  print(*a)
+  v = a[i]
+  j = i-1
+  while j>=0 and a[j]>v:
+    a[j+1] = a[j]
+    j -= 1
+  a[j+1] = v
+print(*a)
+"
+8255239,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+for i in range(N):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j + 1] = A[j]
+        j -= 1
+    A[j + 1] = v
+    for k in range(N):
+        if k == N - 1:
+            print(A[k])
+        else:
+            print(A[k], end = ' ')
+"
+8255553,ALDS1_1_A,"num=int(input())
+num_list=list(map(int,input().split("" "")))
+
+
+# for i in range(1,num):
+#     v=num_list[i]
+#     j=i-1
+#     #vの手前がvより小さかったら交換
+#     while j>=0 and num_list[j]<v:
+#         num_list[j+1]=num_list[j]
+#         j-=1
+#         num_list[j+1]=v
+#         print(num_list)
+
+        
+for i in range(1,num):
+    v=num_list[i]
+    j=i-1
+    print(*num_list,sep =' ')
+    #jは入れ替えの対象となる左側
+    while j>=0 and num_list[j]>v:
+        num_list[j+1]=num_list[j]
+        num_list[j]=v
+        j-=1
+    
+print(*num_list,sep =' ')
+"
+8270645,ALDS1_1_A,"def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+        print("" "".join(map(str, arr)))
+
+# Read input
+N = int(input())
+sequence = list(map(int, input().split()))
+
+# Initial sequence
+print("" "".join(map(str, sequence)))
+
+# Perform Insertion Sort
+insertion_sort(sequence)
+
+"
+8272986,ALDS1_1_A,"n = int(input())
+data = [int(s) for s in input().split()]
+print(*data)
+for i in range(1, n):
+    for j in range(1, i + 1):
+        if data[i-j+1] < data[i-j]:
+            data[i-j], data[i-j+1] = data[i-j+1], data[i-j]
+        else:
+            break
+    print(*data)
+"
+8290047,ALDS1_1_A,"N=eval(input())
+l=list(map(int,input().split()))
+print(*l)
+for n in range(1,N):
+    v=l[n]
+    m=n-1
+    while m>=0 and l[m]>v:
+        l[m+1]=l[m]
+        m=m-1
+    l[m+1]=v
+    print("" "".join(map(str,l)))
+"
+8291098,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+for i in range(N):
+    v = A[i]
+    j = i-1
+    while j >= 0 and A[j] > v :
+        A[j+1] = A[j]
+        j = j-1
+    A[j+1] = v
+    print("" "".join(map(str,A)))
+"
+8292891,ALDS1_1_A,"def sort_list(unsorted_list:list, sort_revel:int) -> list:
+    """"""{sort_level}回だけsortした配列を返す
+
+    Args:
+        unsorted_list (list): 入力配列
+        sort_revel (int):ソートする回数
+
+    Returns:
+        list: ソートされた配列
+    """"""
+    for count in range(sort_revel):
+        while((unsorted_list[count] > unsorted_list[count+1]) and count >= 0):
+            tmp = unsorted_list[count]
+            unsorted_list[count] = unsorted_list[count+1]
+            unsorted_list[count+1] = tmp
+            count -= 1
+    sorted_list = unsorted_list
+
+    return sorted_list
+
+def make_input_list(query_count:int) -> list:
+    """"""入力から長さ{query_count}の配列を返す
+
+    Args:
+        query_count (int): 配列の長さ
+
+    Returns:
+        list: 入力された配列
+    """"""
+    input_list:list = []
+    input_str = input()
+    for i in range(query_count):
+        input_list.append(int(input_str.split("" "")[i]))
+
+    return input_list
+
+def make_sorted_list_collection(input_list:list, query_count:int) -> list:
+    """"""0回~{query_count}回ソートした配列を格納した配列を返す
+
+    Args:
+        input_list (list): 入力された配列
+        query_count (int): 配列の長さ
+
+    Returns:
+        list: ソートした配列を格納した配列
+    """"""
+    sorted_list_collection:list = []
+    for i in range(query_count):
+        sorted_list:list = sort_list(input_list, i)
+        sorted_list_collection.append(sorted_list.copy())
+
+    return sorted_list_collection
+
+def print_list_collection(list_collection:list) -> None:
+    """"""配列を格納した配列から、I行ずつ配列を表示する
+
+    Args:
+        list_collection (list): 表示する配列を格納した配列
+    """"""
+    for list in list_collection:
+        print_str = ''
+        length = len(list)
+        for i in range(length):
+            if (i == length - 1):
+                print_str += f'{list[i]}'
+            else:
+                print_str += f'{list[i]} '
+        print(print_str)
+        
+query_count = int(input())
+input_list_collection = make_input_list(query_count)
+sorted_list_collection = make_sorted_list_collection(input_list_collection, query_count)
+print_list_collection(sorted_list_collection)
+"
+8294819,ALDS1_1_A,"n = int(input()) 
+numbers = list(map(int, input().split()))  # 空白区切りの数字を読み込んでリストに変換
+
+def insertion_sort(list, n):
+    print("" "".join(map(str, list)))
+    for i in range(1, n):
+        v = list[i]
+        j = i - 1
+        while j >= 0 and list[j] > v:
+            list[j+1] = list[j]
+            j -= 1
+        list[j+1] = v
+        print("" "".join(map(str, list)))
+
+insertion_sort(numbers, n)
+"
+8295303,ALDS1_1_A,"n = int(input())
+A = list(map(int, input().split()))
+
+for i in range(n):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j+1] = A[j]
+        j -= 1
+    A[j+1] = v
+    for k in range(n):
+        if k < n-1:
+            print(f""{A[k]} "", end="""")
+        else:
+            print(A[k])
+"
+8317392,ALDS1_1_A,"a = input()
+a = input().split(' ')
+print(' '.join(a))
+
+for i in range(1, len(a)):
+    for j in range(i - 1, -1, -1):
+        if int(a[i]) > int(a[j]):
+            a.insert(j + 1, a.pop(i))
+            break
+    else:
+        a.insert(0, a.pop(i))
+
+    print(' '.join(a))
+"
+8338685,ALDS1_1_A,"def insertion_sort(n,A):
+    print(*A)
+    for i in range(1,n):
+       v = A[i]
+       j = i - 1
+       while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+            A[j+1] = v
+       print(*A)
+
+n = int(input())
+A = list(map(int, input().split()))
+insertion_sort(n,A)
+
+"
+8338785,ALDS1_1_A,"def insertionSort(a,n):
+    for i in range(n):
+        v=a[i]
+        j=i-1
+        while j>=0 and a[j]>v:
+            a[j+1]=a[j]
+            j=j-1
+        a[j+1]=v
+        for i in range(len(a)):
+            if i==len(a)-1:
+                print(a[i],end="""")
+            else:
+                print(a[i],end="" "")
+        print()
+
+n=int(input())
+a=list(map(int,input().split()))
+insertionSort(a,n)
+"
+8338849,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+print(*A)
+
+for i in range(1, len(A)):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j + 1] = A[j]
+        j -= 1
+    A[j + 1] = v
+    print(*A)
+"
+8341864,ALDS1_1_A,"N=int(input())
+A=list(map(int,input().split()))
+def insertionSort(A, N):
+    for i in range(N):
+        v=A[i]
+        j=i-1
+        while j>=0 and A[j]>v:
+            A[j+1]=A[j]
+            j-=1
+        A[j+1]=v
+        print(*A) 
+insertionSort(A, N)
+"
+8348192,ALDS1_1_A,"def print_array(A: list):
+    for i in range(len(A)):
+        if i == (len(A) - 1):
+            print(A[i])
+        else:
+            print(A[i], end="" "")
+
+
+def main():
+    N = int(input())
+
+    A = list(map(int, input().split()))
+    print_array(A)
+
+    for i in range(1, N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v:
+            A[j + 1] = A[j]
+            j -= 1
+        A[j + 1] = v
+        print_array(A)
+
+
+if __name__ == ""__main__"":
+    main()
+
+"
+8349318,ALDS1_1_A,"def insertionSort(A, N):
+    print(*A)
+    for i in range(1, N):
+        v = A[i]
+        j = i -1
+        while j >= 0 and A[j] > v:
+            A[j + 1] = A[j]
+            j -= 1
+        A[j + 1] = v
+        print(*A)
+
+N = int(input())
+
+A = list(map(int, input().split()))
+
+insertionSort(A, N)
+"
+8351830,ALDS1_1_A,"n = int(input())
+a = list(map(int, input().split()))
+
+for i in range(n):
+    j = i - 1
+    while j >= 0 and a[j] > a[j + 1]:
+        a[j], a[j + 1] = a[j + 1], a[j]
+        j -= 1
+
+    print("" "".join(map(str, a)))
+
+"
+8367862,ALDS1_1_A,"def my_insertionSort(A, N):
+    print(*A)
+    for i in range(1,N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v: #挿入したい要素より大きい要素は配列の後ろに送る
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        print(*A)
+
+
+n = int(input())
+a = list(map(int, input().split()))
+my_insertionSort(a, n)
+"
+8369075,ALDS1_1_A,"N = int(input())
+lst = list(map(int, input().split()))
+for k in range(N):
+    if k != N-1:
+      print(lst[k],end="" "")
+    else:
+      print(lst[k])
+
+for i in range(N-1):
+  v = lst[i+1]
+  j = i-1
+  while lst[j+1] > v and j+1 >= 0:
+    lst[j+2] = lst[j+1]
+    j -= 1
+  lst[j+2] = v
+  for k in range(N):
+    if k != N-1:
+      print(lst[k],end="" "")
+    else:
+      print(lst[k])
+"
+8381629,ALDS1_1_A,"def insertionSort(A,N):
+    for i in range(N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+
+        for j in range(N):
+          if j != N-1:
+            print(A[j], end = ' ')
+          else:
+            print(A[j])
+
+        
+N = int(input())
+
+A = list(map(int, input().split()))
+
+insertionSort(A,N)
+"
+8389211,ALDS1_1_A,"n = int(input())
+a = list(map(int, input().split()))
+
+for i in range(0, n):
+    v =a[i]
+    j = i -1
+    while j>=0 and a[j] > v:
+        a[j+1] = a[j]
+        j -= 1
+        a[j+1] = v
+    print(*a)
+    
+"
+8401601,ALDS1_1_A,"def insert_sort(A, N):
+    for i in range(1,N):
+        v = A[i]
+        j = i -1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j-=1
+        A[j+1] = v
+        print(' '.join(map(str, A)))
+    return A
+N = int(input())
+A = list(map(int, input().split()))
+print(' '.join(map(str, A)))
+insert_sort(A, len(A))
+"
+8413484,ALDS1_1_A,"N=int(input())
+A=list(map(int, input().split()))
+
+#print(N, A)
+
+for i in range(N):
+    v=A[i]
+    j=i-1
+    while j>=0 and A[j]>v:
+        A[j+1]=A[j]
+        j-=1
+    A[j+1]=v
+    print(*A)
+"
+8414547,ALDS1_1_A,"n = int(input())
+A = list(map(int, input().split()))
+for i in range(n):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j+1] = A[j]
+        j -= 1
+    A[j+1] = v
+    print(*A)
+"
+8416530,ALDS1_1_A,"def insertionSort(A, N):
+    for i in range(1, N):
+        v = A[i]
+        j = i-1
+        while j >= 0 and A[j] >v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j + 1] = v
+        print(*A)
+    return A
+
+N = int(input())
+A =[int(j) for j in input().split()]
+
+print(*A)
+
+insertionSort(A, N)
+
+"
+8421670,ALDS1_1_A,"N = int(input())
+A = [*map(int, input().split())]
+
+for i in range(N):
+    v = A[i]
+    j = i-1
+    while j >= 0 and A[j] > v:
+        A[j+1] = A[j]
+        j -= 1
+    A[j+1] = v
+    print(*A)
+"
+8426894,ALDS1_1_A,"def insertionSort(a, n):
+    for i in range(1,n):
+        v = a[i]
+        j = i-1
+        while j >= 0 and a[j] > v:
+            a[j+1] = a[j]
+            j -= 1
+        a[j+1] = v
+        print(' '.join(list(map(str, a))))
+
+
+n = int(input())
+a = list(map(int, input().split()))
+print(' '.join(list(map(str, a))))
+insertionSort(a, n)
+"
+8429077,ALDS1_1_A,"import sys
+
+input = sys.stdin.readline
+
+def print_list(array):
+    print("" "".join(map(str, array)))
+
+def insertion_sort(n, array):
+    print_list(array)
+    for i in range(1, n):
+        temp = array[i]
+        j = i - 1
+        while j >= 0 and array[j] > temp:
+            array[j + 1] = array[j]
+            j -= 1
+        
+        array[j + 1] = temp
+        print_list(array)
+
+def main():
+    n = int(input())
+    array = list(map(int, input().split()))
+    
+    insertion_sort(n, array)
+
+if __name__ == ""__main__"":
+    main()
+"
+8435038,ALDS1_1_A,"n = int(input())
+
+a = list(map(int,input().split()))
+
+for i in range(n):
+    v = a[i]
+    j = i -1
+    while j >= 0 and a[j] > v:
+        a[j + 1] = a[j]
+        j -=1
+        
+    a[j+1] = v
+        
+    print(*a)
+    
+"
+8442718,ALDS1_1_A,"def insertion_sort(arr, n):
+    for i in range(n):
+        v = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > v:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = v
+        print(' '.join(map(str, arr)))
+
+n = int(input().strip())
+arr = list(map(int, input().strip().split()))
+insertion_sort(arr, n)
+
+"
+8446596,ALDS1_1_A,"def insertionSort(A, N): #N個の要素を含む0-オリジンの配列A
+    for i in range(1,N):
+        v = A[i]
+        j = i -1
+        while j >=0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        print(*A)
+    return A
+    
+
+N = int(input()) #配列の要素数
+A = list(map(int, input().split())) #配列の要素
+print(*A)
+sort_A = insertionSort(A,N)
+"
+8456553,ALDS1_1_A,"n = int(input())
+A = list(map(int,input().split()))
+for i in range(n):
+    j=i
+    while j>0 and A[j-1]>A[j]:
+        A[j],A[j-1]=A[j-1],A[j]
+        j-=1
+    print(*A)
+        
+"
+8461928,ALDS1_1_A,"def printArr(intArr):
+    n = len(intArr)
+    s = """"
+
+    for k in range(0,n):
+        if k < n-1:
+            s += str(intArr[k]) + "" ""
+        else:
+            s += str(intArr[k])
+
+    print(s)
+
+n = int(input())
+strArr = input().split()
+intArr = [int(s) for s in strArr]
+
+printArr(intArr)
+
+for i in range(1,n):
+    v = intArr[i]
+    j = i - 1
+    while j >= 0 and intArr[j] > v:
+        intArr[j+1] = intArr[j]
+        j -= 1
+
+    intArr[j+1] = v
+    printArr(intArr)
+
+
+"
+8463754,ALDS1_1_A,"n = int(input())
+a = list(map(int, input().split()))
+for i in range(n):
+    a = sorted(a[:i+1])+a[i+1:]
+    print(*a)
+"
+8464407,ALDS1_1_A,"import math as ma
+
+N = int(input())
+
+A = list( map( int,input().split() ) )
+
+for i in range(N):
+
+    v = A[i]
+    j = i - 1
+
+    while (j >= 0) & (A[j] > v):
+
+        A[j+1] = A[j]
+        j-=1
+
+    A[j+1] = v
+
+    print(*A)
+"
+8475596,ALDS1_1_A,"def insertion_sort(A,n):
+    for i in range(1,n):
+        print(*A)
+        v=A[i]
+        j=i-1
+        while j>=0 and A[j]>v:
+            A[j+1]=A[j]
+            j-=1
+        A[j+1]=v
+
+
+n=int(input())
+A=[int(i) for i in input().split()]
+insertion_sort(A,n)
+print(*A)
+'''
+python .\Insertion_sort.py
+6
+5 2 4 6 1 3
+
+2 5 4 6 1 3
+2 4 5 6 1 3
+2 4 5 6 1 3
+1 2 4 5 6 3
+1 2 3 4 5 6
+'''
+"
+8484667,ALDS1_1_A,"N = int(input())
+A = input().split()
+
+for i in A:
+    if i != A[len(A)-1]:    
+        print(i,end="" "")
+    else:
+        print(i)
+
+for i in range(1,len(A)):
+    key = int(A[i])
+    j = i-1
+    while j >= 0 and int(A[j]) > key:
+        A[j+1] = A[j]
+        j -= 1
+    A[j+1] = key
+    for j in A:
+        if j != A[len(A)-1]:    
+            print(j,end="" "")
+        else:
+            print(j)
+    
+"
+8490148,ALDS1_1_A,"num = int(input())
+a = list(map(int, input().split()))
+
+for i in range(num ):
+    key = a[i]
+    j = i - 1
+    while j >= 0 and a[j] > key:
+       # print(j)
+        a[j+1] = a[j]
+        j = j-1
+    a[j+1] = key
+    for i in range(num):
+        if i != num-1:print(a[i], end=' ')
+        else:print(a[i])
+
+"
+8507623,ALDS1_1_A,"N = int(input())
+A = [*map(int, input().split())]
+for i in range(N):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and  A[j] > v:
+       A[j+1] = A[j]
+       j -= 1
+    A[j+1] = v
+    print(*A)
+
+    
+"
+8508392,ALDS1_1_A,"N = int(input())
+A = list(map(int, input().split()))
+
+print("" "".join(map(str, A)))  # 配列の初期状態を出力
+for i in range(1, N):
+    v = A[i]
+    j = i - 1
+    while j >= 0 and A[j] > v:
+        A[j + 1] = A[j]
+        j -= 1
+    A[j + 1] = v
+    print("" "".join(map(str, A)))  # 各ステップでの配列の状態を出力
+
+"
+8510503,ALDS1_1_A,"count = int(input())
+card = list(map(int,input().split()))
+for i in range(0,count) :
+    v = card[i]
+    j = i - 1
+    while j >= 0 and card[j] > v :
+        card[j + 1] = card[j]
+        j -= 1
+    card[j + 1] = v
+    print("" "".join(map(str,card)))
+
+"
+8519983,ALDS1_1_A,"cnt = int(input())
+ten = []
+ten = list(map(int, input().split()))
+for n in range(cnt-1):
+      print(ten[n],end="" "")
+print(ten[cnt-1])
+
+for n in range(1,cnt,1):
+    tmp = ten[n]
+    m = n -1
+    while (m >=0 and ten[m] > tmp):
+        ten[m+1] = ten[m]
+        m = m - 1
+    ten[m+1] = tmp
+    for n in range(cnt-1):
+      print(ten[n],end="" "")
+    print(ten[cnt-1])
+"
+8527905,ALDS1_1_A,"def show_list(A):
+    for i, num in enumerate(A):
+        if i != len(A)-1:
+            print(num, end="" "")
+        else:
+            print(num)
+
+
+def insertionSort(A, N):
+    show_list(A)
+    for i in range(1, N):
+        tmp = A[i]
+        j = i - 1
+        while (j >= 0) and (A[j] > tmp):
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = tmp
+        show_list(A)
+
+N = int(input())
+A = list(map(int, input().split()))
+insertionSort(A, N)
+"
+8532599,ALDS1_1_A,"def insertion_sort(A, N):
+    for i in range(N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        print(' '.join(list(map(str, A))))
+
+def main():
+    N = int(input())
+    A = list(map(int, input().split(' '))) 
+
+    insertion_sort(A, N)
+
+if __name__ == '__main__':
+    main()
+"
+8550539,ALDS1_1_A,"#!/usr/bin/python
+
+def print_array(in_list: list):
+    for i in range(len(in_list)):
+        if i < len(in_list) - 1:
+            sep = "" ""
+        else:
+            sep = ""\n""
+        print(in_list[i], end=sep)
+
+    return()
+
+
+if __name__ == ""__main__"":
+    import sys
+
+    prompt_1 = ""input number of array elements: ""
+    prompt_2 = ""input integers to fill in each elements: ""
+
+    N = int(input().strip())
+    A = list(map(int, input().strip().split()))
+
+    print_array(A)
+
+    for i in range(1, N):
+        v = A[i]
+        j = i - 1
+        while j >= 0 and A[j] > v:
+            A[j+1] = A[j]
+            j -= 1
+        A[j+1] = v
+        print_array(A)
+
+    sys.exit()
+
+"
+8561658,ALDS1_1_A,"N = int(input())
+a_list = list(map(int, input().split()))
+
+print(*a_list)
+for i in range(1, N):
+    a = a_list[i]
+    j = i - 1
+    while j >= 0 and a_list[j] > a:
+        a_list[j + 1] = a_list[j]
+        j = j - 1
+    a_list[j + 1] = a
+    print(*a_list)
+
+"
+8569745,ALDS1_1_A,"def print_moji(seq):
+  for i in range(len(seq)):
+    if i!=len(seq)-1:
+      print(seq[i], end=' ')
+    else:
+      print(seq[i])
+
+N=int(input())
+s=list(input().split())
+for i in range(len(s)):
+  s[i]=int(s[i])
+print_moji(s)
+for i in range(1,len(s)):
+  v=s[i]
+  j=i-1
+  while s[j]>v and j>=0:
+    s[j+1]=s[j]
+    j-=1
+  s[j+1]=v
+  print_moji(s)
+
+
+
+"
+8570505,ALDS1_1_A,"n = int(input())
+nums = list(map(int, input().split()))
+
+for i in range(n):
+    j = 0
+
+    while(i > j):
+        if(nums[j] > nums[i]):
+            nums.insert(j, nums[i])
+            del nums[i + 1]
+
+            break
+
+        j += 1
+
+    print(*nums)
+"
+8241069,ALDS1_1_B,"def gcd(a,b):
+    while a % b != 0:
+        x = b
+        b = a % b
+        a = x
+    return b
+
+x,y = map(int,input().split())
+A = gcd(x,y)
+print(A)
+"
+8254053,ALDS1_1_B,"x, y = map(int, input().split())
+x, y = max(x, y), min(x, y)
+
+while x%y!=0:
+  x, y = y, x%y
+print(y)
+"
+8255249,ALDS1_1_B,"import math
+
+a, b = map(int, input().split())
+print(math.gcd(a, b))
+"
+8257285,ALDS1_1_B,"x,y=map(int,input().split())
+if x < y:
+    x,y=y,x
+while y>0:
+    r = x % y
+    x = y
+    y = r
+print(x)
+"
+8257336,ALDS1_1_B,"def gcd(a, b):
+    if b > a:
+        a, b = b, a
+    if a % b == 0:
+        return b
+    return gcd(b, a % b)
+
+
+def main():
+    a, b = map(int, input().split())
+    print(gcd(a, b))
+
+
+if __name__ == ""__main__"":
+    main()
+"
+8290103,ALDS1_1_B,"def nya(a,b):
+    an=a%b
+    if an==0:print(b)
+    else:nya(b,an)
+x,y=map(eval,input().split())
+nya(x,y)
+"
+8294071,ALDS1_1_B,"input_list = input().split()
+a = int(input_list[0])
+b = int(input_list[1])
+
+while b > 0:
+    if a < b:
+        tmp = a
+        a = b
+        b = tmp
+    tmp = a
+    a = b
+    b = tmp % b
+
+print(a)
+"
+8296285,ALDS1_1_B,"x, y = map(int, input().split())
+
+if y >= x:
+    x, y = y, x
+
+while y != 0:
+    if x % y == 0:
+        break
+    else:
+        t = y
+        y = x % y
+        x = t
+
+print(y)
+"
+8315323,ALDS1_1_B,"x, y = map(int,input().split())
+
+if x < y :
+    a = y
+    b = x
+else :
+    a = x
+    b = y
+
+while b != 0 :
+    c = a % b
+    a = b
+    b = c
+
+print(a)
+"
+8324505,ALDS1_1_B,"x,y=map(int,input().split())
+def gcd(a:int,b:int):
+    if(a>=b):
+        if(a%b==0):
+            # print('今ここ')
+            return b
+        else:
+            # print('gcd({},{})を呼び出します'.format(b,a%b))
+            return gcd(b,a%b)
+    else:
+        return gcd(b,a)
+
+print(gcd(x,y))
+"
+8338730,ALDS1_1_B,"def gcd(x,y):
+    if x < y:
+        x,y = y,x
+    while y > 0:
+        r = x % y
+        x = y
+        y = r
+
+    return x
+x,y =map(int, input().split())
+print(gcd(x,y))
+"
+8338870,ALDS1_1_B,"x, y = map(int, input().split())
+while y:
+    x, y = y, x%y
+print(x)
+"
+8340562,ALDS1_1_B,"def gcd(a,b):
+    while True:
+        if a%b==0:
+            return b
+        temp=a%b
+        a=b
+        b=temp
+
+a,b=map(int,input().split())
+print(gcd(a,b))
+"
+8349374,ALDS1_1_B,"def gcd(x, y):
+    if x < y:
+        x,y = y, x
+    while True:
+        if x % y == 0:
+            return y
+        x,y = y, x % y
+    
+
+x, y  = map(int, input().split())
+
+print(gcd(x,y))
+"
+8367895,ALDS1_1_B,"def culc_gcd(x : int, y : int) -> int:
+    if x < y:
+        tmp = x
+        x = y
+        y = tmp
+    if x % y == 0:
+        return y
+    ret = culc_gcd(y, x % y)
+    return ret
+
+x, y = map(int, input().split())
+print(culc_gcd(x, y))
+"
+8381332,ALDS1_1_B,"import math
+
+x, y = [int(i) for i in input().split()]
+print(math.gcd(x, y))
+"
+8389550,ALDS1_1_B,"def gcd_binary(m, n):
+    if m == 0:
+        return n
+    if n == 0:
+        return m
+
+    k = 0
+    while m & 1 == 0 and n & 1 == 0:
+        k += 1
+        m >>= 1
+        n >>= 1
+
+    if m & 1 == 0:
+        m, n = n, m >> 1
+
+    while True:
+        while n & 1 == 0:
+            n >>= 1
+
+        if m > n:
+            m, n = n, (m - n) >> 1
+        elif m < n:
+            m, n = m, (n - m) >> 1
+        else:
+            return m << k
+
+
+x, y = map(int, input().split())
+result = gcd_binary(x, y)
+print(result)
+
+"
+8399139,ALDS1_1_B,"x,y=map(int,input().split())
+
+import math
+
+print(math.gcd(x, y))
+"
+8401904,ALDS1_1_B,"def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a%b)
+
+a, b = map(int, input().split())
+print(gcd(a,b))
+"
+8412270,ALDS1_1_B,"def GCD(x, y):
+    if y == 0:
+        return x
+    return GCD(y, x % y)
+
+
+x, y = map(int, input().split())
+if y > x:
+    x, y = y, x
+print(GCD(x, y))
+
+"
+8413658,ALDS1_1_B,"x, y = map(int, input().split())
+
+if x<y:
+    x,y=y,x
+while y>0:
+    r=x%y
+    x=y
+    y=r
+print(x)
+
+#ans=0
+#for i in range(1,min(x,y)+1):
+#    if x%i==0 and y%i==0:
+#        ans=max(ans, i)
+#print(ans)
+    
+
+"
+8416565,ALDS1_1_B,"max = 0
+import math
+
+[a,b] = [int(j) for j in input().split()]
+
+# for i in range(1,b+1):
+#     if a%i == 0 and b%i == 0:
+#         max = i
+#     else:
+#         pass
+# print(max)
+
+# i = 0
+# if a > b:
+#     while i != 1:
+#         i = a%b
+#         if i > a:
+#             i = b%a
+#     else:
+#         print(i)
+# else:
+#     while i != 1:
+#         i = b%a
+#         if i > b:
+#             i = a%b
+#     else:
+#         print(i)
+
+
+print(math.gcd(a,b))
+"
+8416731,ALDS1_1_B,"def GCD(x, y):
+    if y == 0:
+        return x
+    else:
+        return GCD(y, x%y)
+
+def main():
+    x, y = map(int, input().split())
+    ans = GCD(x, y)
+    print(ans)
+
+if __name__ == ""__main__"":
+    main()
+
+"
+8424277,ALDS1_1_B,"def gcd(a,b):
+    if b>a:
+        a,b=b,a
+    c=a%b
+    if c==0:
+        return b
+    k=gcd(b,c)
+    return k
+
+a,b=map(int,input().split())
+f=gcd(a,b)
+print(f)
+"
+8435099,ALDS1_1_B,"X, Y = map(int, input().split())
+
+while Y != 0:
+	T = X
+	X = Y
+	Y = T % Y
+	
+print(X)
+"
+8439225,ALDS1_1_B,"from math import gcd
+
+x,y = map(int, input().split())
+
+print(gcd(x,y))
+"
+8446646,ALDS1_1_B,"import math
+x, y = map(int, input().split())
+
+print(math.gcd(x,y))
+"
+8450888,ALDS1_1_B,"a1,a2 = map(int,input().split())
+if a1 < a2:
+    tmp = a1
+    a1 = a2
+    a2 = tmp
+greatest_common = 0
+while  greatest_common== 0:
+    i = a1%a2
+    if i == 0:
+       greatest_common = a2
+    else:
+        a1 = a2
+        a2 = i
+print(greatest_common)
+"
+8457271,ALDS1_1_B,"def gcd(x, y):
+    
+    if x < y:
+        x, y = y, x
+    
+    while True:
+        r = x % y
+        y, x = r, y
+        
+        if r == 0:
+            break
+    
+    return x
+
+x, y = map(int, input().split())
+print(gcd(x, y))
+"
+8457526,ALDS1_1_B,"a,b = map(int,input().split())
+c=a%b
+while c!=0:
+    a=b
+    b=c
+    c=a%b
+print(b)
+"
+8463760,ALDS1_1_B,"import math
+x, y = map(int, input().split())
+print(math.gcd(x, y))
+"
+8464424,ALDS1_1_B,"import math as ma
+
+x , y = map(int,input().split())
+
+z=ma.gcd(x,y)
+
+print(z)
+"
+8471359,ALDS1_1_B,"x,y = map(int,input().split())
+import math
+print(math.gcd(x,y))
+"
+8475627,ALDS1_1_B,"def gcd(x,y):
+    while y>1:
+        x,y=y,x%y
+        if y==1:
+            return y
+    return x
+    
+L=[int(i) for i in input().split()]
+x,y=L[0],L[1]
+print(gcd(x,y))
+
+"
+8484700,ALDS1_1_B,"import math
+x_y = input().split()
+x = int(x_y[0])
+y = int(x_y[1])
+print(math.gcd(x,y))
+"
+8490218,ALDS1_1_B,"a, b = map(int, input().split())
+x = min(a,b)
+y = max(a,b)
+while b > 0:
+    d = a % b
+    a = b
+    b = d
+print(a)
+
+"
+8499104,ALDS1_1_B,"a,b=(int(x) for x in input().split())
+if(a<b):
+    c = b
+    b = a
+    a = c
+sa = a - b
+while(sa != 0):
+    a = sa
+    if(a<b):
+        c = b
+        b = a
+        a = c
+    sa = a - b
+print (a)
+    
+"
+8532640,ALDS1_1_B,"def gcd(x, y):
+    if x < y:
+        dummy = x
+        x = y
+        y = dummy
+    if x%y == 0:
+        return y
+    else:
+        return gcd(y, x%y)
+
+def main():
+    x, y = list(map(int, input().split(' ')))
+    print(gcd(x, y))
+
+if __name__ == '__main__':
+    main()
+"
+8533266,ALDS1_1_B,"def calc_GreatesetCommonDivisor(x, y):
+    if x < y:
+        x, y = y, x  
+    d = 1e9
+    while y > 1:
+        x, y = y, x % y
+    return x if y == 0 else y
+
+l = list(map(int, input().split()))
+gcd = calc_GreatesetCommonDivisor(*l)
+print(gcd)
+"
+8541356,ALDS1_1_B,"def gcd(a,b):
+    while b:
+        a,b = b, a % b
+    return a
+
+x,y = map(int,input().split())
+print(gcd(x,y))
+"
+8550793,ALDS1_1_B,"#!/usr/bin/python
+
+if __name__ == ""__main__"":
+    import sys
+    import math
+
+    prompt = ""input two numbers (x, y): ""
+
+    x, y = map(int, input().strip().split())
+    greate_common_div = math.gcd(x, y)
+
+    print(greate_common_div)
+
+    sys.exit()
+
+"
+8570570,ALDS1_1_B,"import math
+
+x, y = (int(i) for i in input().split())
+
+""""""if(x < y):
+    x, y = y, x
+
+while(y != 0):
+     x, y = y, x % y""""""
+
+print(math.gcd(x, y))
+"
+8571490,ALDS1_1_B,"def gcd(a,b):
+  if a%b==0:
+    return b
+  else:
+    return gcd(b,a%b)
+
+j=list(input().split())
+x=int(j[0])
+y=int(j[1])
+print(gcd(x,y))
+"
+8588111,ALDS1_1_B,"i = input().split()
+a = int(i[0])
+b = int(i[1])
+
+while True:
+    c = a % b
+    if c == 0:
+        break
+    a = b
+    b = c
+
+print(b)
+
+"
+8602266,ALDS1_1_B,"a,b = map(int,input().split())
+
+if a < b:
+    a,b = b,a
+while(b > 0):
+    a,b = b,a % b
+print(a)
+"
+8603582,ALDS1_1_B,"x, y = map(int, input().split())
+while x != 0 and y != 0:
+    if y > x:
+        x, y = y, x
+    x %= y
+print(max(x, y))
+
+"
+8607747,ALDS1_1_B,"def my_gcd(x, y):
+    a, b = x, y
+    while(a%b != 0):
+        a, b = b, a % b
+    return b
+
+Array = input()
+a = list(map(int,Array.split()))
+print(my_gcd(*a))
+"
+8609130,ALDS1_1_B,"def custom_gcd(x, y):
+    while y != 0:
+        x, y = y, x % y
+    return x
+
+x, y = map(int, input().split())
+result = custom_gcd(x, y)
+print(result)
+
+"
+8642666,ALDS1_1_B,"a, b = map(int, input().split())
+while a % b != 0:
+	x = b
+	b = a % b
+	a = x
+print(b)
+"
+8666018,ALDS1_1_B,"def gcd(x, y):
+    while y:
+        x, y = y, x % y
+    return x
+
+x, y = [int(x) for x in input().split()]
+print(gcd(x, y))
+"
+8666908,ALDS1_1_B,"import math
+
+x,y = map(int,input().split())
+z = math.gcd(x,y)
+print(z)
+"
+8666942,ALDS1_1_B,"import math
+x,y = map(int,input().split())
+z = math.gcd(x,y)
+print(z)
+
+"
+8666951,ALDS1_1_B,"from math import gcd
+
+n, m = map(int, input().split())
+print(gcd(n, m))
+
+
+
+
+"
+8666988,ALDS1_1_B,"""""""
+n = int(input())
+a = list(map(int,input().split()))
+for i in range(1,n):
+    print(*a)
+    x = a[i]
+    j = i-1
+    while j >= 0 and a[j] > x:
+        a[j+1] = a[j]
+        j -= 1
+    a[j+1] = x
+print(*a)
+""""""
+import math
+a,b = map(int,input().split())
+print(math.gcd(a,b))
+"
+2345495,ALDS1_1_C,"import sys
+prime = lambda x: True if x==2 else False if x<2 or not x%2 else pow(2,x-1,x)==1
+inp = sys.stdin.readlines()
+print(len([prime(e) for e in list(map(int, inp[1:])) if prime(e)==1]))
+"
+2413521,ALDS1_1_C,"# Fermat's little theorem
+def is_prime(x):
+    if x == 2:
+        return 1
+    elif x % 2 == 0:
+        return 0
+    else:
+        return pow(2, x - 1, x) == 1
+
+import sys
+
+def solve():
+    file_input = sys.stdin
+    N = file_input.readline()
+    cnt = 0
+    for n in map(int, file_input):
+        cnt += is_prime(n)
+    print(cnt)
+
+solve()
+"
+2424485,ALDS1_1_C,"from sys import stdin
+def isPrime(x):
+    if x == 2: return 1
+    elif x % 2 == 0: return 0
+    return pow(2, x - 1, x) == 1
+print(sum([isPrime(int(stdin.readline())) for _ in range(int(stdin.readline()))]))
+"
+2568964,ALDS1_1_C,"ans = 0
+N = int(input())
+for i in range(N):
+    a = int(input())
+    if a == 2:
+        ans += 1
+    elif a%2 == 0:
+        continue
+    else:
+        if pow(2, a-1, a) == 1:
+            ans += 1
+
+print(ans)
+"
+2580333,ALDS1_1_C,"n = int(input())
+count = 0
+for i in range(n):
+    x = int(input())
+    if (x == 2):
+        count += 1
+    elif (x % 2 == 0):
+        continue
+    else:
+        if (pow(2, x - 1, x) == 1):
+            count += 1
+print(count)
+ 
+"
+2610265,ALDS1_1_C,"import sys
+ 
+ 
+def is_prime(x):
+    if x == 2:
+        return True
+    elif x < 2 or not x % 2:
+        return False
+ 
+    return pow(2, x - 1, x) == 1
+ 
+ 
+def solve(_c_list):
+    cnt = 0
+    for ele in _c_list:
+        if is_prime(ele):
+            cnt += 1
+    return cnt
+ 
+ 
+if __name__ == '__main__':
+    _input = sys.stdin.readlines()
+    c_num = int(_input[0])
+    c_list = list(map(int, _input[1:]))
+    ans = solve(c_list)
+    print(ans)
+"
+3159295,ALDS1_1_C,"import sys
+prime = lambda x: True if x==2 else False if x<2 or not x%2 else pow(2,x-1,x)==1
+inp = sys.stdin.readlines()
+print(len([prime(e) for e in list(map(int, inp[1:])) if prime(e)==1]))
+"
+4481550,ALDS1_1_C,"def is_prime(x):
+    if x == 2:
+        return 1
+    elif x % 2 == 0:
+        return 0
+    else:
+        return pow(2, x - 1, x) == 1
+
+import sys
+
+def solve():
+    file_input = sys.stdin
+    N = file_input.readline()
+    count = 0
+    for n in map(int, file_input):
+        count += is_prime(n)
+    print(count)
+
+solve()
+
+"
+4731822,ALDS1_1_C,"import sys
+prime = lambda x: True if x==2 else False if x<2 or not x%2 else pow(2,x-1,x)==1
+inp = sys.stdin.readlines()
+print(len([prime(e) for e in list(map(int, inp[1:])) if prime(e)==1]))
+"
+5418484,ALDS1_1_C,"import sys
+prime = lambda x: True if x==2 else False if x<2 or not x%2 else pow(2,x-1,x)==1
+inp = sys.stdin.readlines()
+print(len([prime(e) for e in list(map(int, inp[1:])) if prime(e)==1]))
+
+"
+5461767,ALDS1_1_C,"# Fermat's little theorem
+def is_prime(x):
+    if x == 2:
+        return 1
+    elif x % 2 == 0:
+        return 0
+    else:
+        return pow(2, x - 1, x) == 1
+
+import sys
+
+def solve():
+    file_input = sys.stdin
+    N = file_input.readline()
+    cnt = 0
+    for n in map(int, file_input):
+        cnt += is_prime(n)
+    print(cnt)
+
+solve()
+
+"
+5960125,ALDS1_1_C,"import sys
+prime = lambda x: True if x==2 else False if x<2 or not x%2 else pow(2,x-1,x)==1
+inp = sys.stdin.readlines()
+print(len([prime(e) for e in list(map(int, inp[1:])) if prime(e)==1]))
+"
+6229074,ALDS1_1_C,"def main(value):
+    ans = 0
+    for i in value:
+        if i == 2:
+            ans += 1
+        elif i%2 == 0:
+            continue
+        else:
+            if pow(2, i-1, i) == 1:
+                ans += 1
+    return ans
+    
+N,*A=map(int,open(0).read().split())
+a = main(A)
+print(a)
+"
+6794248,ALDS1_1_C,"# Fermat's little theorem
+def is_prime(x):
+    if x == 2:
+        return 1
+    elif x % 2 == 0:
+        return 0
+    else:
+        return pow(2, x - 1, x) == 1
+
+import sys
+
+def solve():
+    file_input = sys.stdin
+    N = file_input.readline()
+    cnt = 0
+    for n in map(int, file_input):
+        cnt += is_prime(n)
+    print(cnt)
+
+solve()
+"
+8057844,ALDS1_1_C,"# Fermat's little theorem
+def is_prime(x):
+    if x == 2:
+        return 1
+    elif x % 2 == 0:
+        return 0
+    else:
+        return pow(2, x - 1, x) == 1
+
+import sys
+
+def solve():
+    file_input = sys.stdin
+    N = file_input.readline()
+    cnt = 0
+    for n in map(int, file_input):
+        cnt += is_prime(n)
+    print(cnt)
+
+solve()
+
+"
+1968816,ALDS1_1_C,"# coding: utf-8
+
+def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+    
+ans = 0
+n = int(input())
+for i in range(n):
+    if is_prime(int(input())):
+        ans += 1
+    
+print(ans)
+"
+2094551,ALDS1_1_C,"def is_prime(n):
+    n = abs(n)
+    if n==2: return True
+    if n<2 or n%2==0: return False
+    return pow(2, n-1, n) == 1
+
+cnt = 0
+for i in range(int(input())):
+    if is_prime(int(input())): cnt+=1
+print(cnt)
+"
+2098729,ALDS1_1_C,"def is_prime(n):
+  if n == 2: return True
+  if n < 2 or n % 2 == 0: return False
+  return pow(2, n - 1, n) == 1
+
+count = 0
+for i in range(int(input())):
+  if is_prime(int(input())) : count += 1
+print(count)
+"
+2175938,ALDS1_1_C,"def p(n):
+    if n==2:return 1
+    if not n&1:return 0
+    return pow(2,n-1,n)==1
+print(sum(1 for _ in range(int(input())) if p(int(input()))))
+"
+2497483,ALDS1_1_C,"def check_prime(num):
+    if num == 2:
+        return True
+
+    if num < 2 or num % 2 == 0:
+        return False
+
+    return pow(2,num-1,num) == 1
+
+cnt_num = int(input())
+dataset = [int(input()) for i in range(cnt_num)]
+
+count = 0
+for i in dataset:
+    if check_prime(i):
+        count += 1
+
+print(count)
+"
+2518475,ALDS1_1_C,"def isprime(x):
+    if  x==2:
+        return True
+    if x<2 or x&1==0:
+        return False
+    return pow(2,x-1,x)==1
+
+cnt=0
+n=int(input())
+for i in range(n):
+    a=int(input())
+    if isprime(a):
+        cnt+=1
+print(cnt)
+"
+2576436,ALDS1_1_C,"def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+
+if __name__ == '__main__':
+    i = 0
+    N = int(input())
+    a = []
+    for j in range(N):
+        a.append(int(input()))
+        if(is_prime(a[j])) == True:
+            i += 1
+    print(i)
+"
+2580265,ALDS1_1_C,"n = int(input())
+count = 0
+for i in range(n):
+  x = int(input())
+  if x == 2:
+    count += 1
+  elif x % 2 == 0:
+    continue
+  else:
+    if pow(2, x - 1, x) == 1: 
+      count += 1
+print(count)
+"
+2724627,ALDS1_1_C,"import sys
+input()
+print(sum(2 in[x,pow(2,x,x)]for x in map(int,sys.stdin)))
+"
+2860840,ALDS1_1_C,"n = int(input())
+nums = [int(input()) for i in range(n)]
+prime_num = 0
+
+def prime(n):
+    q = abs(n)
+    if q==2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+
+
+for i in nums:
+    if(prime(i)):
+        prime_num += 1
+
+print(prime_num)
+
+"
+3491352,ALDS1_1_C,"c = 0
+for _ in range(int(input())):
+	m = int(input())
+	if m == 2 or (m % 2 and pow(2, m-1, m) == 1):
+		c += 1
+print(c)
+
+"
+3789007,ALDS1_1_C,"def p(n):
+  if n==2:
+    return 1
+  if not n&1: 
+    return 0
+  return pow(2,n-1,n)==1
+print(sum(1 for _ in range(int(input())) if p(int(input()))))
+"
+5185887,ALDS1_1_C,"def fermat_test(num):
+    if num == 2:
+        return True
+    elif num % 2 == 0:
+        return False
+    
+    else:
+        # Check if 2^(num - 1) mod num == 1
+        # Fermat's little theorem
+        if(pow(2, num-1, num) != 1):
+            return False
+    return True
+
+n = int(input())
+A = []
+for i in range(n):
+    num = int(input())
+    A.append(num)
+
+count = 0
+for i in A:
+    if(fermat_test(i)):
+        count += 1
+print(count)
+"
+6306361,ALDS1_1_C,"import sys
+
+prime = lambda x: True if x==2 else False if x<2 else pow(2,x-1,x)==1
+inp = sys.stdin.readlines()
+print(len([prime(e) for e in list(map(int, inp)) if prime(e)==True]))
+"
+6376391,ALDS1_1_C,"import sys
+input()
+print(sum(2 in[x,pow(2,x,x)]for x in map(int,sys.stdin)))
+
+"
+7018963,ALDS1_1_C,"import math
+
+n = int(input())
+l = [int(input()) for _ in range(n)]
+
+c = 0
+for i in l:
+    if i == 1: continue
+    if i == 2 or i == 3:
+        c += 1
+        continue
+    if i % 2 == 0:
+        continue
+
+    if pow(2, i - 1, i) == 1:
+        c += 1
+
+print(c)
+
+"
+8388172,ALDS1_1_C,"n = int(input())
+
+s = [2, 3]
+for i in range(5, 10 ** 4, 2):
+    i2 = int(i ** 0.5)
+    for j in range(1, len(s)):
+        if s[j] > i2:
+            s.append(i)
+            break
+        if i % s[j] == 0:
+            break
+
+b = 0
+for _ in range(n):
+    m = int(input())
+    m2 = int(m ** 0.5)
+    for i in s:
+        if i > m2:
+            b += 1
+            break
+        if m % i == 0:
+            break
+    else:
+        b += 1
+
+print(b)
+"
+8737915,ALDS1_1_C,"# aizu_ ALDS1_1_C_PrimeNumbers.py  素数
+
+def eratosthenes_generator():
+    yield 2
+    n = 3
+    h = {}
+    while True:
+        m = n
+        if n in h:
+            b = h[n]
+            m += 2 * b
+            while m in h:
+                m += 2 * b
+            h[m] = b
+            del h[n]
+        else:
+            m += 2 * n
+            while m in h:
+                m += 2 * n
+            h[m] = n
+            yield n
+        # print(n, h)
+        n += 2
+
+def isprime(x):
+    i = 0
+    xx = (int(x**0.5))+1
+    if x == 2 : return True
+    while primes[i] <= xx:
+        if x % primes[i] == 0: return False
+        i += 1
+    return True
+
+primes = []
+gen = eratosthenes_generator()    
+while True:
+    r = next(gen)
+    primes.append(r)
+    if r>=10**4+1:break
+
+n = int(input())
+cnt = 0
+for _ in range(n):
+    if isprime(int(input())): cnt += 1
+
+print(cnt)
+"
+9016072,ALDS1_1_C,"N = 10**4
+primes = range(2, N+1)
+for d in range(2, int(N**.5)+1):
+  primes = [x for x in primes if x % d or x == d]
+
+count = 0
+for _ in range(int(input())):
+    x = int(input())
+    if x <= N:
+        count += (x in primes)
+    else:
+        for prime in primes:
+            if x % prime == 0:
+                break
+        else:
+            count += 1
+print(count)
+
+"
+9154641,ALDS1_1_C,"n = int(input())
+primes = [2, 3, 5, 7, 11, 13, 17, 19]
+for candidate in range(primes[-1] + 2, 10 ** 4, 2):
+    candidate2 = candidate ** 0.5
+    for prime in primes:
+        if prime > candidate2:
+            primes.append(candidate)
+            break
+        if candidate % prime == 0:
+            break
+counter = 0
+for _ in range(n):
+    value = int(input())
+    value2 = value ** 0.5
+    for prime in primes:
+        if value2 < prime:
+            counter += 1
+            break
+        if value % prime == 0:
+            break
+    else:
+        counter += 1
+print(counter)
+
+"
+2148414,ALDS1_1_C,"def maybe_prime(d,s,n):
+    for a in (2,3,5,7):
+        x = pow(a,d,n)
+        if x==1 or x==n-1:
+            continue
+        for i in range(1,s):
+            x = x*x%n
+            if x==1: return False
+            elif x == n-1:
+                break
+        else:
+                return False
+    return True
+ 
+def is_prime(n):
+    if n in (2,3,5,7): return True
+    elif 0 in (n%2,n%3,n%5,n%7): return False
+    else:
+        d,s = n-1, 0
+        while not d%2:
+            d,s = d>>1,s+1
+        return maybe_prime(d,s,n)
+cnt = 0
+n = int(input())
+for i in range(n):
+  n = int(input())
+  if is_prime(n): cnt+=1
+ 
+print(cnt)
+"
+2164922,ALDS1_1_C,"n = int(input())
+c = 0
+
+def devisor(n):
+    if n == 2:
+        return 1
+    else:
+        if n < 2 or n % 2 == 0:
+            return 0
+        elif pow(2,n-1,n) == 1:
+            return 1
+        else: return 0
+
+for i in range(n):
+    x = int(input())
+    c += devisor(x)
+
+print(c)
+"
+2208992,ALDS1_1_C,"def isPrimeNum(in_num):
+    if in_num <= 1:
+        return False
+    elif in_num == 2:
+        return True
+    elif in_num % 2 == 0:
+        return False
+    else:
+        if pow(2, in_num-1, in_num) == 1:
+            return True
+        else:
+            return False
+
+
+num_len = int(input())
+cnt = 0
+for i in range(num_len):
+    num = int(input())
+    if isPrimeNum(num)==True:
+        cnt = cnt + 1
+
+print(str(cnt))
+"
+2320241,ALDS1_1_C,"def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+
+num = []
+prime_numbers = []
+
+n = int(input())
+
+for _ in range(n):
+    i = int(input())
+    num.append(i)
+
+for i in num:
+    if is_prime(i):
+        prime_numbers.append(i)
+
+print(len(prime_numbers))
+"
+2547082,ALDS1_1_C,"def f(i):
+    if i == 2:return 1
+    return pow(2, i-1, i) == 1
+print(sum(1 for n in range(int(input())) if f(int(input()))))
+"
+2663645,ALDS1_1_C,"def is_prime(x):
+    if x==2:
+        return 1
+    elif x&1==0:
+        return 0
+    elif pow(2,x-1,x)==1:
+        return 1
+    else:
+        return 0
+N = int(input())
+c=0
+for i in range(N):
+    n=int(input())
+    c+=is_prime(n)
+print(c)
+"
+2998361,ALDS1_1_C,"f=lambda x: 1 if x == 2 or x == 3 or (x>3 and x&1==1 and pow(2, x-1, x)==1) else 0
+print(sum(f(int(input())) for _ in range(int(input()))))
+"
+3269944,ALDS1_1_C,"def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+cnt=0
+
+for i in range(int(input())):
+    if is_prime(int(input()))==1:cnt+=1
+
+print(cnt)
+"
+3674723,ALDS1_1_C,"n = int(input())
+c=0
+
+#フェルマーの小定理
+def is_prime(q):
+    q = abs(q)
+    if q == 2:
+        return True
+    if q < 2 or q&1 == 0:
+        return False
+    return pow(2, q-1, q) == 1
+
+for i in range(n):
+    m = int(input())
+    if is_prime(m)==1:
+        c+=1
+
+print(c)
+"
+3766725,ALDS1_1_C,"def p(n):
+    if n==2:return 1
+    if not n&1:return 0
+    return pow(2,n-1,n)==1
+print(sum(1 for _ in range(int(input())) if p(int(input()))))
+"
+3769655,ALDS1_1_C,"import math
+
+def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+
+cnt = 0
+for _ in range(int(input())):
+    if(is_prime(int(input()))):
+        cnt += 1
+print(cnt)
+
+
+"
+4033479,ALDS1_1_C,"def main():
+    A = set()
+    n_prime = 0
+    while True:
+        try:
+            x = int(input())
+            A.add(x)
+        except:
+            break
+
+    for x in A:
+        n_prime += is_prime(x)
+
+    print(n_prime)
+
+
+def is_prime(x):  
+    if x == 2:
+        return 1
+    elif x % 2 == 0:
+        return 0
+    else:
+        return pow(2, x - 1, x) == 1   
+
+main()
+"
+4581076,ALDS1_1_C,"import sys
+input()
+print(sum(2 in[x,pow(2,x,x)]for x in map(int,sys.stdin)))
+
+"
+4696403,ALDS1_1_C,"N = int(input())
+
+def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+
+total = 0
+for i in range(N):
+    n = int(input())
+    if is_prime(n):
+        total +=1
+print(total)
+"
+4763585,ALDS1_1_C,"def p(n):
+  if n == 2: return 1
+  if not n & 1: return 0
+  return pow(2, n-1, n) == 1
+print(sum(1 for _ in range(int(input())) if p(int(input()))))
+"
+5125462,ALDS1_1_C,"import sys
+sys.setrecursionlimit(10000000)
+input=lambda : sys.stdin.readline().rstrip()
+
+def is_prime(n):
+    n = abs(n)
+    if n == 2:
+        return True
+    if n == 1 or n & 1 == 0:
+        return False
+    d = n-1
+    while d & 1 == 0:
+        d >>= 1
+    seed_primes = [2,7,61] if n < 4294967296 else [2,3,5,7,11,13,17,19,23,29,31,37]
+    for a in seed_primes:
+        if a >= n:
+            continue
+        t = d
+        y = pow(a,t,n)
+        while t != n-1 and y != 1 and y != n-1:
+            y = (y * y) % n
+            t <<= 1
+        if y != n-1 and t & 1 == 0:
+            return False
+    return True
+
+count = 0
+for i in range(int(input())):
+    count += 1 if is_prime(int(input())) else 0
+print(count)
+
+
+"
+5320397,ALDS1_1_C,"def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+
+def main(n, num):
+    ans = 0
+    for x in num:
+        if is_prime(x):
+            ans += 1
+    return ans
+
+
+if __name__ == ""__main__"":
+    n = int(input())
+    num = [int(input()) for i in range(n)]
+    ans = main(n, num)
+    print(ans)
+
+"
+5452999,ALDS1_1_C,"def check(a):
+    if a == 2:
+        return True
+    elif a % 2 == 0:
+        return False
+    else:
+        if(pow(2, a-1, a) != 1):
+            return False
+    return True
+
+y = int(input())
+b = []
+for i in range(y):
+    a = int(input())
+    b.append(a)
+
+c = 0
+for i in b:
+    if(check(i)):
+        c += 1
+print(c)
+"
+5816164,ALDS1_1_C,"def isprime(x):
+    if x == 2:
+        return 1
+    elif x % 2 == 0:
+        return 0
+    else:
+        return pow(2, x - 1, x) == 1
+    
+n = int(input())
+c = 0
+for _ in range(n):
+    a = int(input())
+    c += isprime(a)
+print(c)
+"
+6375517,ALDS1_1_C,"import math
+
+# 素数かどうか判定する
+def isPrime(a):
+    if (a == 2):
+        return True
+    elif (a%2 == 0):
+        return False
+    # フェルマーの小定理
+    return pow(2, a-1, a) == 1
+
+num = int(input())
+nums = []
+for i in range(num):
+    nums.append(int(input()))
+count = 0
+for i in nums:
+    if isPrime(i):
+        count += 1
+print(count)
+"
+6416465,ALDS1_1_C,"n = int(input())
+count = 0
+for i in range(n):
+    num = int(input())
+    if 0 < num <= 3:
+        count += 1
+        continue
+    if num%2 == 0 or num%3 == 0:
+        continue
+    if pow(2, num-1, num) == 1:
+        count += 1
+print(count)
+"
+6603702,ALDS1_1_C,"def is_prime(x):
+    if x == 2:
+        return True
+    if x < 2 or x % 2 == 0:
+        return False
+    return pow(2, x - 1, x) == 1
+
+N = int(input())
+s = list(int(input()) for _ in range(N))
+
+ans = 0
+for j in s:
+    if is_prime(j):
+        ans += 1
+print(ans)
+
+"
+7019869,ALDS1_1_C,"n = int(input())
+count = 0
+for i in range(n):
+    x = int(input())
+    if(x == 2):
+        count += 1
+    elif(x % 2 == 0):
+        continue
+    else:
+        if(pow(2, x - 1, x) == 1):
+            count += 1
+print(count)
+"
+7393985,ALDS1_1_C,"def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+
+n = int(input())
+tester = list()
+for i in range(n):
+    number = int(input())
+    if is_prime(number):
+        tester.append(number)
+
+print(len(tester))
+"
+7659337,ALDS1_1_C,"
+def isprime(x: int) -> int:
+    if x == 2:
+        return True 
+    if x % 2 == 0:
+        return False
+    #フェルマーの小定理
+    return pow(2, x-1, x) == 1
+
+if __name__ == ""__main__"":
+    count = 0
+    for _ in range(int(input())):
+        count += isprime(int(input()))
+    print(count)
+"
+7810252,ALDS1_1_C,"def is_prime(x):
+    if x == 2:
+        return 1
+    elif x % 2 == 0:
+        return 0
+    else:
+        return pow(2, x - 1, x) == 1
+
+import sys
+
+def solve():
+    file_input = sys.stdin
+    N = file_input.readline()
+    count = 0
+    for n in map(int, file_input):
+        count += is_prime(n)
+    print(count)
+
+solve()
+
+
+"
+1885127,ALDS1_1_C,"def composite(d,n,s):
+    for a in (2,3,5,7):
+        p = False
+        if pow(a,d,n) == 1:
+            continue
+        for i in range(s):
+            if pow(a, 2**i * d, n) == n-1:
+                p = True
+                break
+        if not p:
+            return True
+    return False
+ 
+def is_prime(n):
+    if n in (2,3,5,7):
+        return True
+    elif 0 in (n%2,n%3,n%5,n%7):
+        return False
+    else:
+        d,s = n-1, 0
+        while not d%2:
+            d,s = d>>1,s+1
+        return not composite(d,n,s)
+r = []
+n = int(input())
+for i in range(n):
+  n = int(input())
+  if is_prime(n):
+    r.append(n)
+ 
+print(len(r))
+"
+2027787,ALDS1_1_C,"n = int(input())
+prime = 0
+
+def is_prime(q):
+    if q == 2:
+        return True
+    if q < 2:
+        return False
+    return pow(2, q-1, q) == 1
+
+
+prime = 0
+for i in range(n):
+    m = int(input())
+    if is_prime(m):
+        prime += 1
+print(prime)
+"
+2188381,ALDS1_1_C,"n = int(input())
+count = 0
+
+for i in range(n):
+    data = int(input())
+    data = abs(data)
+    if data == 2:
+        count += 1
+    elif pow(2,data-1,data) == 1:
+            count += 1
+
+print(count)
+"
+2619913,ALDS1_1_C,"def is_prime(x) :
+    if x == 2 :
+        return True
+    if x < 2 or x % 2 == 0 :
+        return False
+
+    return pow(2, x-1, x) == 1
+
+def main() :
+    n = int(input())
+    nums = []
+    for _ in range(n) :
+        x = int(input())
+        nums.append(x)
+
+    count = 0
+    for num in nums :
+        if is_prime(num) :
+            count += 1
+
+    print(count)
+
+if __name__ == '__main__' :
+    main()
+"
+2657468,ALDS1_1_C,"
+n = int(input())
+
+def isPrime(x):
+    if x < 2:
+        return false
+    if x == 2:
+        return True
+    return pow(2, x-1, x) == 1
+
+s = []
+for i in range(n):
+    s.append(int(input()))
+
+prime = 0
+for i in s:
+    if isPrime(i):
+        prime += 1
+print(prime)
+"
+3512605,ALDS1_1_C,"def witness(a, n, t, u):
+    x = pow(a, u, n)  # x0 = a^u mod nを計算
+
+    for _ in range(0, t):
+        y = (x * x) % n
+
+        # 法nの下での1の非自明な平方根が存在するのはnが合成数であるときに限る
+        if y == 1 and x != 1 and x != (n - 1):
+            return True
+        x = y
+    return y != 1
+
+def is_probably_prime(n, witnesses):
+    t = 1
+    u = n >> 1
+    while u & 1 == 0:
+        t = t + 1
+        u >>= 1
+    assert(2**t * u == n - 1)
+
+    for a in witnesses:
+        if a < n and witness(a, n, t, u):
+            return False
+    return True
+
+def is_definitely_prime(n):
+    if ((not (n & 1)) and n != 2) or (n < 2) or ((n % 3 == 0) and (n != 3)):
+        return False
+    elif n <= 3:
+        return True
+    else:
+        return is_probably_prime(n, [2, 7, 61])
+
+
+n = int(input())
+answer = 0
+for _ in range(0, n):
+    m = int(input())
+    if is_definitely_prime(m):
+        answer = answer + 1
+print(answer)
+"
+3744180,ALDS1_1_C,"def is_prime(q):
+    q = abs(q)
+    if q == 2: return True
+    if q < 2 or q&1 == 0: return False
+    return pow(2, q-1, q) == 1
+
+if __name__ == '__main__':
+    counter = 0
+    N = int(input()) #1行目のNを取得する
+    for i in range(N):
+        if is_prime(int(input())):
+            counter += 1
+    print(str(counter))
+"
+4005386,ALDS1_1_C,"def is_composite(n):
+    r,d,a = 0,0,n-1
+    while a%2 == 0:
+        a = a >> 1
+        r += 1
+    d = a
+    for a in [2,7,61]:
+        x = pow(a,d,n)
+        if x == 1 or x == n-1:
+            continue
+        for i in range(r-1):
+            x = pow(x,2,n)
+            if x == n-1:
+               break
+        else:
+            return True
+    return False
+
+def is_prime(n):
+    if n in [2,7,61]:
+        return True
+    elif 0 in (n%2,n%7,n%61):
+        return False
+    else:
+        return not is_composite(n)
+
+cnt = 0
+n = int(input())
+for i in range(n):
+    s = int(input())
+    if is_prime(s):
+        cnt += 1
+
+print(cnt)
+"
+5010398,ALDS1_1_C,"def isprime(n, miller_rabin=False):
+    def _isprime(n):
+        from math import sqrt
+        if n < 2:
+            return False
+        for i in range(2, int(sqrt(n))+1):
+            if n == 1 or n % i == 0:
+                return False
+        return True
+
+    def _Miller_Rabin_Test(n, A=[2, 3, 5, 7, 11, 13, 17]):
+        if n in A:
+            return True
+        elif n < 2 or n % 2 == 0:
+            return False
+        d = n-1
+        r = (d & -d).bit_length() - 1
+        d >>= r
+        for a in A:
+            if a > n:
+                return True
+            x = pow(a, d, n)
+            if x == 1 or x == n-1:
+                continue
+            for _ in range(r-1):
+                x = x*x % n
+                if x == n-1:
+                    break
+            else:
+                return False
+        return True
+
+    if miller_rabin or n < 10**8:
+        return _Miller_Rabin_Test(n)
+    else:
+        return isprime(n)
+
+n, *N = map(int, open(0).read().split())
+print(len(list(filter(isprime, N))))
+"
+6026009,ALDS1_1_C,"N = int(input())
+count = 0
+
+for _ in range(N):
+    num = int(input())
+    if num == 2:
+        count+=1
+    elif pow(2,num-1,num) == 1:
+        count+=1
+print(count)
+"
+6842994,ALDS1_1_C,"n = int(input())
+ct = 0
+for i in range(n):
+    a = int(input())
+    if pow(2, a-1, a) == 1:
+             ct += 1
+    elif a == 2:
+        ct += 1
+
+
+print(ct)
+"
+7020222,ALDS1_1_C,"n = int(input())
+print([1 if p==2 else pow(2, p-1, p) for p in [int(input()) for _ in range(n)]].count(1))
+"
+8390024,ALDS1_1_D,"import sys
+a=1e10
+b=-a
+input()
+for i in map(int,sys.stdin):
+    if b<i-a:b=i-a
+    if a>i:a=i
+print(b)
+"
+2725739,ALDS1_1_D,"import sys
+def m():
+ s=1e10;b=-s
+ input()
+ for r in map(int,sys.stdin):
+  if b<r-s:b=r-s
+  if s>r:s=r
+ print(b)
+if'__main__'==__name__:m()
+"
+4835059,ALDS1_1_D,"import sys
+
+
+def m():
+    s = 1e10
+    b = -s
+    input()
+    for r in map(int, sys.stdin):
+        if b < r-s:
+            b = r-s
+        if s > r:
+            s = r
+    print(b)
+
+
+if'__main__' == __name__:
+    m()
+
+"
+5127009,ALDS1_1_D,"import sys
+
+
+def p():
+    start = 1e10
+    between = -start
+    input()
+    for r in map(int, sys.stdin):
+        if between < r - start:
+            between = r-start
+        if start > r:
+            start = r
+    print(between)
+
+
+if '__main__' == __name__:
+    p()
+
+"
+6332222,ALDS1_1_D,"import sys
+def m():
+ s=1e10;b=-s
+ input()
+ for r in map(int,sys.stdin):
+  if b<r-s:b=r-s
+  if s>r:s=r
+ print(b)
+if'__main__'==__name__:m()
+"
+6843020,ALDS1_1_D,"import sys
+def lp():
+ s=1e10;b=-s
+ input()
+ for j in map(int,sys.stdin):
+  if b < j-s:b = j - s
+  if s > j:s = j
+ print(b)
+if'__main__'==__name__:lp()
+lambda *args: None
+g = True
+if g:
+  pass
+else:
+  print('false')
+"
+8351809,ALDS1_1_D,"def main():
+    n = int(input())
+    r = [int(input()) for _ in range(n)]
+
+    diffs = []
+    low = r[0]
+    for i in range(1, n):
+        diffs.append(r[i] - low)
+        if r[i] < low:
+            low = r[i]
+
+    print(max(diffs))
+
+
+if __name__ == ""__main__"":
+    main()
+
+"
+8426878,ALDS1_1_D,"def maximum_profit():
+    # 静的配列の最大サイズ
+    max_num = 200000
+    R = [0] * max_num
+
+    # 入力数の指定
+    n = int(input())
+
+    # 入力された価格を配列に格納
+    for i in range(n):
+        R[i] = int(input())
+
+    max_value = float('-inf')
+    min_value = R[0]
+
+    for i in range(1, n):
+        # 差額の最大値の更新
+        if max_value < R[i] - min_value:
+            max_value = R[i] - min_value
+
+        # 価格の最小値を保持
+        if min_value > R[i]:
+            min_value = R[i]
+
+    print(max_value)
+
+# 使用例
+maximum_profit()
+"
+8533375,ALDS1_1_D,"def check_Max_Profit(l):
+    min_p , max_p = l[0], -1e9
+    for num in l[1:]:
+        max_p = num - min_p if num - min_p > max_p else max_p
+        min_p = num if num < min_p else min_p
+        # print(num, max_p, min_p)
+    return max_p
+    
+N = int(input())
+num_list = [int(input()) for _ in range(N)]
+max_profit = check_Max_Profit(num_list)
+print(max_profit)
+"
+8533556,ALDS1_1_D,"def main():
+    n = int(input())
+    min_price = float('inf')
+    max_diff = -float('inf')
+
+    for i in range(n):
+        r = int(input())
+        if r - min_price > max_diff:
+            max_diff = r - min_price
+        if r < min_price:
+            min_price = r
+
+    print(max_diff)
+
+if __name__ == '__main__':
+    main()
+"
+8343241,ALDS1_1_D,"n = int(input())
+max_val = -1.0e9
+rmin = int(input())
+for j in range(1,n):
+    rj = int(input())
+    max_cand = rj - rmin
+    if max_cand > max_val:
+        max_val = max_cand
+    
+    if rj < rmin:
+        rmin = rj
+    
+
+print(max_val)
+"
+8401884,ALDS1_1_D,"n = int(input()) - 1
+c = int(input())
+f = -10 ** 9
+
+for _ in range(n):
+    i = int(input())
+    if f < i - c: f = i - c
+    if c > i: c = i
+
+print(f)
+"
+8464652,ALDS1_1_D,"import math as ma
+
+n = int(input())
+
+maxv=-1*10**9
+
+minv = int(input())
+
+for j in range( n-1 ):
+  
+    R=int(input())
+
+    if(maxv < R-minv ):
+        maxv = R-minv 
+
+    if (minv > R ):
+        minv = R
+
+
+#for i in range(n):
+
+#    for j in range(i+1,n):
+
+#        if max<(R[j]-R[i]):
+#            max=R[j]-R[i]
+
+    
+print(maxv)
+"
+8500269,ALDS1_1_D,"n = int(input())
+a = [int(input()) for _ in range(n)]
+minv = a[0]
+maxv = -1000000000
+for j in range(1,n):
+    if maxv < a[j] - minv:
+        maxv = a[j] - minv
+    if minv > a[j]:
+        minv = a[j]
+print(maxv)
+"
+8643051,ALDS1_1_D,"N = int(input())
+x = - 1<<31
+s = int(input())
+for _ in range(N - 1):
+    r = int(input())
+    if r - s > x:
+        x = r - s
+    if r < s:
+        s = r
+print(x)
+"
+8772937,ALDS1_1_D,"def solve():
+    N = int(input())
+    prices = []
+    for _ in range(N):
+        prices.append(int(input()))
+
+    if len(prices) == 1:
+        return 0
+
+    maxv = -10**9
+    minv = prices[0]
+    for i in range(1, N):
+        price = prices[i]
+        maxv = max(maxv, price-minv)
+        if price < minv:
+            minv = price
+    return maxv
+
+if __name__ == ""__main__"":
+    print(solve())
+
+"
+8928849,ALDS1_1_D,"N=int(input())
+r = [int(input()) for i in range(N)]
+min=r[0]
+max=r[1]-r[0]
+for i in range(0,N):
+    if max<r[i]-min and i>0:
+        #print(""r"",i,""-"",min,""="",r[i]-min)
+        max=r[i]-min
+    if min>r[i]:
+        min=r[i]
+        #print(""min="",min)
+    
+print(max)
+"
+8959813,ALDS1_1_D,"n = int(input())
+P1 = int(input())
+P2 = int(input())
+profit = P2 - P1
+if P1 > P2:
+    P1 = P2
+for i in range(n-2):
+    P2 = int(input())
+    if profit < P2 -P1:
+        profit = P2 -P1
+    if P1 > P2:
+        P1 = P2
+print(profit)
+"
+8987238,ALDS1_1_D,"n = int(input())
+r = [int(input()) for i in range(n)]
+start = r[0]
+score = r[1] - r[0]
+for i in range(1,n):
+    if r[i] - start > score: score = r[i] - start
+    if r[i] < start: start = r[i]
+print(score)
+
+"
+9025955,ALDS1_1_D,"N = int(input())
+rate_list = [int(input()) for _ in range(N)]
+profit = -10000000000
+min = 10000000000
+for rate in rate_list:
+    tmp = rate - min
+    if (tmp > profit):
+        profit = tmp
+    if (rate < min):
+        min = rate
+print(profit)
+"
+9124644,ALDS1_1_D,"import math
+n = int(input())
+mi = 10 ** 9 + 1
+mx = - (10 ** 9) - 1
+for i in range(n):
+    num = int(input())
+    if i == 0:
+        mi = num
+        continue
+    if i == 1:
+        mx = num - mi
+    if num - mi > mx:
+        mx = num - mi
+    if mi > num:
+        mi = num
+print(mx)
+    
+"
+9154810,ALDS1_1_D,"n = int(input())
+minimum = 2 * 10 ** 9
+gain = -minimum
+for value in list(int(input()) for _ in range(n)):
+    if value - minimum > gain:
+        gain = value - minimum
+    if value < minimum:
+        minimum = value
+print(gain)
+
+"
+2663999,ALDS1_1_D,"import sys
+i=input
+n = int(i())
+r0 = int(i())
+r1 = int(i())
+mx = r1-r0
+mn = min(r1,r0)
+for i in map(int,sys.stdin.readlines()):
+    a=i-mn
+    if mx<a:
+        mx=a
+        if 0>a:mn=i
+    elif mn>i:mn=i
+print(mx)
+"
+4679314,ALDS1_1_D,"import sys
+max_value = 1e10
+min_value = -max_value
+input()
+for v in map(int, sys.stdin):
+    if min_value < v - max_value:
+        min_value = v - max_value
+    if v < max_value:
+        max_value = v
+print(min_value)
+
+"
+5161907,ALDS1_1_D,"import sys
+
+
+def main():
+    n = int(sys.stdin.buffer.readline())
+    ans = -(10**10)
+    r = [int(x) for x in sys.stdin.buffer.readlines()]
+    t = r[0]
+    for x in r[1:]:
+        ans = max(x - t, ans)
+        if x - t <= 0:
+            t = x
+    print(ans)
+
+
+main()
+
+"
+8350745,ALDS1_1_D,"n = int(input())
+
+A = []
+
+for i in range(n):
+    A.append(int(input()))
+
+a = A[1] - A[0]
+b = A[0]
+
+for i in range(1, n):
+    if A[i] - b > a:
+        a = A[i] - b
+    if b > A[i]:
+        b = A[i]
+
+print(a)
+
+"
+8376738,ALDS1_1_D,"n = int(input())
+R = [None] * n
+
+for i in range(n):
+  R[i] = int(input())
+
+maxv = -10**9
+
+minv = R[0]
+
+for j in range(1, n):
+  if maxv < (R[j] - minv):
+    maxv = R[j] - minv
+  if minv > R[j]:
+    minv = R[j]
+    
+print(maxv)
+"
+8424357,ALDS1_1_D,"b=int(input())
+min=90000000000000
+maxv=-100000000000000
+for i in range(b):
+    r=int(input())
+    if maxv<r-min:
+        maxv=r-min
+    if r<min:
+        min=r
+    
+print(maxv)
+    
+    
+"
+8571598,ALDS1_1_D,"N=int(input())
+m=int(input())
+minv=m
+maxv=-10000000000000
+for i in range(N-1):
+  s=int(input())
+  if maxv<s-minv:
+    maxv=s-minv
+  if s<minv:
+    minv=s
+  
+print(maxv)
+  
+
+"
+8616090,ALDS1_1_D,"n = int(input())
+
+min = 0
+ans = - (10**9)
+
+for i in range(n):
+    num = int(input())
+
+    if i == 0:
+        min = num
+        continue
+    
+    if num  - min > ans:
+        ans = num - min
+    
+    if  num < min:
+        min = num
+print(ans)
+"
+8760604,ALDS1_1_D,"n = int(input())
+R = [int(input()) for _ in range(n)]
+
+j = R[0]
+rmin = []
+for i in range(0, n):
+    if R[i] < j:
+        j = R[i]
+    rmin.append(j)
+t = [R[i] - rmin[i - 1] for i in range(1, n)]
+max_profit = max(t)
+print(max_profit)
+
+"
+8833104,ALDS1_1_D,"times = int(input())
+# numbers = []
+# for i in range(times):
+#     numbers.append(int(input()))
+
+# 過去に出てきた最小のものから、その後に出てきた最大のものをひく
+
+current_num = int(input())
+previous_num = 0
+smallest_num = current_num
+max_gap = -9999999999
+
+for i in range(0, times - 1):
+    current_num = int(input())
+    smp = current_num - smallest_num
+    if smp > max_gap:
+        max_gap = smp
+    if smallest_num > current_num:
+        smallest_num = current_num  
+
+
+print(max_gap)
+"
+8855572,ALDS1_1_D,"n = int(input())
+ans = -1e10; pre =-ans 
+for _ in range(n):
+  r = int(input())
+  if ans < r - pre:ans = r-pre
+  if pre > r:pre = r
+print(ans)
+"
+8875036,ALDS1_1_D,"N = int(input())
+
+R1 = int(input())
+R2 = int(input())
+maxv = R2 - R1
+minv = min(R1,R2)
+
+
+for j in range(2,N):
+  valuej = int(input())
+  if (valuej - minv) > maxv:
+    maxv = valuej -minv
+  if valuej < minv:
+    minv = valuej
+
+print(maxv)
+
+
+"
+8936576,ALDS1_1_D,"num = int(input())
+
+risuto = []
+
+maxv = -99999999999999999999999999999999999999
+
+for i in range(num):
+    number = int(input())
+    risuto.append(number)
+    
+minv = risuto[0]
+
+for j in range(1, num):
+    if maxv < risuto[j] - minv:
+        maxv = risuto[j] - minv
+
+    if minv > risuto[j]:
+        minv = risuto[j]
+
+        
+
+        
+        
+        
+print(maxv)
+    
+    
+"
+8938143,ALDS1_1_D,"N = int(input())
+
+price = int(input())
+min_price = price
+max_profit = -10e9
+
+for i in range(N-1):
+    price = int(input())
+
+    profit = price - min_price
+    if profit > max_profit:
+        max_profit = profit
+
+    if price < min_price:
+        min_price = price
+
+print(max_profit)
+
+"
+8973115,ALDS1_1_D,"def max_profit(n, exchange_rates):
+    max_profit = float('-inf')
+    min_rate = exchange_rates[0]
+
+    for i in range(1, n):
+        current_rate = exchange_rates[i]
+        profit = current_rate - min_rate
+        max_profit = max(max_profit, profit)
+        min_rate = min(min_rate, current_rate)
+
+    return max_profit
+
+n = int(input())
+exchange_rates = [int(input()) for _ in range(n)]
+
+result = max_profit(n, exchange_rates)
+print(result)
+"
+8979300,ALDS1_1_D,"n=int(input())
+min=1000000000000000000
+max=-1000000000000000000
+lst=[0]*n
+
+for i in range(n):
+    x=int(input())
+    lst[i]=x
+for i in range(n-1):
+    if lst[i]<min:
+        min=lst[i]
+    if lst[i+1]-min>max:
+        max=lst[i+1]-min
+print(max)
+"
+9033865,ALDS1_1_D,"def maximumProfit(R):
+    maxv = -10**9
+    minv = R[0]
+    for i in range(1, len(R)):
+        maxv = max(maxv, R[i]-minv)
+        minv = min(minv, R[i])
+    return maxv
+
+n = int(input())
+R = [int(input()) for _ in range(n)]
+print(maximumProfit(R))
+"
+9034527,ALDS1_1_D,"n = int(input())
+minv = (10 ** 10)
+ans = (10 ** 10) * (-1)
+for _ in range(n):
+    v = int(input())
+    if v - minv > ans:
+        ans = v - minv
+    if minv > v:
+        minv = v
+print(ans)
+
+"
+2712698,ALDS1_1_D,"import sys
+  
+input()
+minv = int(input())
+maxv = -1000000000
+  
+for r in map(int,sys.stdin.readlines()):
+  m = r-minv
+  if maxv < m: 
+    maxv = m
+    if m < 0: minv = r
+  elif m < 0: minv = r
+  
+print(maxv)
+"
+3222998,ALDS1_1_D,"#import sys
+
+#input1 = [6,5,3,1,3,4,3]
+
+#input2 = [3,4,3,2]
+
+# Input Select Flag
+#inputselflag = 1
+
+#if inputselflag == 1:
+#    inputs = input1[1:]
+#elif inputselflag == 2:
+#    inputs = input2[1:]
+#else:
+#    sys.exit()
+
+# Calc
+#for i in range(1, len(inputs)-1):
+    #print(inputs[i-1])
+    #result.append([inputs[i+1] - inputs[i]])
+   #for j in range(i+1, len(inputs)):
+        #print(inputs[j])
+        #print(inputs[i])
+        #print('\n')
+        #result.append([inputs[j] - inputs[i]])
+        #print(result[j-1])
+
+import sys
+
+def main():
+    inputs = int(sys.stdin.readline().rstrip())
+    maxv = -100000000000
+    minv = int(sys.stdin.readline().rstrip())
+
+    # Calc idel
+    for i in range(1, inputs):
+        compv = int(sys.stdin.readline())
+        if compv - minv > maxv:
+            maxv = compv - minv
+        if compv < minv:
+            minv = compv
+        
+
+    bigprice = maxv
+    print(bigprice)
+
+
+
+if __name__ == '__main__':
+    main()
+"
+3428491,ALDS1_1_D,"n,*a=map(int,open(0).read().split())
+ans=-99999999999999999999
+mini=a[0]
+for i in range(n-1):
+    if a[i]<mini:
+        mini=a[i]
+    if a[i+1]-mini>ans:
+        ans=a[i+1]-mini
+print(ans)
+"
+4005557,ALDS1_1_D,"import sys
+i = sys.stdin
+_ = i.readline()
+x = int(i.readline())
+y = int(i.readline())
+v = y-x
+m = x if y>x else y
+
+for s in map(int, sys.stdin):
+    if s-m > v: v = s-m
+    elif s < m: m = s
+
+print(v)
+"
+8296466,ALDS1_1_D,"n = int(input())
+Rt = []
+for inp in range(n):
+    Rt.append(int(input()))
+minv = Rt[0]
+maxv = Rt[1] - minv
+
+for j in range(1, n):
+    if Rt[j] - minv > maxv:
+        maxv = Rt[j] - minv
+    elif Rt[j] < minv:
+        minv = Rt[j]
+
+print(maxv)
+"
+8348152,ALDS1_1_D,"import sys
+
+
+def main():
+    n = int(input())
+
+    min_ever = int(input())
+    max_profit = -sys.maxsize
+
+    for _ in range(n - 1):
+        Rt = int(input())
+        max_profit = max(Rt - min_ever, max_profit)
+
+        min_ever = min(Rt, min_ever)
+
+    print(max_profit)
+
+
+if __name__ == ""__main__"":
+    main()
+
+"
+8447585,ALDS1_1_D,"n = int(input())
+R_list = []
+for i in range(n):
+    R_list.append(int(input()))
+
+minv = R_list[0]
+maxv = -100000000000000000000000000000000000000000
+for j in range(1,n):
+    if maxv <= R_list[j]-minv:
+        maxv = R_list[j]-minv
+    elif maxv > R_list[j]-minv:
+        maxv = maxv
+    if minv <= R_list[j]:
+        minv = minv
+    elif minv > R_list[j]:
+        minv = R_list[j]
+    #print(maxv)
+    #print(minv)
+print(maxv)
+"
+8482882,ALDS1_1_D,"n = int(input())
+lst = []
+
+for i in range(n):
+  lst.append(int(input()))
+
+max = -1000000000
+min = lst[0]
+for i in range(1, n, 1):
+  if max < lst[i] - min:
+    max = lst[i] - min
+  if min > lst[i]:
+    min = lst[i]
+
+print(max)
+"
+8600992,ALDS1_1_D,"N = int(input())
+R = [int(input()) for _ in range(N)]
+
+minv = R[0]
+maxv = -10**9
+
+for j in range(1, N):
+    maxv = max(maxv, R[j] - minv)
+    minv = min(minv, R[j])
+
+print(maxv)
+"
+8909802,ALDS1_1_D,"n = int(input())
+z=[]
+for i in range(n):
+  a = int(input())
+  z.append(a)
+minv = 1000000000000
+maxv = -100000000000
+for j in range(n):
+  x = z[j] - minv
+  if x > maxv:
+    maxv = x
+  if z[j] < minv:
+    minv = z[j]
+print(maxv)
+"
+8914750,ALDS1_1_D,"n=int(input())
+R=[int(input()) for _ in range(n)]
+minv=10**10
+max_diff=-10**10
+for i in R:
+    max_diff=max(max_diff, i-minv)
+    if i<minv:
+        minv=i
+print(max_diff)
+"
+8922920,ALDS1_1_D,"n = int(input())
+
+r = []
+for i in range(n):
+    r.append(int(input()))
+
+minv = r[0]
+maxv = r[1] - r[0]
+for j in range(1, n):
+    if maxv < r[j]-minv:
+        maxv = r[j]-minv
+    if minv > r[j]:
+        minv = r[j]
+
+print(maxv)
+
+"
+8937300,ALDS1_1_D,"n = int(input())
+
+lis = []
+for _ in range(n):
+    a = int(input())
+    lis.append(a)
+
+m = lis[1] - lis[0]
+l = min(lis[0], lis[1])
+
+for i in range(2, n):
+    diff = lis[i] - l
+
+    if diff > m:
+        m = diff
+
+    if lis[i] < l:
+        l = lis[i]
+
+print(m)
+"
+8966633,ALDS1_1_D,"n = int(input())
+list_price = [int(input()) for _ in range(n)]
+
+revenue = - 2 << 60
+min_price_at_the_moment = 2 << 60
+
+for price in list_price:
+    revenue = max(revenue, price - min_price_at_the_moment)
+    min_price_at_the_moment = min(price, min_price_at_the_moment)
+
+print(revenue)
+"
+9006945,ALDS1_1_D,"n = int(input())
+r = [int(input()) for _ in range(n)]
+
+max_p = r[1] - r[0]
+min_value = min(r[1], r[0])
+
+for i in range(2, n):
+    if r[i-1] < min_value:
+        min_value = r[i-1]
+    max_p = max(max_p, r[i] - min_value)
+
+print(max_p)
+"
+9023931,ALDS1_1_D,"def main():
+  n = int(input())
+  r = [int(input()) for _ in range(n)]
+
+  minv = r[0]
+  maxv = -10 ** 10
+  for i in range(1, n):
+    maxv = max(maxv, r[i] - minv)
+    minv = min(minv, r[i])
+
+  print(maxv)
+
+if __name__ == '__main__':
+  main()
+
+"
+9065058,ALDS1_1_D,"# ある通貨について、時刻 t における価格 Rt (t=0,1,2,,,n−1)が入力として与えられるので、価格の差 Rj−Ri (ただし、j>i とする) の最大値を求めてください。
+
+n = int(input())
+dif = None
+for i in range(n):
+  a = int(input())
+  if i == 0:
+    min = a
+  elif i == 1:
+    dif = a - min
+    if a < min:
+      min = a
+  else:
+    subDif = a - min
+    if subDif > dif:
+      dif = subDif
+    if a < min:
+      min = a
+
+print(dif)
+"
+9156973,ALDS1_1_D,"n = int(input())
+li = []          
+for _ in range(n):
+    li.append(int(input()))
+
+tmp_low = float('inf')
+max_diff = float('-inf')
+for i in range(n - 1):
+    if li[i] < tmp_low:     
+        tmp_low = li[i]
+        tmp_diff = li[i + 1] - li[i]
+    else:
+        tmp_diff = li[i + 1] - tmp_low
+    if tmp_diff > max_diff:
+        max_diff = tmp_diff
+print(max_diff)
+"
+2839424,ALDS1_1_D,"import sys
+
+count=int(input())
+input_list=[ int(i) for i in sys.stdin.readlines() ]
+
+first=0
+second=1
+maxv=-1000000000
+minv=input_list[first]
+
+for i in input_list[second:]:
+    if i-minv > maxv:
+        maxv=i-minv
+    if i < minv:
+        minv=i
+
+print(maxv)
+"
