@@ -7,7 +7,7 @@ import time
 df = pd.DataFrame(columns=['judgeId','problemId','sourceCode'])
 
 
-for i in range(1,16):
+for i in range(3,16):
     judgeId = []
     response = requests.get(f"https://judgeapi.u-aizu.ac.jp/solutions/problems/ALDS1_{i}_A/lang/python3")
     dados = response.json()
