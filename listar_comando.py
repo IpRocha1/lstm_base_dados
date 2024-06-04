@@ -2,7 +2,7 @@ import pandas as pd
 import re
 
 # Carregar o arquivo CSV
-df = pd.read_csv('data_frame_python_tratado.csv')
+df = pd.read_csv('./dataframe/data_frame_python_tratado.csv')
 
 # Remover linhas onde 'sourceCode' é NaN
 df = df.dropna(subset=['sourceCode'])
@@ -23,7 +23,7 @@ for code in df['sourceCode']:
     all_prints.extend(extract_prints(code))
 
 # Salvar os comandos print em um arquivo .txt
-with open('comandos_print3.txt', 'w', encoding='utf-8') as f:
+with open('./print/print3.txt', 'w', encoding='utf-8') as f:
     for print_command in all_prints:
         f.write(print_command + '\n')
 

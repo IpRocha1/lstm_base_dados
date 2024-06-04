@@ -1,0 +1,142 @@
+judgeId,problemId,problemName,sourceCode
+4070746,3130,Calculation Training,"N = int(input())
+A, B = map(int, input().split())
+ret = [(A, B)]
+for i in range(1, 12) :
+  if i % 2 == 0 :
+    B = A + B
+  else :
+    A = A - B
+  ret.append((A, B))
+print(*ret[N % 12])"
+4070807,3130,Calculation Training,"n=int(input())
+a,b=map(int,input().split())
+n=n%12
+for i in range(n):
+  if i % 2:
+    b=a+b
+  else:
+    a=a-b
+print(a,b)"
+4070829,3130,Calculation Training,"n=int(input())
+a,b=map(int,input().split())
+ab=[[a,b]]
+for i in range(11):
+  a,b=ab[-1]
+  if i%2==0:ab.append([a-b,b])
+  else:ab.append([a,a+b])
+print(*ab[n%12])"
+4070870,3130,Calculation Training,"n = int(input())
+a,b = map(int,input().split())
+s = n%12
+for i in range(1,s+1):
+    if i % 2 == 0:
+        b = a+b
+    else:
+        a = a-b
+print(a,b)"
+4070984,3130,Calculation Training,"N=int(input())
+A,B=map(int,input().split())
+def one(n,A,B):
+    if n%2==0:
+        return A-B,B
+    else:
+        return A,A+B
+N=N%12
+for i in range(N):
+    A,B=one(i,A,B)
+print(A,B)"
+4071660,3130,Calculation Training,"N = int(input())
+A, B = map(int,input().split())
+N = N%12
+for k in range(1,N+1):
+    if k%2 == 1:
+        A -= B
+    else:
+        B += A
+print(A,B)"
+4083725,3130,Calculation Training,"n = int(input())
+a,b = map(int,input().split())
+n %= 12
+for i in range(n):
+    if i%2 == 0:
+        a = a-b
+    else:
+        b = a+b
+print(a,b)"
+4260215,3130,Calculation Training,"N = int(input())
+A, B = map(int, input().split())
+N %= 12
+for i in range(1, N + 1):
+    if i % 2 == 1:
+        A = A - B
+    else:
+        B = A + B
+print(A, B)"
+4907769,3130,Calculation Training,"n = int(input())
+a,b =map(int,input().split())
+ans = [[a,b], [a-b,b], [a-b,a], [-b,a], [-b,a-b], [-a,a-b], [-a,-b], [-a+b,-b], [-a+b,-a], [b,-a], [b,-a+b], [a,-a+b]]
+k = n % 12
+print(*ans[k])"
+5983186,3130,Calculation Training,"n = int(input())
+a, b = map(int, input().split())
+sign =  ((n + 5) // 6) % 2
+if sign % 2 == 1:
+    sign = 1
+else:
+    sign = -1
+if n % 6 == 1:
+    a, b = a - b, b
+elif n % 6 == 2:
+    a, b = a - b, a
+elif n % 6 == 3:
+    a, b = -b, a
+elif n % 6 == 4:
+    a, b = -b, a - b
+elif n % 6 == 5:
+    a, b = -a, a - b
+else:
+    a, b = -a, -b
+a, b = sign * a, sign * b
+print(a, b)"
+4078344,3130,Calculation Training,"from itertools import *
+from bisect import *
+from math import *
+from collections import *
+from heapq import *
+from random import *
+import sys
+sys.setrecursionlimit(10 ** 6)
+int1 = lambda x: int(x) - 1
+p2D = lambda x: print(*x, sep=""\n"")
+def II(): return int(sys.stdin.readline())
+def MI(): return map(int, sys.stdin.readline().split())
+def MI1(): return map(int1, sys.stdin.readline().split())
+def MF(): return map(float, sys.stdin.readline().split())
+def LI(): return list(map(int, sys.stdin.readline().split()))
+def LI1(): return list(map(int1, sys.stdin.readline().split()))
+def LF(): return list(map(float, sys.stdin.readline().split()))
+def LLI(rows_number): return [LI() for _ in range(rows_number)]
+dij = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+def main():
+    n=II()
+    a,b=MI()
+    n%=12
+    for i in range(n):
+        if i%2:b+=a
+        else:a-=b
+    print(a,b)
+main()"
+6198858,3130,Calculation Training,"n = int(input())
+a, b = map(int, input().split())
+ANS = [[a, b],
+       [a - b, b],
+       [a - b, a],
+       [-b, a],
+       [-b, a - b],
+       [-a, a - b]]
+r = n % 12
+if 0 <= r <= 5:
+    print(ANS[r][0], ANS[r][1])
+else:
+    print(-ANS[r % 6][0], -ANS[r % 6][1])"

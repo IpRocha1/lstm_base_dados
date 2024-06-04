@@ -1,0 +1,2196 @@
+problemName,Count
+Binary Search,222
+Rectangle,192
+Card Game,188
+Remainder,162
+Swap,157
+Intersection,148
+Rotate,142
+Caesar Cipher,136
+Distance,135
+Minimum Spanning Tree,134
+Queue,126
+Simple Calculator,124
+Stack,123
+String,121
+Priority Queue,120
+Search,110
+Ring,105
+Score,100
+Echo 5,99
+Echo 4,99
+1D Array: Updating Continuous Elements,98
+Echo 3,98
+1D Array: As a Bucket,98
+Conversion of a Line to a Sequence of Numbers,98
+Conversion of Lines to Sequences of Numbers,98
+2D Array: Reading Elements,98
+2D Array: Reading Region Elements,98
+2D Array: Update of Elements,98
+Repeat N times 1,98
+Echo 1,98
+Echo 2,98
+Branch 2,98
+Branch 1,98
+Two Variables,98
+Reassignment,98
+1D Array: As a List,98
+Non-equivalence,97
+Search Index,97
+Equivalence,97
+Linear Search for Queries,97
+Product,97
+Multi-line Input and Reverse Order,97
+Comparison 2,97
+Evaluation 1,97
+1D Array: Updating Elements,97
+Nested Loop 1,97
+NOT,97
+Comparison 1,97
+AND,97
+Mouse Movement Distance,97
+OR,97
+Logical Expression 1,97
+Logical Expression 2,97
+Logical Expression 3,97
+Branch 3,97
+Branch 4,97
+1D Array: Reading Continuous Elements,97
+Selection 2,97
+Selection 1,97
+1D Array: Reading Element,97
+Nested Loop 2,96
+Expression 3,96
+Difference,96
+Quotient,96
+Character to ASCII Code,96
+ASCII Code to Character,96
+Expression 1,96
+Character Type,96
+Characters in String,96
+Infinite Loop 2,96
+Expression 2,96
+Converting a String into a Numerical Value,96
+Input a Line,96
+Line Input and Reverse Order Output,96
+Multi-line Input,96
+Structuring 2,96
+Structuring 1,96
+Repeat N times 2,96
+Infinite Loop 1,96
+Length of a String,96
+Binary Search by Queries,95
+Variable,95
+Output of Integers with New Lines,95
+Multiple Arguments,95
+Tenth Power,95
+Character,95
+Sum,95
+Maximum Sum,95
+New Line,94
+Age Difference,94
+Array Argument,94
+Hit and Blow,93
+Ascending Order?,93
+Function,93
+Palindrome,92
+KUPC,92
+Output of Integers,91
+Circumscribed Circle of a Triangle,91
+Output of a String,91
+Array Argument and Procedure,90
+Shopping,90
+Social Game,90
+2D Array: Update of Region Elements,89
+Sugoroku,89
+Railway Ticket,89
+Function Returning an Array,89
+Output of an Integer,89
+Lunch,88
+Contest,88
+Word,87
+Meeting Place,87
+A Popular Ice-cream Shop,87
+Ticket Sales,87
+Badminton,86
+Temperature Difference,86
+Swap Elements,85
+Bubble Sort,84
+Reverse Elements,84
+Calculation of Area,84
+Who Are The Student Yet To Submit,84
+Search Engine,83
+Apple and Peach,83
+Average Score,83
+Third Root,83
+3D Array,82
+Red Dragonfly,82
+The Last One is the Best,82
+Change,82
+Points for a Perfect Scorer,81
+Sort in Ascending Order,81
+Look for the Winner!,81
+Spreadsheet,80
+The Number of Participants,80
+Sum of Consecutive Integers,79
+Factorial II,79
+Osaki,79
+Chain Disappearance Puzzle,79
+Haunted House,79
+"Yes, I have a number",79
+Programming Contest,78
+Admission Fee,78
+Cut the Cake,78
+Almost Identical Programs,78
+Step Aerobics,78
+Celsius and Fahrenheit,77
+Fishing Competition,77
+Mini Picture Matching Game,77
+Day of Week,77
+A Pair of Prizes,77
+Angle Conversion,77
+The Balance of the World,77
+Equal Total Scores,77
+Greatest Common Divisor,76
+A Fat Wallet,76
+On-Screen Keyboard,76
+Matrix Multiplication,76
+How Many Islands?,76
+Collatz's Problem,76
+Common Divisors,76
+Selection of Participants of an Experiment,76
+Greatest Common Divisor: Euclidean Algorithm,76
+Entrance Examination,75
+Chebyshev's Theorem,75
+Reservation System,75
+Kyudo: A Japanese Art of Archery,75
+Curry Making,75
+BMI,75
+Knapsack Problem,75
+Red and Black,74
+Cake Party,74
+Party Dress,74
+Design of a Mansion,74
+Selecting Subjects,74
+Articulation Points,74
+JOI and IOI,74
+8 Queens Problem,74
+Next Mayor,74
+Sum of Integers,73
+Treasure Hunt,73
+Organize Your Train part II,73
+Prime Numbers,73
+Ball,73
+Amazing Mazes,73
+Euler's Phi Function,73
+Bridges,73
+Cycle Detection for a Directed Graph,73
+Income Inequality,73
+Flag,73
+Misterious Gems,73
+Lowest Common Ancestor,73
+Longest Common Subsequence,73
+Secret Investigation,72
+Sunrise and Sunset,72
+Secret Number,72
+Building a Space Station,72
+Convex Hull,72
+Change of the Era Name,71
+Power,71
+Connected Components,71
+Strongly Connected Components,71
+Short Phrase,71
+Single Source Shortest Path,71
+Range Sum Query (RSQ),71
+Edit Distance (Levenshtein Distance),71
+Pollock's conjecture,71
+Frog Going Straight,71
+Diameter of a Tree,71
+Plastic Board,71
+Debt Hell,71
+Difference of Big Integers,71
+Integral,71
+Power of Two,70
+Prime Number,70
+Stop Watch without Tick Mark,70
+A-un Breathing,70
+The Number of Chairs,70
+Exam,70
+Shiba Inu,70
+All Pairs Shortest Path,70
+Switching Railroad Cars,70
+Breadth First Search,70
+GCD and LCM,70
+Triangle Types,70
+Daruma Otoshi,70
+RMQ and RUQ,69
+National Budget,69
+Multiplication of Big Integers,69
+Princess's Gamble,69
+Finding a Word,69
+Colorful Disk,69
+0-1 Knapsack Problem,69
+Treap,69
+0-1 Knapsack Problem II,69
+Total Time,69
+Physical Experiments,69
+Minimum Cost Flow,69
+Range Minimum Query (RMQ),69
+List of Top 3 Hills,69
+Circle Cross Stamps,69
+Maximum Flow,69
+Area of Polygon,69
+Heat Strokes,69
+Mode Value,69
+Maximum Sum Sequence,69
+Unique,69
+Is it a Right Triangle?,68
+Parallel/Orthogonal,68
+Cross Point,68
+Class,68
+ICPC Score Totalizer Software,68
+Graph,68
+Traveling Salesman Problem,68
+Microwave,68
+Contact Tracer,68
+Millennium,68
+Pencils,68
+Courtesy Call,68
+Simultaneous Equation,68
+Naive String Search,68
+Range Update Query (RUQ),68
+Reflection,68
+Princess's Marriage,67
+Rooted Trees,67
+Train,67
+Remainder of Big Integers,67
+Snakes,67
+Quick Sort,67
+Bipartite Matching,67
+Balls and Boxes 1,67
+Single Source Shortest Path II,67
+ASCII Characters,67
+Keitai Message,67
+Weighted Union Find Trees,67
+Sum of 4 Integers,67
+Dictionary,66
+Differential,66
+Exhaustive Search,66
+Range Add Query (RAQ),66
+String Search,66
+Integral Rectangles,66
+Circles Intersection,66
+Count Up 2020,66
+Binary Search Tree I,66
+Binary Search Tree II,66
+Pablo Squarson's Headache,66
+Railway Lines,66
+Reverse Sequence,66
+What day is today?,66
+Toggling Cases,66
+Matrix Chain Multiplication,65
+Lexicographical Comparison,65
+Longitude and Latitude,65
+Count,65
+Fibonacci Number,65
+Dropping Ink,65
+Sorting Five Numbers,65
+English Sentence,65
+Depth First Search,65
+Taro's Shopping,65
+Drawing Lots,65
+Dice I,65
+Sugoroku and Pieces,65
+How many ways?,65
+Counting Vowels,65
+Factorial,65
+Cube,65
+Sorting Pairs,64
+Prime Factorize,64
+Reverse,64
+Division of Big Integers,64
+Differential II,64
+Blood Groups,64
+Equal Range,64
+Includes,64
+Extended Euclid Algorithm,64
+Disjoint Set: Union Find Tree,64
+8 Puzzle,64
+Grading,64
+Next Character,64
+Largest Rectangle,64
+Merge,64
+Matrix Vector Multiplication,64
+Balls and Boxes 2,64
+Polygon-Point Containment,64
+A Point in a Triangle,64
+Tunnel,64
+Hanafuda Shuffle,64
+Change Making,64
+Single Source Shortest Path (Negative Edges),63
+Print a Chessboard,63
+Topological Sort,63
+Largest Square,63
+A reward for a Carpenter,63
+Mode,63
+Min-Max Element,63
+Height,63
+Complete Binary Tree,63
+Hour,63
+Weight,63
+Sports Day,63
+Capitalize,63
+Handsel,62
+Projection,62
+Min-Max,62
+Enumeration of Subsets I,62
+Cup Game,62
+Three-Way Comparison,62
+The Number of Inversions,62
+Ice Cream,62
+Least Common Multiple,62
+Lower Bound,62
+Binary Trees,62
+Set Intersection,62
+Binary Search Tree III,62
+Inversion of a String,62
+Heian-Kyo Walking,62
+Matrix-like Computation,62
+Shuffle,62
+Counter-Clockwise,62
+Three Integers,61
+The Nearest Value,61
+Homework,61
+QQ,61
+Minimum Cost Sort,61
+Sliding Minimum Elements,61
+Bit Operation I,61
+Partition,61
+Maximum Heap,61
+Counting Characters,61
+Permutation Enumeration,61
+RSQ and RAQ,61
+Areas on the Cross-Section Diagram,61
+Set Difference,61
+Function Updating an Array,61
+Reversing Numbers,60
+Standard Deviation,60
+Parallelism,60
+Digit Number,60
+Transformation,60
+Tree Walk,60
+Hour Hand,60
+Function Creating an Array from Arrays,60
+Dice II,60
+Union of Rectangles,60
+Sum of Numbers,60
+Moving,60
+Baseball Simulation,60
+Coin Changing Problem,60
+Fractional Knapsack Problem,60
+Official House,60
+Water Rate,60
+Largest Rectangle in a Histogram,60
+ICPC Calculator,60
+Splice,60
+Addition of Big Integers,60
+Set Symmetric Difference,60
+Set Union,60
+Set: Delete,60
+Set: Range Search,59
+Tax Rate Changed,59
+Distance II,59
+Recurring Decimals,59
+Poker Hand,59
+Floor,59
+Aizu PR,59
+Capitalization,59
+Sale Result,59
+Single Source Shortest Path I,59
+Kannondou,59
+Bit Flag,59
+Doubly Linked List,59
+List,59
+Counting Sort,59
+A + B Problem,59
+Rare Number,58
+Merge Sort,58
+Dice IV,58
+Print a Rectangle,58
+Print a Frame,58
+20th Anniversary,58
+Vector II,58
+Goldbach's Conjecture,58
+Maximum Profit,58
+Sum and Average,58
+Complex String,58
+Set: Search,58
+Selection Sort,57
+Roman Figure,57
+Triangle,57
+Sorting Tuples,57
+Dice III,57
+"Min, Max and Sum",57
+Permutation,57
+Deque,57
+Finding Missing Cards,57
+Three Boxes,57
+Map: Delete,57
+Bit Operation II,57
+Map: Search,56
+Skyscraper MinatoHarukas,56
+Linear Search vs. Binary Search,56
+Number of Comparisons of Linear and Binary Search,56
+Numeral System,56
+Dirichlet's Theorem on Arithmetic Progressions,56
+Structured Programming,56
+Boxes and Keys,56
+Three-Legged Race,56
+The Maximum Number of Customers,56
+Longest Increasing Subsequence,56
+Square Route,56
+Multiplication of Big Integers II,56
+Shell Sort,55
+Smart Calculator,55
+Linear Search,55
+Multi-Set,55
+Prime Number II,55
+Map: Range Search,55
+Sort in Descending Order,55
+Vector,55
+Country Road,55
+Molting ,55
+Allocation,54
+"Origami, or the art of folding paper",54
+Scores of Final Examination,54
+What is the Bottommost?,54
+Yuekis' Audio Room,54
+Same Numbers,54
+koukyoukoukokukikou,54
+School Road,54
+Surface Area of Quadrangular Pyramid,54
+"Amida, the City of Miracle",54
+A Figure on Surface,53
+Area,53
+Hello World,53
+RMQ and RAQ,53
+How Many Divisors?,53
+Stable Sort,53
+Circle,53
+Aka-beko and 40 Thieves,53
+"Small, Large, or Equal",52
+Range,52
+Sorting Status,52
+Balls and Boxes 5,52
+A / B Problem,52
+Book Index,52
+Longest Ascending Contiguous Subsequence,52
+Trunk Road,52
+The Smallest Window I,52
+Insertion Sort,52
+Reconstruction of a Tree,52
+Cup,52
+Sequence,51
+Sorting Three Numbers,51
+Watch,51
+Circle in a Rectangle,51
+Receipt,51
+Laver,51
+Moving Balls,51
+Time Card,51
+Run Length,51
+Balls and Boxes 4,51
+Kagisys,51
+Huffman Coding,51
+Koto Municipal Subway,51
+Enumeration of Subsets II,50
+Cheese,50
+Counting Peaks of Infection,50
+Magical Tiles,50
+Activity Selection Problem,50
+Print Test Cases,49
+Space Coconut Grab,49
+Heap Sort,49
+Data Conversion,49
+Two-digit Integer,49
+ICPC Ranking,49
+Cross Points of Circles,49
+The Number of Area,49
+Twins,49
+Alphametic,48
+Balls and Boxes 3,48
+X Cubic,48
+Bit Mask,48
+Triangle of Blocks,48
+Enumeration of Combinations,47
+Multi-Map,47
+Repeating String,47
+Make Purse Light,47
+November,47
+Print Many Hello World,47
+Tennis,47
+A Garden with Ponds,47
+Balls and Boxes 6,47
+Balls and Boxes 8,46
+Swapping Two Numbers,46
+Luck Manipulator,46
+Delivery to a Luxurious House,46
+Coin Combination Problem II,46
+Dial Lock,46
+Balls and Boxes 11,45
+Tile,45
+What is the Most Popular Shop in Tokaichi?,45
+Sum of Prime Numbers,45
+Balls and Boxes 9,44
+The Second Largest Integer,44
+Monday-Saturday Prime Factors,44
+Point Card,44
+Cross Points of a Circle and a Line,44
+A Thief,44
+Unique number,44
+Christmas Party,43
+Enumeration of Subsets III,43
+Knapsack Problem with Limitations,43
+Is-Convex,43
+Is it Convex?,43
+Temperature Measurement,43
+Carry a Cheese,43
+Generalized Leap Years,43
+Sum of Nth decimal places,42
+The Number of Windows,42
+15 Puzzle,42
+Nisshinkan Marathon Club,42
+Balls and Boxes 7,42
+Japanese Calendar,42
+New Town,41
+Dice,40
+Coin Combination Problem,40
+Rank Checker,40
+Swapping Bibs,40
+Marbles Tell Your Lucky Number,39
+JOI Sort,39
+The Third Permutation,39
+Team Making,39
+Prime Number Sum 2,39
+Vote,39
+Huge Knapsack Problem,39
+A Milk Shop,39
+Leap Year,39
+Operation of Frequency of Appearance,39
+The Maximum Number of Overlaps,39
+Cutting Down Water Bills,39
+Equal Split,39
+Shopping Street,39
+Lining up the cards,38
+Balls and Boxes 10,38
+A Way to Invite Friends,38
+Homecoming,38
+All Numbers Lead to 6174,38
+Optimal Binary Search Tree,38
+Videotape,38
+Kakezan,38
+Property Distribution ,37
+Strange Mathematical Expression,37
+Airport Codes,37
+Height of a Tree,37
+Tic Tac Toe,37
+The Smallest Window II,37
+Time to Study,36
+Save Your Privacy!,36
+Production,36
+Calculation,36
+Dividing Students,36
+The Number of Island,36
+Wire,36
+Cave for Cats,36
+Soccer,35
+Balls and Boxes 12,35
+King's Inspection,35
+Trading,35
+JAG Practice Contest,35
+Common Elements,35
+Shuffle The Cards,35
+VOCAL ANDROID,34
+Hierarchical Democracy,34
+5e16,34
+Distribution of Candy,34
+Surf Smelt Fishing Contest,34
+Walking in the Hospital,34
+When Can We Meet?,34
+Eye Test,34
+Cards,34
+Illumination,34
+Frequency Distribution of Height,34
+Orthogonal,34
+Times Square,33
+Pancake,33
+Affine Cipher,33
+Moonlight Farm,33
+Era Name Transformation,32
+Hakone,32
+JOI Editor,32
+Day Count,32
+Refreshment Area,32
+Square,31
+Marathon Race,31
+Candy and Class Flag,31
+Magic Square,31
+Puzzle,31
+RSQ and RUQ,30
+Room Numbers of a Hospital,30
+Dudeney Number,30
+CamelCase,30
+Split,30
+IOI String,30
+Earth Invasion Diary of Miyabi-sensei,30
+A First Grader,30
+Analyzing Login/Logout Records,30
+Jinkoki,30
+Sum of 4 Integers II,29
+Canceling Sequence,29
+Differential Pulse Code Modulation,29
+Calorie Counting,29
+Geometric Data,29
+A Symmetric Point,29
+Weather Forecaster,29
+Joseph's Potato,29
+FizzBuzz,29
+Comparison,29
+Bitaro and IOI,29
+Poster,29
+Matsuzaki Number,28
+nm Calculations,28
+Discounts of Buckwheat ,28
+Treasure Hunt II,28
+Coastline,28
+Minimum-Cost Arborescence,28
+Balance Scale,28
+Closest Pair,28
+Planetary Exploration,28
+Oranges on Cans,28
+Russian Flag,28
+Interest Rates,27
+Bombs Chain,27
+Expression,27
+jfen,27
+Judge the Target,27
+Multiple String Matching,27
+Cuboid Made with Bars,27
+Segment Intersections: Manhattan Geometry,27
+Diameter of a Convex Polygon,27
+Speed Skating Badge Test,27
+Intersection of Rectangles,26
+Baseball Championship,26
+Range Query on a Tree,26
+Quality Checking,26
+Middle-Square Method,26
+Darts,26
+Vampire,26
+Register Phase,26
+Rotating Photo,26
+How can I satisfy thee? Let me count the ways...,26
+Pattern Search,26
+Best Pizza,26
+Losing is Winning,26
+Super Metropolis,25
+Sport Meet,25
+How many times did you say NAN?,25
+Paken,25
+Get Many Persimmon Trees,25
+Twin Prime,25
+Electro-Fly,25
+Strawberry,24
+Prime Gap,24
+Tournament,24
+League Match Score Sheet,24
+Unique Nickname,24
+Fast Division,24
+Party,24
+Beads,24
+ai1333,24
+Track and Field Competition,24
+Exit Survey,23
+Quaternary Notation,23
+Which Team Should Receive the Sponsor Prize?,23
+RTA,23
+Bange Hills Tower,23
+Ancestor of Bacteria,23
+The Outcome of Bonze,23
+Next Trip,23
+"Rock, Paper, Scissors",23
+Saizo,23
+Area of Polygons,23
+Campus to Campus,23
+Last Letter,23
+Maximization of Rational Expression,22
+Surrounding Area,22
+Patrol,22
+Blackjack,22
+Period,22
+Doctor's Memorable Codes,22
+Silk Road,22
+Questionnaire,22
+Flying Jenny,22
+Convenient Location,22
+The Code A Doctor Loved,22
+Tsuruga Castle,22
+You Are the Judge,22
+Pizza,22
+Baton Relay Game,22
+What Color?,22
+A Traveler,22
+Delivery Fee,22
+Quaternion Multiplication,22
+Range Search (kD Tree),22
+Konpeito,21
+Input Candidates,21
+Convex Cut,21
+Proof of Knowledge,21
+Electronic Metronome,21
+Chains of Explosions ,21
+Japan Sinks,21
+IOIOI,21
+Koto Distance,21
+Polygonal Line Search,21
+The Price of a Cake,21
+Miscalculation,21
+Path on a Grid,21
+Sum of Consecutive prime Numbers,21
+Never Wait for Weights,21
+Decimal Sequences,21
+Tea Party,20
+Trampoline,20
+Equal Sum Sets,20
+Clock,20
+Group,20
+Broken Cipher Generator,20
+Longest Match,20
+Mosquito coil,20
+Table Tennis,20
+Bus Timetable,20
+Thanksgiving,20
+Namo.. Cut,20
+Surmise,20
+Four Tea,20
+Bookshelf,19
+Playoff by all the teams,19
+Yamanote Line,19
+Gag,19
+Flip Difference Sequence,19
+Seven Puzzle,19
+Guriko on Line,19
+Incircle of a Triangle,19
+Tangent to a Circle,19
+Ninja E869120,19
+Pray,19
+Digit Sum,19
+Unreliable Message,19
+Curling 2.0,19
+Bamboo Blossoms,19
+Hot days,19
+Symmetric Nbase Number,19
+Pasta,18
+Salary for a Plumber,18
+Available Areas,18
+Calling Extraterrestrial Intelligence Again,18
+"Run, Twins",18
+Rearranging a Sequence,18
+Training,18
+Strange Plants,18
+Symmetric Ternary Number,18
+Pocket Pager Input,18
+Brave Force Story,18
+Gas Station,18
+Quiz,18
+Hundred-Cell Calculation Puzzles,18
+?UPC ,18
+Today's Random Number,18
+Surf Smelt Fishing Contest II,18
+Cleaning Robot,18
+The Secret Number,18
+Clock Short Hand and Long Hand,18
+Guaranteed Minimum Price,18
+Era Name,18
+Longest Steps,18
+Kitchen Garden,17
+Membership Management,17
+Cubist Artwork,17
+Searching Constellation,17
+Rounding Division,17
+Bitaro the Brave,17
+Secret of Chocolate Poles,17
+Teaching Assistant,17
+Rummy,17
+And Then There Was One,17
+Gather the Maps!,17
+Big Hit !,17
+Signboard,17
+Seven Segments,17
+Connecting ,17
+Books,17
+Slot,17
+Chinese Postman Problem,17
+Ohajiki Game,17
+Grid,17
+Let's Solve Geometric Problems,17
+The Best Body,17
+The Shortest Path on A Rhombic Path,17
+Al dente,17
+Hamming Numbers,17
+Formation,17
+Binary Digit A Doctor Loved,16
+Minimal Backgammon,16
+Amidakuji,16
+Mercy,16
+Typhoon,16
+Bus Line,16
+Split Time,16
+Demolition of Bridges,16
+OOllOll,16
+Pilling Blocks,16
+Working,16
+Boat Travel,16
+A Round Table for Sages,16
+Scroll,16
+Rotation of a Pattern,16
+Eleven Lover,16
+Enclose Pins with a Rubber Band,16
+Library 2,16
+Selecting Teams Advanced to Regional,16
+Triangle Addition,16
+Summer of Pyonkichi,16
+Bozo Sort,16
+Final Examination!,15
+Abacus ,15
+Sufficient Condition,15
+Grey Area,15
+Dinner,15
+Cuboid,15
+Sequence of Absolute Differences,15
+Making Lunch Boxes,15
+Pair of Primes,15
+Schedule,15
+Starting Line,15
+ABC Gene,15
+Wrought Gold Master,15
+Tanuki and Fox,15
+Circle and Points,15
+Traveling by Stagecoach,15
+Check answers,15
+Doubling,15
+Auction,15
+Commute routes,15
+Digits Are Not Just Characters,15
+Grouping,14
+Parentheses,14
+Modular Query,14
+Fitness,14
+Ginkgo Numbers,14
+Leave No One Behind,14
+Marked Ancestor,14
+Mod Reap,14
+Abyss and Coins,14
+North North West,14
+Worst Reporter,14
+Star in Parentheses,14
+The Mean of Angles,14
+Paint Color,14
+Biased Dice,14
+Boiling Pasta,14
+Lottery,14
+Ohgas' Fortune,14
+Twirling Robot,14
+Dangerous Bridge,14
+Bowling,14
+Tetra Hedron,14
+Carden Lantern,13
+Divide and Conquer,13
+Arithmetic and Geometric Germ,13
+Prime Quadruplet,13
+Taro's Obsession,13
+Vampirish Night,13
+Related Products,13
+Irreducible Fractionalization,13
+Digital Clock,13
+Don't Rotate the Dice!,13
+Successive Tree,13
+Manhattan,13
+Block,13
+Bitonic Traveling Salesman Problem,13
+Molecular Formula,13
+Crossing Black Ice,13
+Painting,13
+Folding a Ribbon,13
+Traffic Tree,13
+Weight Range,13
+Rooted Tree for Misawa-san,13
+Cheat at Dices,13
+Spider Jin,13
+Jail,13
+Mixed Spice I,12
+Railroad II,12
+Calculation Training,12
+Treasure Map,12
+LiChaoSegmentTree,12
+Unclouded Sky,12
+Serial Number,12
+Invest Master,12
+Unordered Operators,12
+Distance Between Two Cities,12
+Cumulative Difference,12
+(iwi),12
+Summer of KMC,12
+Combination of Number Sequences,12
+Setting Go Stones,12
+Common Tangent,12
+Skewering,12
+Is Greedy Optimal?,12
+CatChecker,12
+Sort Riddles,12
+Sorting Crayons,12
+Fast Forwarding,12
+Jogging,12
+Cheating on ICPC,12
+Information Search,12
+Floppy Cube,11
+WeightedLIS,11
+Aizu Chicken,11
+Special Chat,11
+Black-and-White,11
+Piano Competition,11
+Array Game,11
+Desert Oasis,11
+Gossip,11
+Square Searching,11
+Playing With Stones,11
+My friends are small,11
+Cliff Climbing,11
+Water Pipe Construction,11
+Lightest Mobile,11
+Sum of Cards,11
+Starship Hakodate-maru,11
+Nearest Two Points,11
+XOR in base P,11
+Osenbei,11
+String Set,11
+Emacs-like Editor,11
+X-Ray Screening System,11
+Goldbach's Conjecture II,11
+Perfect Number,11
+Pigeonhole principle,11
+Best Matched Pair,11
+Food Delivery,11
+Delicious Tapioca,11
+Drawing Lots II,11
+Hokkaido University Easy,11
+Infected Computer,11
+Doping Slayer,11
+Hokkaido University Hard,11
+Round Sugoroku,11
+Kongo Type,11
+Minus One,11
+Metal Recycling,10
+Highway Toll,10
+Identically Colored Panels Connection,10
+Sum of Integers II,10
+House Moving,10
+Trouble in Shinagawa's Artifacts,10
+Set,10
+Petting Cats,10
+Finding Num,10
+Prime Caves,10
+Mixed Spice II,10
+Stove,10
+Test,10
+Extreme Balance,10
+Separate Number,10
+Tree Happiness,10
+Kobutanukitsuneko,10
+Magical Matrix,10
+Dessert Witch,10
+Window,10
+Meet on the Island,10
+Star Gazer,10
+Range Query on a Tree II,10
+Not Found,10
+Classifier,10
+Finger Counting,10
+Reachable,10
+GCDMST,10
+Bingo,10
+Milk,10
+Bridge Removal,10
+I Hate Long Problem,10
+Restore Shortest Path,10
+Traveling Alone: One-way Ticket of Youth,10
+Repeated Spell,10
+Card Game is Fun,10
+Spiral Pattern,10
+Knapsack Problem with Limitations II,10
+Walk,10
+Infinite Express,10
+sticky notes,10
+Sightseeing Tour,9
+GPA JANKEN,9
+Estimating the Flood Risk,9
+Mod Rush,9
+GCD swap,9
+Deforestation,9
+Save your cats,9
+Tokyo-Bay,9
+Farey Sequence,9
+Restore Calculation,9
+Belt Conveyor Maze,9
+Numbers,9
+Zombie Island,9
+The Number of the Real Roots of a Cubic Equation,9
+Beko Ranger Card,9
+Number Similar to 2023,9
+Discrete Speed,9
+Area of Intersection between Two Circles,9
+Many Points,9
+Ridge,9
+Mayan Crucial Prediction,9
+GuruGuru,9
+Old Bridges,9
+Mysterious Worm,9
+Illumination 2,9
+Shortest Crypt,9
+Classification of Clothing,9
+Chain,9
+Overlaps of Seals,9
+Extended Caesar Cipher,9
+JJOOII,9
+What Color Is The Universe?,9
+Brave Princess Revisited,9
+Prime Tour,9
+Quality Management,9
+Packet Transportation,9
+Contest T-shirts,9
+AOJ50M,9
+Hec's Problem,9
+Cicada,9
+Highway Express Bus,9
+Poison Swamp,9
+TETORIS,9
+Russian Dolls,9
+A New Plan of Aizu Ski Resort,9
+Ribbons On Perfect Binary Tree,8
+Calender Colors,8
+Lottery Checker,8
+Sum of Coloring Problem,8
+LCM Tour,8
+BrokenMachine,8
+Get the treasure,8
+Area Separation,8
+Tax Collection,8
+Tokyo2020,8
+Increasing Sequence,8
+Empire of the BIWAKO,8
+long sequence,8
+No Palindromes,8
+Divisor,8
+Median Tree,8
+Password,8
+Factorization,8
+Taxis,8
+Chairs Where Demanding People Sit,8
+Hexagon Coordinate,8
+Baumkuchen,8
+True Liars,8
+Lagrange's Four-Square Theorem,8
+Sugar Glider,8
+Squeeze the Cylinders,8
+Bit String Reordering,8
+Tanka Number,8
+LthKthNumber,8
+City Merger,8
+A-Z-,8
+Sandcastle,8
+Book Arrangement,8
+Walking in JOI Kingdom,8
+Square Coins,8
+My Number,8
+Time Complexity,8
+Min Element,8
+Rabbit Game Playing,8
+Tally Counters,8
+Maximum Sum Sequence II,8
+Boolean Expression Compressor,8
+Railway Connection,8
+Carpenters' Language,8
+marukaite,8
+A Piece of Cake,8
+ConvexCut,8
+Fish,7
+Space-Time Sugoroku Road,7
+LCM Count,7
+Early Morning Work at Summer Camp,7
+Road Planning,7
+Citation Format,7
+Mizuyokan,7
+Railroad Trip,7
+M and A,7
+A Simple Offline Text Editor,7
+Taiyaki-Master and Eater,7
+Patisserie,7
+KND is So Sexy,7
+Rectangular Searching,7
+10-Year-Old Dynamic Programming,7
+Ebi-chan and Integer Sequences,7
+Magic Bullet,7
+Right triangle,7
+Exhibition,7
+Card Game II,7
+Sleeping Time,7
+Night Market,7
+Multiplication,7
+Union Ball,7
+Expensive Function,7
+JAG-channel,7
+Advanced Algorithm Class,7
+Evacuation Route,7
+Reverse Roads,7
+Make T from S,7
+Popularity Estimation,7
+Divisor Game,7
+Thread Tree,7
+Tenkey,7
+A2B,7
+Sum of 2 or 3,7
+Malfatti Circles,7
+Road Construction,7
+Hasty Santa Claus,7
+Sum of numbers filtered by bit,7
+Emergency Evacuation,7
+There is No Alternative,7
+Making Sugoroku,7
+The Genome Database of All Space Life,7
+500-yen Saving,7
+Railroad Conflict,7
+Dungeon,7
+CD Collector,7
+Hide-and-Seek Supporting System,7
+Battle Town,7
+Parallel Lines,7
+Altair and Vega,7
+Distribution Center,7
+Bug Hunt,7
+Chain-Confined Path,7
+Computation of Salary,7
+Waffle with Holes,7
+Stray Twins,7
+Fibonacci Sets,6
+The Squares,6
+King Slime,6
+Substring,6
+Enumeration,6
+Deadlock Detection,6
+Transporter,6
+The Most Powerful Spell,6
+Loading,6
+Icicles,6
+Make a Sequence,6
+Moats around the Castle,6
+Snake JOI,6
+Scene in a Picture,6
+Community Integration,6
+It's our delight!!,6
+3D Printing,6
+Almost Balanced Parentheses,6
+Equation,6
+Count the Regions,6
+Foehn Phenomena,6
+Slim Span,6
+Find the Outlier,6
+Cube Surface Puzzle,6
+Dancing Maze,6
+RabbitWalking,6
+Ebi-chan Lengthens Shortest Paths,6
+Split Up!,6
+Roll-A-Big-Ball,6
+How I Wonder What You Are!,6
+Many Kinds of Apples,6
+One-Dimensional Cellular Automaton,6
+Road Improvement,6
+Training Schedule for ICPC,6
+Nature of Prime Numbers,6
+Flick Input,6
+Traffic Analysis,6
+Processing Machine,6
+Pyon-Pyon River Crossing,6
+Stack swaps,6
+Mirrored string,6
+Distance XY,6
+Palindromic Number,6
+Awkward Lights,6
+Arithmetic Progressions,6
+Array Update,6
+Medical Checkup,6
+Starting a Scenic Railroad Service,6
+Microorganism Power Generation,6
+Encryption System,6
+Sergeant Rian,6
+Strange String Manipulation,6
+Shredding Company,6
+Balloon Collecting,6
+Sevens,6
+Twenty Questions,6
+Room Number,6
+Repeated Substitution with Sed,6
+Consistent Unit System,6
+Lie with Mean Value,6
+Finite Field Calculator,6
+Intersection of a Circle and a Polygon,6
+Unknown Switches,6
+Minimum MAW,6
+JOI Emblem,6
+Mirror Cave,6
+A-Z Cat,6
++- Switch,6
+Intersection of Two Prisms,6
+Alphabet Block,6
+Sinking islands,6
+Bell,6
+Intimate Slimes,6
+City,6
+Matryoshka Doll,6
+Line Gimmick,6
+The Oldest Site,6
+Twin book report,6
+The Sorcerer's Donut,6
+Restrictive Filesystem,6
+Prize,5
+The Lonely Girl's Lie,5
+Slot Machine,5
+War,5
+Colorful Drink,5
+Fox Observation,5
+Two Colors Sort,5
+Baby Tree,5
+Quality of Check Digits,5
+RUPC,5
+Colored Cubes,5
+Dividing Snacks,5
+Nasty Boys,5
+Broken Audio Signal,5
+Operations with Finite Sets,5
+Mighty Man,5
+JPEG Compression,5
+Sum of QQ,5
+How old are you,5
+Plants,5
+Ravage,5
+Parentheses Number,5
+A Holiday of Miss Brute Force,5
+JOI04,5
+Older Research Bldg. No.7,5
+Investigation of Club Activities,5
+Spot The Difference,5
+Seishun 18 Kippu 2013,5
+Net Cafe,5
+Blur,5
+Where's Your Robot?,5
+Bilateral Trade,5
+Collecting Stamps 2,5
+Usaneko Matrix,5
+Aizu Buried Treasure,5
+Test Case Tweaking,5
+Everyday is Holiday,5
+SAT-EN-3,5
+Starship UAZ Advance,5
+The First Acceptance,5
+Eclipse,5
+Plush Toys,5
+Rearranging Seats,5
+Ninja Climbing,5
+Surface Area of Cubes,5
+Dangerous Tower,5
+Hot Spring Trip,5
+Invisible,5
+ABS Pairs,5
+Escape,5
+Champernowne Constant,5
+Roll Tetrahedron,5
+Hamming Distance,5
+Board Arrangements for Concentration Games,5
+Calculation of Expressions,5
+Mr. Rito Post Office,5
+Periodic Sequence,5
+Help the Princess!,5
+Curtain,5
+Unable Count,5
+Strange Couple,5
+The Most Powerful Bed,5
+Icosahedron,5
+Huge Bingo,5
+Alien's Counting,5
+Nails,5
+Fudge My Age,5
+Tiles are Colorful,5
+Road and Telepoter,5
+Bicycle Diet,5
+Sorting Balls,5
+One Way Maze Game,5
+Princess in Danger,5
+Tournament Chart,5
+Fukushimaken,5
+Carpet,5
+Forgot Your Password?,5
+Cubes Without Holes,5
+Mod Rally,5
+Swapping Characters,5
+Digits K,5
+White Bird,5
+Rabbit Party,5
+Checkered Pattern,5
+Floating-Point Numbers,5
+Beautiful Currency,5
+Separate Points,4
+Beat Panel,4
+Taps,4
+Arrow,4
+The Last Ant,4
+Breadth-First Search by Foxpower,4
+MOD Rush,4
+Map of Ninja House,4
+Steelyard,4
+Pruning,4
+Todaiji,4
+You Should Avoid,4
+Prime-Factor Prime,4
+AA Graph,4
+Dark Room,4
+Concert Hall Scheduling,4
+Infallibly Crack Perplexing Cryptarithm,4
+Slimming Plan,4
+Weather Forecast,4
+Where is the Boundary,4
+Exhibition 2,4
+Don't Burst the Balloon,4
+Change a Password,4
+Prowler,4
+Programming Contest II,4
+Life Game,4
+Pathological Paths,4
+Angel Relief,4
+Sum of Different Primes,4
+Scone,4
+Stylish,4
+Parade,4
+Mod!Mod!,4
+Expected Allowance,4
+Antigravity,4
+AddMul,4
+Approximately sin,4
+Arrows,4
+Sleeping Cats,4
+Three Meals,4
+ICPC: Ideal Coin Payment and Change,4
+Convenience Store,4
+Akabeko 20,4
+Off Balance,4
+Nearest Station,4
+Milky Way,4
+Verbal Arithmetic,4
+Planning Rolling Blackouts,4
+Ennichi,4
+Simple Othello,4
+Social,4
+Earthquakes,4
+Taxi,4
+Points on a Straight Line,4
+Shiritori,4
+Evacuation Site,4
+Merry Christmas,4
+Common Sub-String,4
+Magical Girl Sayaka-chan,4
+Swap Cipher,4
+Doctor's Strange Particles,4
+Exploring Caves,4
+School of Killifish,4
+Get a Rectangular Field,4
+Tree Propagation,4
+Unit Fraction Partition,4
+Marathon Match,4
+N-Sukumi Janken,4
+Spring Tiles,4
+Infinity Maze,4
+Changing the Sitting Arrangement,4
+Number Sorting,4
+Hokkaido University 2,4
+Left Truncatable Prime,4
+Fermat's Last Theorem,4
+Roads on Towns,4
+Fastest Route,4
+Lost Number,4
+Riffle Shuffle,4
+Shopping in JOI Kingdom,4
+Independent Research,4
+YAML,4
+Factorization of Quadratic Formula,4
+Strawberry 2,4
+Lion,4
+Hating Crowd,4
+Voting,4
+Study Session,4
+Shipura,4
+Star Watching,4
+Consistent Trading,4
+Permutation Sort,4
+Whist,4
+For the Peace,4
+AIGo,4
+Derangement,4
+Futon,4
+Yu-kun Likes Letters in the English Alphabet,4
+U and U,4
+Xor Mart,4
+Binary Tree Intersection And Union,4
+iff,4
+Extraordinary Girl II,4
+Highway Network,4
+escape,4
+Grid Mori,4
+Product Sale Lines,4
+Movie,4
+ReverseSort,4
+Power Subsequences,4
+Merge Sequences,4
+New Drug Development,4
+Deadlock,4
+Subset Coloring,3
+Parentheses Inversion,3
+On-Call,3
+Expectation of ST Informant,3
+Gift Exchange,3
+Range Same Query,3
+Similarity of Subtrees,3
+Rotation ,3
+Exponential Path,3
+Taking a Seat,3
+Knight Fork,3
+Watch the Marathon,3
+i18n,3
+Short Circuit Evaluation,3
+All Japan Association of Return home,3
+Zor,3
+Multistory Parking Lot,3
+Eleven Puzzle,3
+Jam,3
+Non-trivial Common Divisor,3
+UFO Shooting Down Operation,3
+Stoning Fortune,3
+AddMulSubDiv,3
+Othello,3
+nCm,3
+Ghost Legs,3
+School Cafeteria,3
+Coin and Die,3
+Nd Explosion,3
+Cutlet Sandwich,3
+Board,3
+Halting Problem,3
+Palindromic Subsequences,3
+Pivots,3
+Rectangle Game,3
+Anagram,3
+Capture Ebichan,3
+Cuboid Boat,3
+RPG Maker,3
+Lupin The 4th,3
+Sneaking,3
+Internet Protocol Address,3
+String With Rings,3
+Interactive Number Guessing,3
+Falling Block Puzzle,3
+AI,3
+Boring Commercials,3
+6/2(1+2),3
+Extraordinary Girl I,3
+The Balance,3
+Sigma,3
+Leaky Cryptography,3
+Efficient Problem Set,3
+Four Arithmetic Operations,3
+Spellcasters,3
+Carrot Tour,3
+LR,3
+Palindromic Anagram,3
+RLE Replacement,3
+Patience,3
+Rational Irrationals,3
+Strange Key,3
+Everlasting Zero,3
+Box Witch,3
+Robot Arm,3
+Mobile Phone Coverage,3
+Hidden Anagrams,3
+Wall Making Game,3
+Unhappy Class,3
+Dominoes Arrangement,3
+Icpcan Alphabet,3
+Handing out Balloons,3
+Wish upon a shooting star,3
+String Compression,3
+Winter Bells,3
+Time is Money,3
+On or Off,3
+Reverse a Road II,3
+Cookie Counter,3
+Rectangular Stamps,3
+Accelerated Railgun,3
+Quest of Merchant,3
+TiMe Table,3
+Life Line,3
+String Conversion,3
+Shortest Common Non-Subsequence,3
+Perm Query,3
+Ordering,3
+Super Star,3
+Almost Same Substring,3
+Tree Transformation Puzzle,3
+Quiet Town,3
+Equals are Equals,3
+Hedro's Hexahedron,3
+Do Geese See God?,3
+Let's JUMPSTYLE,3
+1 Day Passport,3
+Beautiful Sequence,3
+Magic Slayer,3
+Luigi's Tavern,3
+Paper Fortune,3
+Erratic Sleep Habits,3
+Rental DVD Shop NEO,3
+Mysterious Operator,3
+JOI Park,3
+Cake 2,3
+Festivals in JOI Kingdom,3
+Bug Party,3
+Sibling Rivalry,3
+Water Tank,3
+Project Management,3
+Find the Multiples,3
+Zero Division Checker,3
+ID,3
+Search of Concatenated Strings,3
+Ononokomachi's Edit War,3
+Anchored Balloon,3
+Colored Octahedra,3
+Walking Santa,3
+Three-way Branch,3
+Kanglish:Analysis on Artificial Language,3
+Dice Stamp,3
+Fundraising Street,3
+Authentication Level,3
+Teleportation Network,3
+Wind Passages,3
+Unit Converter,3
+Dragon Fantasy,3
+Exposition,3
+An Equation in a Mine,3
+Parentheses Editor,3
+Bit Operation Game,3
+Gift Exchange Party,2
+Butterfly,2
+Triangle and Circle,2
+Push!!,2
+Many Decimal Integers,2
+Range Count Query,2
+Perfect,2
+Delivery Company,2
+Family Tree,2
+Ice Maze,2
+And Then. How Many Are There?,2
+Go around the Labyrinth,2
+Lost in Space,2
+Roll Cake,2
+Katsu Sando,2
+Scheduler,2
+DisconnectedGame,2
+Treasure Mountains,2
+Dice Puzzle,2
+Sliding Block Puzzle,2
+AYBABTU,2
+Colored Pencils and Caps,2
+Die Game,2
+Collecting Balls,2
+Expression Mining,2
+Count Pow Sum,2
+Fractional Knapsack,2
+Round Trip,2
+Sashimi,2
+A Broken Door,2
+Doctor's Research Rooms,2
+Keima,2
+Light Road,2
+Mobile Network,2
+hosonagaitokoro,2
+Network Reliability,2
+Thirds,2
+Rose Garden Witch,2
+Fishnet,2
+Immortal Jewels,2
+Forecast of Forces,2
+Atomic Car Race,2
+Infinite Problems,2
+Visibility,2
+Angel Stairs,2
+Network Mess,2
+Poor Mail Forwarding,2
+Power Calculus,2
+Gift from the Goddess of Programming,2
+Evening,2
+The Morning after Halloween,2
+Most Distant Point from the Sea,2
+Euler Query,2
+Power Game,2
+Stopped Watches,2
+Galaxy Wide Web Service,2
+Everlasting...?,2
+Voronoi Island,2
+Headstrong Student,2
+Pi is Three,2
+The Closest Circle,2
+Ferris Wheel,2
+Tsumiki Box,2
+Repeated Subsequences,2
+2xL Minesweeper,2
+Infected Land,2
+Swimming Jam,2
+MonochromeStone,2
+Canal: Water Going Up and Down,2
+Compile,2
+Mobile Computing,2
+Monster Trap,2
+Bara-Bara Manju,2
+Audience Queue,2
+"Young, Poor and Busy",2
+Edamame Energy Engineering,2
+Time Sale,2
+The Legendary Sword,2
+Seishun 18 Kippu,2
+At Boss's Expense,2
+Construction Set,2
+Walking,2
+Bridge Construction,2
+Stopping Problem,2
+[[iwi]],2
+Divide the Cake,2
+Organize Your Train,2
+Dungeon Quest II,2
+Step Step Evolution,2
+The Castle,2
+Rabbit Plays Games!,2
+Graph Construction,2
+Autumnal Illumination,2
+Range Totient Query,2
+Pachimon Creature,2
+Jigsaw Puzzle and Detective,2
+Inherit the Spheres,2
+Kaeru Jump,2
+THE BYDOLM@STER,2
+Book Replacement,2
+Automotive Navigation,2
+Pie Chart is as easy as pie.,2
+Dr. Podboq or: How We Became Asymmetric,2
+Hanbunko,2
+Decoding Ancient Messages,2
+Casino,2
+Knocker of the Gigas Cedar,2
+Reordering the Documents,2
+Candies 2,2
+Land Division,2
+Gochiusa-Number,2
+Shiritori Compression,2
+Broken Exit,2
+Mapping,2
+Persimmon,2
+The Diversity of Prime Factorization,2
+Hierarchical Calculator,2
+Safety Inspection,2
+What Goes Up Must Come Down,2
+Yu-kun Likes an Integer,2
+Mail Order,2
+Finding the Largest Carbon Compound Given Its Long,2
+Line Puzzle,2
+Hard Beans,2
+Simple GUI Application,2
+Ruins,2
+Computation of Minimum Length of Pipeline,2
+Dense Amidakuji,2
+Hyperrectangle,2
+Mystery of an Ancient Ruin,2
+Prime Routing,2
+Nim without Zero,2
+Chopsticks,2
+Catch a Thief,2
+Wall,2
+Arojam's Mask,2
+Coin Slider,2
+Event Hopping,2
+Rock-Scissors-Paper Expression,2
+Yamanote-line Game,2
+Donut Decoration,2
+Graduation Ceremony,2
+IOI Manju,2
+Campaign,2
+Three-Axis Views,2
+East Wind,2
+Baseball,2
+Odd and Even Spirit,2
+SNS,2
+Cabbage,2
+Secrets of Legendary Treasure,2
+Yokohama Phenomena,2
+Pots,2
+Sendame,2
+RMQ,2
+Modern Mansion,2
+Country in Distortion,2
+Modern Announce Network,2
+Izua Dictionary,2
+Black Company,2
+Cats Going Straight II,2
+Displayed tweets,2
+Railroad,2
+Smartphone Game,2
+Art Exhibition,2
+Unique Subsequence,2
+Room of Time and Spirit,2
+Ninja Map,2
+Happy End Problem,2
+Yu-kun Likes Rectangles,2
+Endless BFS,2
+Monster Factory,2
+LotsOfMountains,2
+Midnight Teatime,2
+Gridgedge,2
+Shuttle Run,2
+K Cards,2
+One-Time Path,2
+School Excursion,2
+Frame,2
+A Long Ride on a Railway,2
+Cyber Guardian,2
+Magical Bridges,2
+Stack Maze,2
+Placing Medals on a Binary Tree,2
+Jigsaw Puzzles for Computers,2
+Pile Up!,2
+Cyclic Sugoroku,2
+Donut Hole,2
+Potatoes,2
+Square Carpets,2
+Wall Clocks,2
+Ghost,2
+English,2
+Satake likes straight,2
+Count Words,2
+B2D,2
+Bridge Construction Planning,2
+Computer Onesan,2
+Cube of Two,2
+Gym with Many Rules,2
+Game on Tree,2
+Slates,2
+Everlasting -One-,2
+Graph Making,2
+No Story,2
+D's Ambition,2
+String Puzzle,2
+Great Strategy for Bring Up Grade,2
+Rolling Dice,2
+Idempotent Filter,2
+Friday the 13th,2
+LISum,2
+Watchin' TVA,2
+Grid Number,2
+Dowsing Machine,2
+Rendezvous on a Tetrahedron,2
+Huge Family,2
+Universal and Existential Quantifiers,2
+Distorted Love,2
+Undo Swapping,2
+Black or White,2
+The Great Summer Contest,2
+Squid Multiplication,2
+Pizza Delivery,2
+Pattern Language,2
+Chocolate with Heart Marks,2
+Time Manipulation,2
+Driving an Icosahedral Rover,1
+Flipping Parentheses,1
+Hidden Tree,1
+The Two Men of the Japanese Alps,1
+Counting Cycles,1
+Ant Nest,1
+Towns along a Highway,1
+Space Golf,1
+ASCII Expression,1
+Chemist's Math,1
+One-Way Conveyors,1
+Ambiguous Encoding,1
+Sixth Sense,1
+Eulerian Flight Tour,1
+Skinny Polygon,1
+Filling Game,1
+Weaker than Planned,1
+Let There Be Light,1
+Where's Wally,1
+Long Distance Taxi,1
+Bringing Order to Disorder,1
+Cover the Polygon with Your Disk,1
+Beautiful Spacing,1
+Matrix Calculator,1
+Clock Hands,1
+Fair Chocolate-Cutting,1
+28,1
+The Last Door,1
+High and Low Cube,1
+Cleaning Robot 2.0,1
+Course Planning for Lazy Students,1
+Frisbee Dogs,1
+Ghost Buster!,1
+Crop Circle,1
+The Last Dungeon,1
+Ben Toh,1
+Mysterious Onslaught,1
+The House of Huge Family,1
+Cutting a Chocolate,1
+Cosmic Market,1
+Sum of the Number of Triangles,1
+Everything Starts With Your Vote,1
+World Domination,1
+11224111122411,1
+Live Schedule,1
+Make KND So Fat,1
+Spiral Footrace,1
+Multi-column List,1
+Jigsaw Puzzle,1
+Missing Numbers,1
+Nets of Dice,1
+Canal,1
+Coin Collecting 2,1
+Warehouse Robot,1
+Copy and Sum,1
+Reindeer with no sense of direction,1
+JOI Flag,1
+Gifts,1
+Xiao Long Bao,1
+Cutting,1
+Take the 'IOI' train,1
+Star-shaped Pentagon,1
+Whispering Game,1
+Food stalls,1
+Disaster Response Simulation,1
+Semiexpress,1
+Commuting Route,1
+Coin Collecting,1
+Rotating Mass Game,1
+Fishermen Following the Rules,1
+The Shortest Path on the Spider's Web,1
+Reorganization of Highway Network,1
+Trade Plan,1
+EGOI Exhibition,1
+Coloured Mountain Hut,1
+Passport,1
+What is the Number in my Mind ?,1
+Chemical Substance Alpha,1
+Zigzag,1
+Shy Polygons,1
+Telescope,1
+e-market,1
+77377,1
+Beehives,1
+Nim,1
+GIGA Universe Cup,1
+Gap,1
+Confusing Login Names,1
+Color the Map,1
+Subdivide The Land,1
+How I Mathematician Wonder What You Are!,1
+Name the Crossing,1
+Cubic Eight-Puzzle,1
+Lowest Pyramid,1
+Geometric Map,1
+The Teacher's Side of Math,1
+Digits on the Floor,1
+Spherical Mirrors,1
+Traveling Cube,1
+Top Spinning,1
+Common Polynomial,1
+Alien Messages,1
+Pump up Batteries,1
+Co-occurrence Search,1
+Walking Ant,1
+Heavenly Jewels,1
+Earth Observation with a Mobile Robot Team,1
+Bug,1
+Two Polygons,1
+Hexerpents of Hexwamp,1
+ICPC: Intelligent Congruent Partition of Chocolate,1
+Tournament Record,1
+Tighten Up!,1
+Castle in the Sky,1
+Laser Beam Reflections,1
+Watchdog Corporation,1
+Common-Prime Sort,1
+Patisserie ACM,1
+Rotate and Rewrite,1
+A Die Maker,1
+Don't Cross the Circles!,1
+Lattice Practices,1
+To be Connected or not to be that is the Question,1
+Pipeline Scheduling,1
+Beaker,1
+Trapezoids,1
+Mirror Illusion,1
+Napoleon's Grumble,1
+Moduic Squares,1
+Formica Sokobanica,1
+Integer in Integer,1
+Let's Go To School,1
+Medical Inspection,1
+Rings,1
+Tree Reconstruction,1
+Colorful Tree,1
+Red Black Balloons,1
+SIRO Challenge,1
+Palindrome Compliment,1
+Permutation Score,1
+Putter,1
+Nose And Lung,1
+Bombing,1
+Rooks Game,1
+All your base are belong to us,1
+Venn Diagram,1
+Doctor Course Is Recommended,1
+Disciple Life is Hard,1
+Dangerous Delivery,1
+Elevator Hall Number,1
+Tree,1
+Flowers,1
+Square in Circles,1
+Points and Lines,1
+Website Tour,1
+String Magic,1
+Apples,1
+Numbers game,1
+Iyasugigappa,1
+Fissure Puzzle Easy,1
+Round-trip String,1
+Piano,1
+Longest Increasing Sequence,1
+Sports Days 2.0,1
+Audition,1
+Card,1
+DNA,1
+Cutting Subarray,1
+Canisar Cipher,1
+A Two Floors Dungeon,1
+Connect,1
+Repairing,1
+Usoperanto,1
+Dial Key,1
+Earn Big,1
+goto busters,1
+Sim Forest 2013,1
+Double or Increment,1
+Cyclic Shift Sort,1
+Don't Burn Kotatsu Turtle,1
+Phone Number,1
+Reverse Game,1
+Round And Round,1
+Texas hold 'em,1
+Combine Two Elements,1
+Billiard,1
+Light,1
+AABABCAC,1
+Cluster Network,1
+Social Monsters,1
+Wave Attack,1
+Nested Repetition Compression,1
+Stamp Rally,1
+Route Calculator,1
+Janken Master,1
+Nearly Cyclic String,1
+Multiplication Is Interesting,1
+Indecision,1
+Vector Field,1
+Identity Function,1
+Dimension travel,1
+Marching Course,1
+Laser Cutter,1
+Industrial Convex Pillar City,1
+Delete Files,1
+Shifting a Matrix,1
+Imagawayaki Man,1
+Dance Now!,1
+Rainy Bus Stops,1
+Fractal Tree,1
+Suntan,1
+Land Inheritance,1
+Lost Graph,1
+Compressed Formula,1
+Multisect,1
+Pipe Fitter and the Fierce Dogs,1
+Share the Ruins Preservation,1
+Escape from the Hell,1
+We don't wanna work!,1
+Match Peas War,1
+Low Range-Sum Matrix,1
+Alternate Escape,1
+Phutball,1
+Tree Separator,1
+A + B,1
+Trip to Kyoto,1
+Optimal alpha beta pruning,1
+Graph Automata Player,1
+Spotlight Movement,1
+Gravity Point,1
+Clique Coloring,1
+Snake,1
+Rough Sorting,1
+Additions,1
+Prefix Suffix Search,1
+Hopping Hearts,1
+Bumpy Array,1
+Cram School Schedule,1
+Rescue a Postal Worker,1
+Cube Coloring,1
+Antiaircraft Shield,1
+Polygon Guards,1
+Tokyo Olympics Center,1
+Unfair Game,1
+Content Delivery,1
+Elevator,1
+Cost Performance Flow,1
+ICPC Teams,1
+JAG-channel II,1
+Runner and Sniper,1
+Separate String,1
+Anipero 2012,1
+Acrophobia,1
+Acceleration of Network,1
+Equilateral Triangular Fence,1
+Let's Move Tiles!,1
+Addition on Convex Polygons,1
+Luggage,1
+Connection of Arithmetic Units,1
+Princess' Perfectionism,1
+Not Allow Triangle,1
+Village of Lore,1
+Trim It Step by Step,1
+Villa of Emblem Shape,1
+Data Center on Fire,1
+Karakuri Doll,1
+Princess's Japanese,1
+"Princess, a Cryptanalyst",1
+"Princess, a Strategist",1
+Miko Mi String,1
+Restaurant,1
+Tetrahedra,1
+International Party,1
+Hide-and-seek,1
+Slippy Floors,1
+!,1
+palindromic?,1
+Rhythm Machine,1
+Game,1
+Symmetry,1
+Stop and Go,1
+Defend the Bases,1
+Flipping Colors,1
+Disappearing Sequence,1
+Janken,1
+Equivalent Deformation,1
+Color Inversion on a Huge Chessboard,1
+Last One,1
+Planarian Regeneration,1
+Warping Girl,1
+Cheat Case,1
+Remainder Zero,1
+Caterpillar,1
+Changing Grids,1
+Yu-kun Likes To Play Darts,1
+A White Wall,1
+Mountain Climbing,1
+Puzzle and Hexagons,1
+Squid Ink,1
+Bomb Removal,1
+Array Update 2,1
+Reflection Warp Machine,1
+Star,1
+Char Swap,1
+Gathering,1
+Unknown Germ,1
+The Kingdom of Akabeko,1
+Disk,1
+Dungeon 2,1
+Complex Paper Folding,1
+Development of Small Flying Robots,1
+Deciphering Characters,1
+Warp Drive,1
+Garbage Disposal,1
+Tatami,1
+Fish Tank,1
+Revenge of the Round Table,1
+Minimize movement,1
+AND Partial Sum,1
+Vector Compression,1
+Shadow Witch,1
+Class Representative Witch,1
+Set-constructing Witch,1
+Chinese Classics,1
+Revenge of Champernowne Constant,1
+Mysterious Maze,1
+Sky Jump,1
+Pyramid Graph,1
+Matrix Operation,1
+Multi Ending Story,1
+Testing Circuits,1
+Chicken or the Egg,1
+TransferTrain,1
+IkaNumber,1
+HullMarathon,1
+RabbitLunch,1
+Bicube,1
+Bubble Puzzle,1
+Shelter,1
+Painting Tree,1
+Tree of Peony,1
+The Enemy of My Enemy is My Friend,1
+Are Cards Snacks?,1
+Sister Ports,1
+Power of Power,1
+Entangled with Lottery,1
+Common Palindromes,1
+Dungeon Wall,1
+Re:Square,1
+Find the Point,1
+Queen's Case,1
+Maximizing Pocket Money,1
+Safe Area,1
+Neko's Treasure,1
+String Game,1
+Addition Game,1
+Two Everywhere,1
+The Melancholy of Thomas Right,1
+Stolen Jewel,1
+K Poker,1
+WISWIS,1
+Problem B,1
+How to Create a Good Game,1
+LEQ and XOR,1
+Dice Room,1
+XOR Walk,1
+Two-Wheel Buggy,1
+Operator,1
+Sakura Poetry,1
+Round Tour,1
+Programming Contest Challenge Book,1
+Cache Strategy,1
+Buttons,1
+Fox Number,1
+Area Folding,1

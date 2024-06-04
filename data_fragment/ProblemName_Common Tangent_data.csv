@@ -1,0 +1,1833 @@
+judgeId,problemId,problemName,sourceCode
+8256300,CGL_7_G,Common Tangent,"from math import sqrt
+def common_tangent_points(x1, y1, r1, x2, y2, r2):
+    result = []
+    xd = x2 - x1; yd = y2 - y1
+    rr0 = xd**2 + yd**2
+    if (r1 - r2)**2 <= rr0:
+        cv = r1 - r2
+        if rr0 == (r1 - r2)**2:
+            result.append((x1 + r1*cv*xd/rr0, y1 + r1*cv*yd/rr0))
+        else:
+            sv = sqrt(rr0 - cv**2)
+            result.append((x1 + r1*(cv*xd - sv*yd)/rr0, y1 + r1*(sv*xd + cv*yd)/rr0))
+            result.append((x1 + r1*(cv*xd + sv*yd)/rr0, y1 + r1*(-sv*xd + cv*yd)/rr0))
+    if (r1 + r2)**2 <= rr0:
+        cv = r1 + r2
+        if rr0 == (r1 + r2)**2:
+            result.append((x1 + r1*cv*xd/rr0, y1 + r1*cv*yd/rr0))
+        else:
+            sv = sqrt(rr0 - cv**2)
+            result.append((x1 + r1*(cv*xd - sv*yd)/rr0, y1 + r1*(sv*xd + cv*yd)/rr0))
+            result.append((x1 + r1*(cv*xd + sv*yd)/rr0, y1 + r1*(-sv*xd + cv*yd)/rr0))
+    return result
+cx1, cy1, r1 = map(int, input().split())
+cx2, cy2, r2 = map(int, input().split())
+ANS = sorted(common_tangent_points(cx1, cy1, r1, cx2, cy2, r2))
+for x, y in ANS:
+    print(x, y)"
+9076046,CGL_7_G,Common Tangent,"def tangent_cc(c0, r0, c1, r1):
+	if c0 == c1:
+		return list()
+	v = (c1-c0) / abs(c1-c0)
+	d = abs(c1-c0)
+	ans = list()
+	if d >= r0+r1:
+		t = r0 * (r0+r1) / d
+		f = (r0**2-t**2) ** 0.5
+		ans.append(c0 + (t-1j*f)*v)
+		if d > r0+r1:
+			ans.append(c0 + (t+1j*f)*v)
+	if d >= abs(r0-r1):
+		t = r0 * (r0-r1) / d
+		f = (r0**2-t**2) ** 0.5
+		ans.append(c0 + (t-1j*f)*v)
+		if d > abs(r0-r1):
+			ans.append(c0 + (t+1j*f)*v)
+	return ans
+cx0, cy0, r0 = map(int, input().split())
+c0 = complex(cx0, cy0)
+cx1, cy1, r1 = map(int, input().split())
+c1 = complex(cx1, cy1)
+ans = tangent_cc(c0, r0, c1, r1)
+ans.sort(key=lambda x: (x.real, x.imag))
+for x in ans:
+	print(f'{x.real:.15f} {x.imag:.15f}')"
+3276880,CGL_7_G,Common Tangent,"from math import acos, atan2, cos, hypot, isclose, pi, sin
+def tangent_points(circle1, circle2):
+    x1, y1, r1 = circle1
+    x2, y2, r2 = circle2
+    c1c2 = hypot(x2-x1, y2-y1)
+    t0 = atan2(y2-y1, x2-x1)
+    ps = []
+    r1r2 = r1+r2
+    if isclose(c1c2, r1r2):
+        ps.append((x1 + r1*cos(t0), y1 + r1*sin(t0)))
+    elif c1c2 > r1r2:
+        t1 = acos(r1r2 / c1c2)
+        ps.append((x1 + r1*cos(t0+t1), y1 + r1*sin(t0+t1)))
+        ps.append((x1 + r1*cos(t0-t1), y1 + r1*sin(t0-t1)))
+    r1r2 = r1-r2
+    if isclose(c1c2, abs(r1r2)):
+        if r1r2 > 0.0:
+            t1 = 0.0
+        else:
+            t1 = pi
+        ps.append((x1 + r1*cos(t0+t1), y1 + r1*sin(t0+t1)))
+    elif c1c2 > abs(r1r2):
+        if r1r2 > 0.0:
+            t1 = acos(r1r2 / c1c2)
+        else:
+            t1 = pi - acos(-r1r2 / c1c2)
+        ps.append((x1 + r1*cos(t0+t1), y1 + r1*sin(t0+t1)))
+        ps.append((x1 + r1*cos(t0-t1), y1 + r1*sin(t0-t1)))
+    return ps
+def run():
+    c1 = [int(i) for i in input().split()]
+    c2 = [int(i) for i in input().split()]
+    ps = tangent_points(c1, c2)
+    for p in sorted(ps):
+        print(""{:.10f} {:.10f}"".format(*map(eliminate_minus_zero, p)))
+def eliminate_minus_zero(f):
+    if isclose(f, 0.0, abs_tol=1e-9):
+        return 0.0
+    else:
+        return f
+if __name__ == '__main__':
+    run()"
+7129877,CGL_7_G,Common Tangent,"class Circle:     
+    def cross_points2(self, c1x, c1y, r1, c2x, c2y, r2): 
+        dx, dy = c2x - c1x, c2y - c1y
+        d2 = dx**2 + dy**2
+        A1 = -2*c1x + 2*c2x
+        B1 = -2*c1y + 2*c2y
+        C1 = c1x**2 - c2x**2 + c1y**2 - c2y**2 - r1**2 + r2**2
+        e = abs(A1*c1x + B1*c1y + C1) / (A1**2 + B1**2)**0.5 
+        C2 = B1*c1x - A1*c1y
+        p = (C2*B1 - C1*A1) / (A1**2 + B1**2)
+        q = -(C1*B1 + C2*A1) / (A1**2 + B1**2) 
+        if d2 == (r1 + r2)**2: 
+            return  [(p, q), (p, q)]
+        elif d2 == (r1 - r2)**2: 
+            return [(p, q), (p, q)]
+        elif (r1 - r2)**2 < d2 < (r1 + r2)**2: 
+            nx, ny = B1/((A1**2 + B1**2)**0.5), -A1/((A1**2 + B1**2)**0.5)
+            f = (r1**2 - e**2)**0.5
+            res = []
+            res.append((p + nx*f, q + ny*f))
+            res.append(((p - nx*f, q - ny*f)))
+            res.sort(key=lambda x: x[1])
+            res.sort(key=lambda x: x[0])
+            return res 
+    def tangent_points(self, px, py, cx, cy, r): 
+        d2 = (cx - px)**2 + (cy - py)**2 
+        if d2 > r**2:
+            e = (d2 - r**2)**0.5
+            return self.cross_points2(px, py, e, cx, cy, r)
+    def common_tangent(self, c1x, c1y, r1, c2x, c2y, r2):
+        res1, res2 = [], []
+        if r1 == r2:
+            dx, dy = c2x - c1x, c2y - c1y 
+            d2 = dx**2 + dy**2
+            nx, ny = dy/d2**0.5, -dx/d2**0.5 
+            res1.append((c1x + r1*nx, c1y + r1*ny))
+            res1.append((c1x - r1*nx, c1y - r1*ny))
+            res2.append((c2x + r2*nx, c2y + r2*ny))
+            res2.append((c2x - r2*nx, c2y - r2*ny))
+            if d2 > (r1 + r2)**2:    
+                mx, my = c1x + dx*r1/(r1 + r2), c1y + dy*r1/(r1 + r2)
+                res1.extend(self.tangent_points(mx, my, c1x, c1y, r1))
+                res2.extend(self.tangent_points(mx, my, c2x, c2y, r2))
+            elif d2 == (r1 + r2)**2:
+                mx, my = c1x + dx*r1/(r1 + r2), c1y + dy*r1/(r1 + r2)
+                res1.append((mx, my))
+                res2.append((mx, my))
+        elif r1 > r2:
+            dx, dy = c2x - c1x, c2y - c1y 
+            d2 = dx**2 + dy**2
+            if d2 > (r1 - r2)**2:
+                px, py = c1x + dx*r1/(r1 - r2), c1y + dy*r1/(r1 - r2)
+                res1.extend(self.tangent_points(px, py, c1x, c1y, r1))
+                res2.extend(self.tangent_points(px, py, c2x, c2y, r2))
+                if d2 > (r1 + r2)**2:    
+                    mx, my = c1x + dx*r1/(r1 + r2), c1y + dy*r1/(r1 + r2)
+                    res1.extend(self.tangent_points(mx, my, c1x, c1y, r1))
+                    res2.extend(self.tangent_points(mx, my, c2x, c2y, r2))
+                elif d2 == (r1 + r2)**2:
+                    mx, my = c1x + dx*r1/(r1 + r2), c1y + dy*r1/(r1 + r2)
+                    res1.append((mx, my))
+                    res2.append((mx, my))               
+            elif d2 == (r1 - r2)**2: 
+                res1.append((c1x + r1*dx/d2**0.5, c1y + r1*dy/d2**0.5))
+                res2.append((c2x + r2*dx/d2**0.5, c2y + r2*dy/d2**0.5))
+        else:
+            c1x, c1y, r1, c2x, c2y, r2 = c2x, c2y, r2, c1x, c1y, r1
+            dx, dy = c2x - c1x, c2y - c1y 
+            d2 = dx**2 + dy**2
+            if d2 > (r1 - r2)**2:
+                px, py = c1x + dx*r1/(r1 - r2), c1y + dy*r1/(r1 - r2)
+                res1.extend(self.tangent_points(px, py, c1x, c1y, r1))
+                res2.extend(self.tangent_points(px, py, c2x, c2y, r2))
+                if d2 > (r1 + r2)**2:    
+                    mx, my = c1x + dx*r1/(r1 + r2), c1y + dy*r1/(r1 + r2)
+                    res1.extend(self.tangent_points(mx, my, c1x, c1y, r1))
+                    res2.extend(self.tangent_points(mx, my, c2x, c2y, r2))
+                elif d2 == (r1 + r2)**2:
+                    mx, my = c1x + dx*r1/(r1 + r2), c1y + dy*r1/(r1 + r2)
+                    res1.append((mx, my))
+                    res2.append((mx, my))               
+            elif d2 == (r1 - r2)**2: 
+                res1.append((c1x + r1*dx/d2**0.5, c1y + r1*dy/d2**0.5))
+                res2.append((c2x + r2*dx/d2**0.5, c2y + r2*dy/d2**0.5))
+            res1, res2 = res2, res1 
+        return res1, res2
+c1x, c1y, r1 = map(int, input().split())
+c2x, c2y, r2 = map(int, input().split())
+C = Circle()
+res1, res2 = C.common_tangent(c1x, c1y, r1, c2x, c2y, r2)
+ans = res1
+ans.sort(key=lambda x: x[1])
+ans.sort(key=lambda x: x[0])    
+for x, y in ans:
+    print('{:.7f}'.format(x), '{:.7f}'.format(y))"
+7429602,CGL_7_G,Common Tangent,"import sys
+import math
+READ_FROM_FILE = False
+EPS = 1e-6
+def calc_length(v):
+    return math.sqrt(sum(c**2 for c in v))
+def v_diff(v0, v1):
+    return [c1 - c0 for c1, c0 in zip(v1, v0)]
+def v_mult_scalar(a, v):
+    return [a * c for c in v]
+def calc_tangent_points(x0, y0, r0, x1, y1, r1):
+    v01 = v_diff((x0, y0), (x1, y1))
+    d = calc_length(v01)
+    if d + r1 == r0:
+        v0t = v_mult_scalar(r0 / d, v01)
+        return ((x0 + v0t[0], y0 + v0t[1]),)
+    elif d + r0 == r1:
+        v1t = v_mult_scalar(-r1 / d, v01)
+        return ((x1 + v1t[0], y1 + v1t[1]),)
+    dx = x0
+    dy = y0
+    x1 -= dx
+    y1 -= dy
+    r02 = r0**2
+    r0r1 = r0 * r1
+    r02_p_r0r1 = r02 + r0r1
+    r02_m_r0r1 = r02 - r0r1
+    is_swapped = False
+    if y1 == 0:
+        x1, y1 = y1, x1
+        is_swapped = True
+    x12 = x1**2
+    y12 = y1**2
+    x12_p_y12 = x12 + y12
+    if x12_p_y12 == 0:
+        return []
+    s0 = x12 * r02_p_r0r1**2 - x12_p_y12 * (r02_p_r0r1**2 - y12 * r02)
+    s1 = x12 * r02_m_r0r1**2 - x12_p_y12 * (r02_m_r0r1**2 - y12 * r02)
+    pt_list = []
+    if s0 == 0:
+        tx0 = (x1 * r02_p_r0r1) / x12_p_y12
+        ty0 = (-x1 * tx0 + r02_p_r0r1) / y1
+        pt_list.append([tx0, ty0])
+        tx1 = (x1 * r02_m_r0r1) / x12_p_y12
+        ty1 = (-x1 * tx0 + r02_m_r0r1) / y1
+        pt_list.append([tx1, ty1])
+    elif s0 > 0:
+        sqrt_s0 = math.sqrt(s0)
+        tx0 = (x1 * r02_p_r0r1 + sqrt_s0) / x12_p_y12
+        ty0 = (-x1 * tx0 + r02_p_r0r1) / y1
+        pt_list.append([tx0, ty0])
+        tx1 = (x1 * r02_p_r0r1 - sqrt_s0) / x12_p_y12
+        ty1 = (-x1 * tx1 + r02_p_r0r1) / y1
+        pt_list.append([tx1, ty1])
+    if s1 == 0:
+        tx0 = (x1 * r02_p_r0r1) / x12_p_y12
+        ty0 = (-x1 * tx0 + r02_p_r0r1) / y1
+        pt_list.append([tx0, ty0])
+        tx1 = (x1 * r02_m_r0r1) / x12_p_y12
+        ty1 = (-x1 * tx1 + r02_m_r0r1) / y1
+        pt_list.append([tx1, ty1])
+    elif s1 > 0:
+        sqrt_s1 = math.sqrt(s1)
+        tx0 = (x1 * r02_m_r0r1 + sqrt_s1) / x12_p_y12
+        ty0 = (-x1 * tx0 + r02_m_r0r1) / y1
+        pt_list.append([tx0, ty0])
+        tx1 = (x1 * r02_m_r0r1 - sqrt_s1) / x12_p_y12
+        ty1 = (-x1 * tx1 + r02_m_r0r1) / y1
+        pt_list.append([tx1, ty1])
+    tmp_pt_list = [[tx, ty] for tx, ty in pt_list if abs(tx**2 + ty**2 - r0**2) < EPS]
+    pt_list = tmp_pt_list
+    if is_swapped:
+        for i in range(len(pt_list)):
+            pt_list[i][0], pt_list[i][1] = pt_list[i][1], pt_list[i][0]
+    pt_list.sort()
+    for i in range(len(pt_list)):
+        pt_list[i][0] += dx
+        pt_list[i][1] += dy
+    return pt_list
+def main():
+    if READ_FROM_FILE:
+        f = open('test0.txt', 'r')
+    else:
+        f = sys.stdin
+    x0, y0, r0 = map(int, f.readline().split())
+    x1, y1, r1 = map(int, f.readline().split())
+    pt_list = calc_tangent_points(x0, y0, r0, x1, y1, r1)
+    for tx, ty in pt_list:
+        print(f'{tx:5f} {ty:.5f}')
+    if READ_FROM_FILE:
+        f.close()
+    return
+if __name__ == '__main__':
+    main()"
+7576900,CGL_7_G,Common Tangent,"from math import sqrt
+def contactpoint(c1,c2,r1,r2,iscross=False):
+    d = c2-c1
+    dlen = abs(d)
+    sin1=abs(r1-r2)/dlen
+    if r1>r2:  
+        dir=-1
+    else:
+        dir=1 
+    if iscross:
+        dir=-1
+        sin1=(r1+r2)/dlen  
+    v=dir*1j*complex(sqrt(1-sin1**2),sin1)*d
+    p1=c1+v/abs(v)*r1
+    v=dir*-1*1j*complex(sqrt(1-sin1**2),-sin1)*d
+    p2=c1+v/abs(v)*r1
+    return [p1,p2]
+def calc(c1, c2, r1, r2):
+    if abs(r1-r2)>abs(c1-c2):return []
+    l=contactpoint(c1, c2, r1, r2)
+    if(abs(c1-c2)>=r1+r2):l+=contactpoint(c1, c2, r1, r2,iscross=True)
+    return list(set(l))
+q=[list(map(int,input().split())) for _ in range(2)]
+m = calc(complex(q[0][0], q[0][1]),complex(q[1][0],q[1][1]),q[0][2],q[1][2])
+m.sort(key=lambda x:(x.real,x.imag))
+for p in m:print(f""{p.real:.10f} {p.imag:.10f}"")"
+7782502,CGL_7_G,Common Tangent,"import math
+EPS = 1e-08
+MAX = 2e09
+PI = math.pi
+class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+    def __add__(self, other):
+        return Point(self.x + other.x, self.y + other.y)
+    def __sub__(self, other):
+        return Point(self.x - other.x, self.y - other.y)
+    def __mul__(self, const):
+        return Point(self.x * const, self.y * const)
+    def __truediv__(self, const):
+        return Point(self.x / const, self.y / const)
+    @property
+    def norm2(self):
+        return self.x **2 + self.y **2
+    @property
+    def abs(self):
+        return self.norm2 ** 0.5
+    @property
+    def radian(self):
+        return math.atan2(self.y, self.x)
+    @property
+    def quadrant(self):
+        if self.x == 0 and self.y == 0: return 0
+        if self.x > 0 and self.y >= 0: return 1
+        if self.x <= 0 and self.y > 0: return 2
+        if self.x < 0 and self.y <=0: return 3
+        return 4
+    def dot(self, other):
+        return self.x * other.x + self.y * other.y
+    def det(self, other):
+        return self.x * other.y - self.y * other.x
+    def dot3(self, other1, other2):
+        return (other1 - self).dot(other2 - self)
+    def det3(self, other1, other2):
+        return (other1 - self).det(other2 - self)
+    def dist2(self, other):
+        d = self - other
+        return (d.x)**2 + (d.y)**2
+    def dist(self, other):
+        return self.dist2(other) ** 0.5
+    def __lt__(self, other):
+        seq = self.quadrant
+        otq = other.quadrant
+        det = self.det(other)
+        if seq != otq:
+            return seq < otq
+        if det == 0:
+            return self.norm2 < other.norm2
+        else:
+            return det > 0
+    def rotate_radian(self, rad):
+        cos, sin = math.cos(rad), math.sin(rad)
+        return Point(self.x * cos - self.y * sin, self.x * sin + self.y * cos)
+    def rotate_degree(self, rad):
+        rad = math.radians(rad)  
+        return self.rotate_radian(rad)
+    @property
+    def orthogonal(self):
+        return Point(- self.y, self.x)
+    def counter_clockwise(self, other1, other2):
+        COUNTER_CLOCKWISE = 1   
+        CLOCKWISE = -1          
+        ONLINE_BACK = 2         
+        ONLINE_FRONT = -2       
+        ON_SEGMENT = 0          
+        a, b, c = self, other1, other2
+        ba, ca = b - a, c - a
+        det = b.det(c)
+        if det > EPS: return COUNTER_CLOCKWISE
+        if det < -EPS: return CLOCKWISE
+        if ba.dot(ca) < -EPS: return ONLINE_BACK
+        if (a - b).dot(c - b) < -EPS: return ONLINE_FRONT
+        return ON_SEGMENT
+    @property
+    def value(self):
+        return self.x, self.y
+class Line:
+    def __init__(self, p0: Point, p1: Point):
+        self.p0, self.p1 = p0, p1
+        self.vector = p1 - p0
+    @property
+    def mid_point(self):
+        return self.p0 + self.vector * 0.5
+    @property
+    def midperpendicular(self):
+        return Line(self.mid_point, self.mid_point + self.vector.orthogonal)
+    def is_parallel(self, other):
+        return abs(self.vector.det(other.vector)) < EPS
+    def is_orthogonal(self, other):
+        return abs(self.vector.dot(other.vector)) < EPS
+    def project(self, p: Point):
+        dv = self.p0.dot3(self.p1, p)
+        dd = self.p0.dist2(self.p1)
+        return self.p0 + self.vector * (dv/dd)
+    def dist_from_point(self, p: Point):
+        return p.dist2(self.project(p)) ** 0.5
+    def reflect(self, p: Point):
+        return p + (self.project(p) - p) * 2
+    def is_intersect(self, other):
+        p0, p1 = self.p0, self.p1
+        q0, q1 = other.p0, other.p1
+        C0, C1 = p0.det3(p1, q0), p0.det3(p1, q1)
+        D0, D1 = q0.det3(q1, p0), q0.det3(q1, p1)
+        if abs(C0) < EPS and abs(C1) < EPS:
+            E0, E1 = p0.dot3(p1, q0), p0.dot3(p1, q1)
+            if not E1 - E0 > 0:
+                E0, E1 = E1, E0
+            return p0.dist2(p1) - E0 > -EPS and E1 > -EPS
+        return C0 * C1 < EPS and D0* D1 < EPS
+    def cross_point(self, other):
+        if self.is_parallel(other): return None
+        d = self.vector.det(other.vector)
+        sn = (other.p0 - self.p0).det(other.vector)
+        return self.p0 + self.vector * (sn/d)
+    def dist_to_line(self, other):
+        if self.is_intersect(other):
+            return 0
+        ret = float('inf')
+        h = other.project(self.p0)
+        if other.p0.counter_clockwise(other.p1, h) == 0:
+            ret = min(ret, self.p0.dist(h))
+        h = other.project(self.p1)
+        if other.p0.counter_clockwise(other.p1, h) == 0:
+            ret = min(ret, self.p1.dist(h))
+        h = self.project(other.p0)
+        if self.p0.counter_clockwise(self.p1, h) == 0:
+            ret = min(ret, other.p0.dist(h))
+        h = self.project(other.p1)
+        if self.p0.counter_clockwise(self.p1, h) == 0:
+            ret = min(ret, other.p1.dist(h))
+        ret = min(ret, self.p0.dist(other.p0), self.p0.dist(other.p1))
+        ret = min(ret, self.p1.dist(other.p0), self.p1.dist(other.p1))
+        return ret
+    def half_line(self, reverse=False):
+        d = self.vector.abs
+        if reverse:
+            return Line(self.p0, self.p0 + self.vector * MAX / d)
+        return Line(self.p0 - self.vector * MAX / d, self.p1)
+    def line(self):
+        d = self.vector.abs
+        return Line(self.p0 - self.vector * MAX / d, self.p0 + self.vector * MAX / d)
+    @property
+    def value(self):
+        return self.p0.value, self.p1.value, self.vector
+    def contains(self, p: Point):
+        return self.p0.counter_clockwise(self.p1, p) == 0
+class Polygon:
+    def __init__(self, pts: list):
+        self.N = len(pts)
+        self.points = [Point(x, y) for x, y in pts]
+        self.pts = pts
+    @property
+    def value(self):
+        return self.pts
+    @property
+    def area(self):
+        P = self.points
+        return abs(sum(P[i].det(P[i-1]) for i in range(self.N))) / 2
+    @property
+    def is_convex(self):
+        P = self.points
+        return not any((P[i-2].counter_clockwise(P[i-1], P[i]) == -1 for i in range(self.N)))
+    def contains(self, p:Point):
+        ON_EDGE = 1
+        INCLUDE = 2
+        NOT_INCLUDE = 0
+        included = False
+        for i in range(self.N):
+            p0, p1 = self.points[i-1] - p, self.points[i] - p
+            if abs(p0.det(p1)) < EPS and p0.dot(p1) < EPS: return ON_EDGE
+            if p0.y > p1.y: p0, p1 = p1, p0
+            if p0.y < EPS < p1.y and p0.det(p1) > EPS: included = not included
+        if included: return INCLUDE
+        return NOT_INCLUDE
+    @property
+    def convex_hull(self):
+        _pts = sorted(self.pts)
+        qs = []
+        N = len(_pts)
+        for x, y in _pts:
+            p = Point(x, y)
+            while len(qs) > 1 and qs[-1].det3(qs[-2], p) > EPS:
+                qs.pop()
+            qs.append(p)
+        t = len(qs)
+        for i in range(N-1)[::-1]:
+            x, y = _pts[i]
+            p = Point(x, y)
+            while len(qs) > t and qs[-1].det3(qs[-2], p) > EPS:
+                qs.pop()
+            qs.append(p)
+        return Polygon([pi.value for pi in qs[:-1]])
+    @property
+    def diameter(self):
+        ch = self.convex_hull
+        if ch.N == 2:
+            return ch.points[0].dist(ch.points[1])
+        i = j = 0
+        for k in range(ch.N):
+            if ch.points[k].value < ch.points[i].value: i = k
+            if ch.points[j].value < ch.points[k].value: j = k
+        ret = 0
+        si = i; sj = j
+        while i != sj or j != si:
+            ret = max(ret, ch.points[i].dist(ch.points[j]))
+            if (ch.points[i]-ch.points[i-ch.N+1]).det(ch.points[j]-ch.points[j-ch.N+1])  < -EPS:
+                i = (i+1) % ch.N
+            else:
+                j = (j+1) % ch.N
+        return ret
+    def convex_cut(self, l: Line):
+        q = []
+        for i in range(self.N):
+            p0, p1 = self.points[i-1], self.points[i]
+            cv0, cv1 = l.p0.det3(l.p1, p0), l.p0.det3(l.p1, p1)
+            if cv0 * cv1 < EPS:
+                v = l.cross_point(Line(p0, p1))
+                if v is not None: q.append(v.value)
+            if cv1 > -EPS: q.append(p1.value)
+        return Polygon(q)
+    def contains(self, p: Point):
+        ON_EDGE = 1
+        INCLUDE = 2
+        NOT_INCLUDE = 0
+        left = 1; right = self.N
+        q0 = self.points[0]
+        while right - left > 1:
+            mid = (left + right) // 2
+            if q0.det3(p, self.points[mid]) < EPS: left = mid
+            else: right = mid
+        if left == self.N-1:
+            left -= 1
+        qi = self.points[left]; qj = self.points[left + 1]
+        v0 = q0.det3(qi, qj)
+        v1, v2 = q0.det3(p, qj), q0.det3(qi, p)
+        if v0 < -EPS:
+            v1 = -v1; v2 = -v2
+        if 0 <= v1 and 0 <= v2 and v1 + v2 <= v0:
+            if left == 1 and abs(v2) < EPS: return ON_EDGE
+            if left + 1 == self.N - 1 and abs(v1) < EPS: return ON_EDGE
+            if abs(v1 + v2 - v0) < EPS: return ON_EDGE
+            return INCLUDE
+        return NOT_INCLUDE
+class Circle:
+    def __init__(self, p: tuple, r: float):
+        self.center = Point(p[0], p[1])
+        self.radius = r
+    @property
+    def value(self):
+        return self.center, self.radius
+    @property
+    def area(self):
+        return PI * self.radius * self.radius
+    def area_sector(self, rad):
+        return self.radius * self.radius * rad / 2
+    def contain_point(self, p:Point):
+        return (p - self.center).abs - self.radius < -EPS
+    def is_intersect(self, other):
+        OUTER = 4           
+        CIRCUMSCRIBED = 3   
+        CROSSED = 2           
+        INSCRIBED = 1       
+        CONTAINED = 0         
+        R = max(self.radius, other.radius)
+        r = min(self.radius, other.radius)
+        d = self.center.dist(other.center)
+        if d - R - r > EPS: return OUTER
+        elif d - R - r > -EPS : return CIRCUMSCRIBED
+        if R - r - d > EPS: return CONTAINED
+        elif R - r -d > -EPS: return INSCRIBED
+        return CROSSED
+    def cross_point_line(self, l: Line, restrict=False):
+        p0c = l.p0 - self.center
+        a = l.vector.abs ** 2
+        b = l.vector.dot(p0c)
+        c = p0c.abs ** 2 - self.radius ** 2
+        D = b**2 - a * c
+        if D < -EPS: return (None, None)
+        if D < EPS: D = 0
+        s1 = (- b + D**0.5) / a
+        p1 = l.p0 + l.vector * s1
+        s2 = (- b - D**0.5) / a
+        p2 = l.p0 + l.vector * s2
+        if restrict:
+            if not (0 <= s1 <= 1): p1 = None
+            if not (0 <= s2 <= 1): p2 = None
+        return (p1, p2)
+    def cross_point_circle(self, other):
+        isintersect = self.is_intersect(other)
+        if isintersect == 0 or isintersect == 4: return (None, None)
+        d = other.center - self.center
+        rr0 = d.abs ** 2
+        rr1 = self.radius ** 2
+        rr2 = other.radius ** 2
+        cv = rr0 + rr1 - rr2
+        sv = (4*rr0*rr1 - cv**2)**0.5
+        p1 = (d * cv + d.orthogonal * sv) / (2 * rr0)
+        p1 = self.center + p1
+        p2 = (d * cv - d.orthogonal * sv) / (2 * rr0)
+        p2 = self.center + p2
+        return (p1, p2)
+    def sector_area(self, p1: Point, p2: Point):
+        rad = abs((p1-self.center).radian - (p2-self.center).radian)
+        mrad = min(rad, 2*PI - rad)
+        Mrad = max(rad, 2*PI - rad)
+        return self.area_sector(mrad), self.area_sector(Mrad)
+    def cross_area_line(self, l:Line):
+        tri = Triangle([self.center.value, l.p0.value, l.p1.value]).area
+        sector = self.sector_area(l.p0, l.p1)
+        return (sector[0] - tri, sector[1] + tri)
+    def cross_area_circle(self, other):
+        isintersect = self.is_intersect(other)
+        if isintersect >= 3: return 0
+        if isintersect < 2: return min(self.area, other.area)
+        dd = (self.center - other.center).norm2
+        p1 = self.radius ** 2 - other.radius ** 2 + dd
+        p2 = other.radius ** 2 - self.radius ** 2 + dd
+        S1 = self.radius * self.radius * math.atan2((4 * dd * self.radius ** 2 - p1 ** 2) ** 0.5, p1)
+        S2 = other.radius * other.radius * math.atan2((4 * dd * other.radius ** 2 - p2 ** 2) ** 0.5, p2)
+        S0 = (4 * dd * self.radius * self.radius - p1 ** 2) ** 0.5 / 2
+        return S1 + S2 - S0
+    def tangent_point(self, p:Point):
+        if self.contain_point(p): return None
+        r = ((self.center - p).abs ** 2 - self.radius ** 2) ** 0.5
+        dummycircle = Circle(p.value, r)
+        return self.cross_point_circle(dummycircle)
+    def tangent_line(self, p:Point):
+        return Line(p, self.tangent_point)
+    def common_tanget_outer(self, other):
+        retext = []
+        d = other.center - self.center
+        rr0 = d.abs ** 2
+        cv  = self.radius - other.radius
+        sv = rr0 - cv ** 2
+        if sv > -EPS:
+            if abs(sv) < EPS:
+                retext.append(self.center + d * (self.radius * cv / rr0))
+            else:
+                sv **= 0.5
+                retext.append(self.center + (d * cv + d.orthogonal * sv) * self.radius / rr0)
+                retext.append(self.center + (d * cv - d.orthogonal * sv) * self.radius / rr0)
+        return retext
+    def common_tanget_inner(self, other):
+        retext = []
+        d = other.center - self.center
+        rr0 = d.abs ** 2
+        cv  = self.radius + other.radius
+        sv = rr0 - cv ** 2
+        if sv > -EPS:
+            if abs(sv) < EPS:
+                retext.append(self.center + d * (self.radius * cv / rr0))
+            else:
+                sv **= 0.5
+                retext.append(self.center + (d * cv + d.orthogonal * sv) * self.radius / rr0)
+                retext.append(self.center + (d * cv - d.orthogonal * sv) * self.radius / rr0)
+        return retext
+class Triangle(Polygon):
+    def __init__(self, pts):
+        assert len(pts) == 3, ""Not 3 points""
+        super().__init__(pts)
+    @property
+    def circle_in(self):
+        dp1 = self.points[1] - self.points[0]
+        dp2 = self.points[2] - self.points[0]
+        dd = [(self.points[2] - self.points[1]).abs, dp2.abs, dp1.abs]
+        dsum = sum(dd)
+        r = abs(dp1.det(dp2)) / dsum
+        c = Point(0, 0)
+        for ci, ddi in zip(self.points, dd):
+            c = c + ci * ddi
+        c = c / dsum
+        return Circle(c.value, r)
+    @property
+    def circle_circumscribed(self):
+        dp1 = (self.points[0] - self.points[1]) * 2 
+        dp2 = (self.points[0] - self.points[2]) * 2 
+        p = self.points[0].abs ** 2 - self.points[1].abs ** 2
+        q = self.points[0].abs ** 2 - self.points[2].abs ** 2
+        det = dp1.det(dp2)
+        x = dp2.y * p - dp1.y * q
+        y = dp1.x * q - dp2.x * p
+        if det < -EPS:
+            x *= -1; y *= -1; det *= -1
+        x /= det; y /= det
+        r = Point(x, y).dist(self.points[0])
+        return Circle((x, y), r)
+x, y, r = map(int, input().split())
+C0 = Circle((x, y), r)
+x, y, r = map(int, input().split())
+C1 = Circle((x, y), r)
+ret = []
+for x in C0.common_tanget_inner(C1) + C0.common_tanget_outer(C1):
+    ret.append(x.value)
+ret.sort()
+for u, v in ret:
+    print(f'{u:.10f} {v:.10f}')"
+4065635,CGL_7_G,Common Tangent,"import cmath
+import itertools
+import math
+import os
+import sys
+from collections import defaultdict
+if os.getenv(""LOCAL""):
+    sys.stdin = open(""_in.txt"", ""r"")
+sys.setrecursionlimit(10 ** 9)
+INF = float(""inf"")
+IINF = 10 ** 18
+MOD = 10 ** 9 + 7
+PI = cmath.pi
+TAU = cmath.pi * 2
+EPS = 1e-10
+class Point:
+    CCW_COUNTER_CLOCKWISE = 1
+    CCW_CLOCKWISE = -1
+    CCW_ONLINE_BACK = 2
+    CCW_ONLINE_FRONT = -2
+    CCW_ON_SEGMENT = 0
+    def __init__(self, c: complex):
+        self.c = c
+    @property
+    def x(self):
+        return self.c.real
+    @property
+    def y(self):
+        return self.c.imag
+    @staticmethod
+    def from_rect(x: float, y: float):
+        return Point(complex(x, y))
+    @staticmethod
+    def from_polar(r: float, phi: float):
+        return Point(cmath.rect(r, phi))
+    def __add__(self, p):
+        return Point(self.c + p.c)
+    def __iadd__(self, p):
+        self.c += p.c
+        return self
+    def __sub__(self, p):
+        return Point(self.c - p.c)
+    def __isub__(self, p):
+        self.c -= p.c
+        return self
+    def __mul__(self, f: float):
+        return Point(self.c * f)
+    def __imul__(self, f: float):
+        self.c *= f
+        return self
+    def __truediv__(self, f: float):
+        return Point(self.c / f)
+    def __itruediv__(self, f: float):
+        self.c /= f
+        return self
+    def __repr__(self):
+        return ""({}, {})"".format(round(self.x, 10), round(self.y, 10))
+    def __neg__(self):
+        return Point(-self.c)
+    def __eq__(self, p):
+        return abs(self.c - p.c) < EPS
+    def __abs__(self):
+        return abs(self.c)
+    @staticmethod
+    def ccw(a, b, c):
+        b = b - a
+        c = c - a
+        det = b.det(c)
+        if det > EPS:
+            return Point.CCW_COUNTER_CLOCKWISE
+        if det < -EPS:
+            return Point.CCW_CLOCKWISE
+        if b.dot(c) < -EPS:
+            return Point.CCW_ONLINE_BACK
+        if c.norm() - b.norm() > EPS:
+            return Point.CCW_ONLINE_FRONT
+        return Point.CCW_ON_SEGMENT
+    def dot(self, p):
+        return self.x * p.x + self.y * p.y
+    def det(self, p):
+        return self.x * p.y - self.y * p.x
+    def dist(self, p):
+        return abs(self.c - p.c)
+    def norm(self):
+        return abs(self.c)
+    def phase(self):
+        return cmath.phase(self.c)
+    def angle(self, p, q):
+        return (cmath.phase(q.c - self.c) - cmath.phase(p.c - self.c) + PI) % TAU - PI
+    def area(self, p, q):
+        return abs((p - self).det(q - self) / 2)
+    def projection_point(self, p, q, allow_outer=False):
+        diff_q = q - p
+        r = (self - p).dot(diff_q) / abs(diff_q)
+        phase = diff_q.phase()
+        ret = Point.from_polar(r, phase) + p
+        if allow_outer or (p - ret).dot(q - ret) < EPS:
+            return ret
+        return None
+    def reflection_point(self, p, q):
+        r = abs(self - p)
+        angle = p.angle(q, self)
+        angle = (q - p).phase() - angle
+        return Point.from_polar(r, angle) + p
+    def on_segment(self, p, q, allow_side=True):
+        if not allow_side and (self == p or self == q):
+            return False
+        return abs((p - self).det(q - self)) < EPS and (p - self).dot(q - self) < EPS
+class Line:
+    def __init__(self, a: float, b: float, c: float):
+        self.a = a
+        self.b = b
+        self.c = c
+    @staticmethod
+    def from_gradient(grad: float, intercept: float):
+        return Line(grad, -1, intercept)
+    @staticmethod
+    def from_segment(p1, p2):
+        a = p2.y - p1.y
+        b = p1.x - p2.x
+        c = p2.y * (p2.x - p1.x) - p2.x * (p2.y - p1.y)
+        return Line(a, b, c)
+    @property
+    def gradient(self):
+        return INF if self.b == 0 else -self.a / self.b
+    @property
+    def intercept(self):
+        return INF if self.b == 0 else -self.c / self.b
+    def is_parallel_to(self, l):
+        return abs(Point.from_rect(self.a, self.b).det(Point.from_rect(l.a, l.b))) < EPS
+    def is_orthogonal_to(self, l):
+        return abs(Point.from_rect(self.a, self.b).dot(Point.from_rect(l.a, l.b))) < EPS
+    def intersection_point(self, l):
+        a1, b1, c1 = self.a, self.b, self.c
+        a2, b2, c2 = l.a, l.b, l.c
+        det = a1 * b2 - a2 * b1
+        if abs(det) < EPS:
+            return None
+        x = (b1 * c2 - b2 * c1) / det
+        y = (a2 * c1 - a1 * c2) / det
+        return Point.from_rect(x, y)
+    def dist(self, p):
+        raise NotImplementedError()
+    def has_point(self, p):
+        return abs(self.a * p.x + self.b * p.y + self.c) < EPS
+class Segment:
+    def __init__(self, p1, p2):
+        self.p1 = p1
+        self.p2 = p2
+    def norm(self):
+        return abs(self.p1 - self.p2)
+    def phase(self):
+        return (self.p2 - self.p1).phase()
+    def is_parallel_to(self, s):
+        return abs((self.p1 - self.p2).det(s.p1 - s.p2)) < EPS
+    def is_orthogonal_to(self, s):
+        return abs((self.p1 - self.p2).dot(s.p1 - s.p2)) < EPS
+    def intersects_with(self, s, allow_side=True):
+        if self.is_parallel_to(s):
+            return (s.p1.on_segment(self.p1, self.p2, allow_side) or
+                    s.p2.on_segment(self.p1, self.p2, allow_side) or
+                    self.p1.on_segment(s.p1, s.p2, allow_side) or
+                    self.p2.on_segment(s.p1, s.p2, allow_side))
+        else:
+            det_upper = EPS if allow_side else -EPS
+            ok = True
+            ok &= (self.p2 - self.p1).det(s.p1 - self.p1) * (self.p2 - self.p1).det(s.p2 - self.p1) < det_upper
+            ok &= (s.p2 - s.p1).det(self.p1 - s.p1) * (s.p2 - s.p1).det(self.p2 - s.p1) < det_upper
+            return ok
+    def closest_point(self, p):
+        d = (p - self.p1).dot(self.p2 - self.p1) / self.norm()
+        if d < EPS:
+            return self.p1
+        if -EPS < d - self.norm():
+            return self.p2
+        return Point.from_polar(d, (self.p2 - self.p1).phase()) + self.p1
+    def dist(self, p):
+        return abs(p - self.closest_point(p))
+    def dist_segment(self, s):
+        if self.intersects_with(s):
+            return 0.0
+        return min(
+            self.dist(s.p1),
+            self.dist(s.p2),
+            s.dist(self.p1),
+            s.dist(self.p2),
+        )
+    def has_point(self, p, allow_side=True):
+        return p.on_segment(self.p1, self.p2, allow_side=allow_side)
+class Polygon:
+    def __init__(self, points):
+        self.points = points
+    def iter2(self):
+        return zip(self.points, self.points[1:] + self.points[:1])
+    def iter3(self):
+        return zip(self.points,
+                   self.points[1:] + self.points[:1],
+                   self.points[2:] + self.points[:2])
+    def area(self):
+        dets = []
+        for p, q in self.iter2():
+            dets.append(p.det(q))
+        return abs(math.fsum(dets)) / 2
+    def is_convex(self, allow_straight=False, allow_collapsed=False):
+        ccw = []
+        for a, b, c in self.iter3():
+            ccw.append(Point.ccw(a, b, c))
+        ccw = set(ccw)
+        if len(ccw) == 1:
+            if ccw == {Point.CCW_CLOCKWISE}:
+                return True
+            if ccw == {Point.CCW_COUNTER_CLOCKWISE}:
+                return True
+        if allow_straight and len(ccw) == 2:
+            if ccw == {Point.CCW_ONLINE_FRONT, Point.CCW_CLOCKWISE}:
+                return True
+            if ccw == {Point.CCW_ONLINE_FRONT, Point.CCW_COUNTER_CLOCKWISE}:
+                return True
+        if allow_collapsed and len(ccw) == 3:
+            return ccw == {Point.CCW_ONLINE_FRONT, Point.CCW_ONLINE_BACK, Point.CCW_ON_SEGMENT}
+        return False
+    def has_point_on_edge(self, p):
+        for a, b in self.iter2():
+            if p.on_segment(a, b):
+                return True
+        return False
+    def contains(self, p, allow_on_edge=True):
+        angles = []
+        for a, b in self.iter2():
+            if p.on_segment(a, b):
+                return allow_on_edge
+            angles.append(p.angle(a, b))
+        return abs(math.fsum(angles)) > EPS
+    @staticmethod
+    def convex_hull(points, allow_straight=False):
+        points = points[:]
+        points.sort(key=lambda p: (p.x, p.y))
+        det_lower = -EPS if allow_straight else EPS
+        sz = 0
+        ret = [None] * (len(points) * 2)
+        for p in points:
+            while sz > 1 and (ret[sz - 1] - ret[sz - 2]).det(p - ret[sz - 1]) < det_lower:
+                sz -= 1
+            ret[sz] = p
+            sz += 1
+        floor = sz
+        for p in reversed(points[:-1]):
+            while sz > floor and (ret[sz - 1] - ret[sz - 2]).det(p - ret[sz - 1]) < det_lower:
+                sz -= 1
+            ret[sz] = p
+            sz += 1
+        ret = ret[:sz - 1]
+        if allow_straight and len(ret) > len(points):
+            ret = points
+        return ret
+    @staticmethod
+    def diameter(points):
+        points = Polygon.convex_hull(points, allow_straight=False)
+        if len(points) == 1:
+            return 0.0
+        if len(points) == 2:
+            return abs(points[0] - points[1])
+        si = points.index(min(points, key=lambda p: (p.x, p.y)))
+        sj = points.index(max(points, key=lambda p: (p.x, p.y)))
+        n = len(points)
+        ret = 0.0
+        i, j = si, sj
+        while i != sj or j != si:
+            ret = max(ret, abs(points[i] - points[j]))
+            ni = (i + 1) % n
+            nj = (j + 1) % n
+            if (points[ni] - points[i]).det(points[nj] - points[j]) > 0:
+                j = nj
+            else:
+                i = ni
+        return ret
+    def convex_cut_by_line(self, line_p1, line_p2):
+        n = len(self.points)
+        line = Line.from_segment(line_p1, line_p2)
+        on_line_points = []
+        for i, p in enumerate(self.points):
+            if line.has_point(p):
+                on_line_points.append(i)
+        has_on_line_edge = False
+        if len(on_line_points) >= 3:
+            has_on_line_edge = True
+        elif len(on_line_points) == 2:
+            has_on_line_edge = abs(on_line_points[0] - on_line_points[1]) in [1, n - 1]
+        if has_on_line_edge:
+            for p in self.points:
+                ccw = Point.ccw(line_p1, line_p2, p)
+                if ccw == Point.CCW_COUNTER_CLOCKWISE:
+                    return Polygon(self.points[:]), None
+                if ccw == Point.CCW_CLOCKWISE:
+                    return None, Polygon(self.points[:])
+        ret_lefts = []
+        ret_rights = []
+        d = line_p2 - line_p1
+        for p, q in self.iter2():
+            det_p = d.det(p - line_p1)
+            det_q = d.det(q - line_p1)
+            if det_p > -EPS:
+                ret_lefts.append(p)
+            if det_p < EPS:
+                ret_rights.append(p)
+            if det_p * det_q < -EPS:
+                intersection = line.intersection_point(Line.from_segment(p, q))
+                ret_lefts.append(intersection)
+                ret_rights.append(intersection)
+        l = Polygon(ret_lefts) if len(ret_lefts) > 1 else None
+        r = Polygon(ret_rights) if len(ret_rights) > 1 else None
+        return l, r
+def closest_pair(points):
+    assert len(points) >= 2
+    def _rec(xsorted):
+        n = len(xsorted)
+        if n <= 2:
+            return xsorted[0].dist(xsorted[1]), (xsorted[0], xsorted[1])
+        if n <= 3:
+            d = INF
+            pair = None
+            for p, q in itertools.combinations(xsorted, r=2):
+                if p.dist(q) < d:
+                    d = p.dist(q)
+                    pair = p, q
+            return d, pair
+        ld, lp = _rec(xsorted[:n // 2])
+        rd, rp = _rec(xsorted[n // 2:])
+        if ld <= rd:
+            d = ld
+            ret_pair = lp
+        else:
+            d = rd
+            ret_pair = rp
+        mid_x = xsorted[n // 2].x
+        mid_points = []
+        for p in xsorted:
+            if abs(p.x - mid_x) - d < -EPS:
+                mid_points.append(p)
+        mid_points.sort(key=lambda p: p.y)
+        mid_n = len(mid_points)
+        for i in range(mid_n - 1):
+            j = i + 1
+            p = mid_points[i]
+            q = mid_points[j]
+            while (q.y - p.y) - d < -EPS:
+                pq_d = p.dist(q)
+                if pq_d < d:
+                    d = pq_d
+                    ret_pair = p, q
+                j += 1
+                if j >= mid_n:
+                    break
+                q = mid_points[j]
+        return d, ret_pair
+    return _rec(list(sorted(points, key=lambda p: p.x)))
+def closest_pair_randomized(points):
+    n = len(points)
+    assert n >= 2
+    if n == 2:
+        return points[0].dist(points[1]), (points[0], points[1])
+    import random
+    points = points[:]
+    random.shuffle(points)
+    DELTA_XY = list(itertools.product([-1, 0, 1], repeat=2))
+    grid = defaultdict(list)
+    delta = INF
+    dist = points[0].dist(points[1])
+    ret_pair = points[0], points[1]
+    for i in range(2, n):
+        if delta < EPS:
+            return 0.0, ret_pair
+        if dist - delta < -EPS:
+            delta = dist
+            grid = defaultdict(list)
+            for a in points[:i]:
+                grid[a.x // delta, a.y // delta].append(a)
+        else:
+            p = points[i - 1]
+            grid[p.x // delta, p.y // delta].append(p)
+        p = points[i]
+        dist = delta
+        grid_x = p.x // delta
+        grid_y = p.y // delta
+        for dx, dy in DELTA_XY:
+            for q in grid[grid_x + dx, grid_y + dy]:
+                d = p.dist(q)
+                if d - dist < -EPS:
+                    dist = d
+                    ret_pair = p, q
+    return min(delta, dist), ret_pair
+class Circle:
+    def __init__(self, o, r):
+        self.o = o
+        self.r = r
+    def __eq__(self, other):
+        return self.o == other.o and abs(self.r - other.r) < EPS
+    def ctc(self, c):
+        if self.o == c.o:
+            return INF if abs(self.r - c.r) < EPS else 0
+        d = self.o.dist(c.o) - self.r - c.r
+        if d > EPS:
+            return 4
+        elif d > -EPS:
+            return 3
+        elif d + min(self.r, c.r) * 2 > EPS:
+            return 2
+        elif d + min(self.r, c.r) * 2 > -EPS:
+            return 1
+        return 0
+    def area(self):
+        return self.r ** 2 * PI
+    def intersection_points(self, other, allow_outer=False):
+        if isinstance(other, Segment):
+            return self.intersection_points_with_segment(other, allow_outer=allow_outer)
+        if isinstance(other, Circle):
+            return self.intersection_points_with_circle(other)
+        raise NotImplementedError()
+    def intersection_points_with_segment(self, s, allow_outer=False):
+        projection_point = self.o.projection_point(s.p1, s.p2, allow_outer=True)
+        dist = self.o.dist(projection_point)
+        if dist - self.r > EPS:
+            return []
+        if dist - self.r > -EPS:
+            if allow_outer or s.has_point(projection_point):
+                return [projection_point]
+            else:
+                return []
+        diff = Point.from_polar(math.sqrt(self.r ** 2 - dist ** 2), s.phase())
+        ret1 = projection_point + diff
+        ret2 = projection_point - diff
+        ret = []
+        if allow_outer or s.has_point(ret1):
+            ret.append(ret1)
+        if allow_outer or s.has_point(ret2):
+            ret.append(ret2)
+        return ret
+    def intersection_points_with_circle(self, other):
+        ctc = self.ctc(other)
+        if not 1 <= ctc <= 3:
+            return []
+        if ctc == 3:
+            return [Point.from_polar(self.r, (other.o - self.o).phase()) + self.o]
+        if ctc == 1:
+            if self.r > other.r:
+                return [Point.from_polar(self.r, (other.o - self.o).phase()) + self.o]
+            else:
+                return [Point.from_polar(self.r, (self.o - other.o).phase()) + self.o]
+        assert ctc == 2
+        a = other.r
+        b = self.r
+        c = self.o.dist(other.o)
+        cos_a = (b ** 2 + c ** 2 - a ** 2) / (2 * b * c)
+        angle = math.acos(cos_a)
+        phi = (other.o - self.o).phase()
+        return [
+            self.o + Point.from_polar(self.r, phi + angle),
+            self.o + Point.from_polar(self.r, phi - angle),
+        ]
+    def tangent_points_with_point(self, p):
+        dist = self.o.dist(p)
+        if dist - self.r < -EPS:
+            return []
+        if dist - self.r < EPS:
+            return [Point(p.c)]
+        a = math.sqrt(dist ** 2 - self.r ** 2)
+        b = self.r
+        c = dist
+        cos_a = (b ** 2 + c ** 2 - a ** 2) / (2 * b * c)
+        angle = math.acos(cos_a)
+        phi = (p - self.o).phase()
+        return [
+            self.o + Point.from_polar(self.r, phi + angle),
+            self.o + Point.from_polar(self.r, phi - angle),
+        ]
+    def tangent_points_with_circle(self, other):
+        ctc = self.ctc(other)
+        if ctc > 4:
+            raise ValueError('2つの円が同一です')
+        if ctc == 0:
+            return []
+        if ctc == 1:
+            return self.intersection_points_with_circle(other)
+        assert ctc in (2, 3, 4)
+        ret = []
+        if abs(self.r - other.r) < EPS:
+            phi = (other.o - self.o).phase()
+            ret.append(self.o + Point.from_polar(self.r, phi + PI / 2))
+            ret.append(self.o + Point.from_polar(self.r, phi - PI / 2))
+        else:
+            intersection = self.o + (other.o - self.o) / (self.r - other.r) * self.r
+            ret += self.tangent_points_with_point(intersection)
+        intersection = self.o + (other.o - self.o) / (self.r + other.r) * self.r
+        ret += self.tangent_points_with_point(intersection)
+        return ret
+def round_point(p):
+    return round(p.x, 10) + 0, round(p.y, 10) + 0
+x1, y1, r1 = list(map(int, sys.stdin.buffer.readline().split()))
+x2, y2, r2 = list(map(int, sys.stdin.buffer.readline().split()))
+c1 = Circle(Point(complex(x1, y1)), r1)
+c2 = Circle(Point(complex(x2, y2)), r2)
+ans = c1.tangent_points_with_circle(c2)
+for x, y in sorted(map(round_point, ans)):
+    print('{:.10f} {:.10f}'.format(x, y))"
+8164041,CGL_7_G,Common Tangent,"from math import sqrt, atan2, sin, cos, pi
+from functools import cmp_to_key
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.eps = 10**-9
+    def __repr__(self):
+        return ""{:.7f} {:.7f}"".format(self.x, self.y)
+    def __add__(self, p):
+        if type(p) == int or type(p) == float:
+            p = Point(p, p)
+        return Point(self.x + p.x, self.y + p.y)
+    def __sub__(self, p):
+        if type(p) == int or type(p) == float:
+            p = Point(p, p)
+        return Point(self.x - p.x, self.y - p.y)
+    def __mul__(self, p):
+        if type(p) == int or type(p) == float:
+            return Point(self.x * p, self.y * p)
+        return Point(self.x * p.x - self.y * p.y, self.y * p.x + self.x * p.y)
+    def __truediv__(self, p):
+        if type(p) == int or type(p) == float:
+            return Point(self.x / p, self.y / p)
+        return self * Point(p.x, -p.y) / p.norm2()
+    def __neg__(self):
+        return Point(-self.x, -self.y)
+    def __abs__(self):
+        return sqrt(self.x**2 + self.y**2)
+    def __lt__(self, p):
+        if self.eps < p.y - self.y:
+            return True
+        if abs(self.y - p.y) < self.eps and self.eps < p.x - self.x:
+            return True
+        return False
+    def arg(self):
+        return atan2(self.y, self.x)
+    def norm2(self):
+        return self.x**2 + self.y**2
+    def norm(self):
+        return sqrt(self.norm2())
+    def __radd__(self, p):
+        return self + p
+    def __rsub__(self, p):
+        return self * p
+    def __rmul__(self, p):
+        return self * p
+    def __rtruediv__(self, p):
+        return Point(p, 0) / self
+class Circle:
+    def __init__(self, p, r):
+        self.p = p
+        self.r = r
+    def __repr__(self):
+        return self.p.__repr__() + "" {:.7f}"".format(self.r)
+class PlainGeometry:
+    def __init__(self):
+        self.eps = 10**-9
+        self.mx = 1 << 40
+        return
+    def dot(self, p1, p2):
+        return p1.x * p2.x + p1.y * p2.y
+    def det(self, p1, p2):
+        return p1.x * p2.y - p1.y * p2.x
+    def proj(self, p1, p2, p):
+        d = p2 - p1
+        return p1 + d * self.dot(d, p - p1) / d.norm2()
+    def refl(self, p1, p2, p):
+        return 2 * self.proj(p1, p2, p) - p
+    def ccw(self, p0, p1, p2):
+        d1 = p1 - p0
+        d2 = p2 - p0
+        op = self.det(d1, d2)
+        if op > self.eps:
+            return 1  
+        elif op < -self.eps:
+            return -1  
+        elif self.dot(d1, d2) <= -self.eps:
+            return 2  
+        elif (p1 - p0).norm2() - (p2 - p0).norm2() > -self.eps:
+            return 0  
+        else:
+            return -2  
+    def intersection(self, p0, p1, p2, p3):
+        return (
+            self.ccw(p0, p1, p2) * self.ccw(p0, p1, p3) < self.eps
+            and self.ccw(p2, p3, p0) * self.ccw(p2, p3, p1) < self.eps
+        )
+    def intersection_str(self, p0, p1, p2, p3):
+        if abs(self.det(p1 - p0, p3 - p2)) > self.eps:
+            return True
+        if abs(self.ccw(p0, p1, p2)) == 1:
+            return False
+        return True
+    def cross_p(self, p0, p1, p2, p3):
+        d = (p0.x - p1.x) * (p3.y - p2.y) - (p3.x - p2.x) * (p0.y - p1.y)
+        t = (p3.y - p2.y) * (p3.x - p1.x) + (p2.x - p3.x) * (p3.y - p1.y)
+        t /= d
+        return p0 * t + p1 * (1 - t)
+    def dist_str_p(self, p0, p1, p2):
+        return abs(self.det(p1 - p0, p2 - p0)) / abs(p1 - p0)
+    def dist_seg_p(self, p0, p1, p2):
+        if self.dot(p1 - p0, p2 - p0) < -self.eps:
+            return abs(p0 - p2)
+        if self.dot(p0 - p1, p2 - p1) < -self.eps:
+            return abs(p1 - p2)
+        return self.dist_str_p(p0, p1, p2)
+    def dist_str(self, p0, p1, p2, p3):
+        if abs(self.det(p1 - p0, p3 - p2)) < self.eps:
+            return self.dist_str_p(p0, p1, p2)
+        return 0
+    def dist_str_seg(self, p0, p1, p2, p3):
+        if self.intersection(
+            p0 + (p1 - p0) * self.mx, p0 - (p1 - p0) * self.mx, p2, p3
+        ):  
+            return 0
+        return min(self.dist_str_p(p0, p1, p2), self.dist_str_p(p0, p1, p3))
+    def dist_seg(self, p0, p1, p2, p3):
+        if self.intersection(p0, p1, p2, p3):
+            return 0
+        return min(
+            self.dist_seg_p(p0, p1, p2),
+            self.dist_seg_p(p0, p1, p3),
+            self.dist_seg_p(p2, p3, p0),
+            self.dist_seg_p(p2, p3, p1),
+        )
+    def area(self, p):
+        sm = 0
+        l = len(p)
+        for i in range(len(p)):
+            sm += self.det(p[i], p[(i + 1) % l])
+        return sm / 2
+    def is_convex(self, p):
+        l = len(p)
+        for i in range(l):
+            if self.ccw(p[i], p[(i + 1) % l], p[(i - 1) % l]) == -1:
+                return False
+        return True
+    def p_contain(self, p, q):
+        q0 = q + Point(self.mx, 1)
+        cnt = 0
+        l = len(p)
+        for i in range(l):
+            if not self.dist_seg_p(p[i], p[(i + 1) % l], q):
+                return 1
+            if self.intersection(q, q0, p[i], p[(i + 1) % l]):
+                cnt += 1
+        return cnt % 2 * 2
+    def convex_hull(self, p):
+        p.sort()
+        pre = [p[0], p[1]]
+        suf = [p[0], p[1]]
+        for q in p[2:]:
+            while len(pre) > 1 and self.ccw(pre[-1], q, pre[-2]) == -1:
+                pre.pop()
+            pre.append(q)
+            while len(suf) > 1 and self.ccw(suf[-1], q, suf[-2]) == 1:
+                suf.pop()
+            suf.append(q)
+        return pre + suf[-2:0:-1]
+    def p_diameter(self, p):
+        p = self.convex_hull(p)
+        l = len(p)
+        i = 0
+        j = p.index(max(p))
+        si = 0
+        sj = j
+        mx = (p[i] - p[j]).norm2()
+        while i != sj or j != si:
+            if (
+                self.det(p[(i + 1) % l] - p[i], p[(j + 1) % l] - p[j]) >= -self.eps
+            ):  
+                j += 1
+                j %= l
+            else:
+                i += 1
+                i %= l
+            mx = max(mx, (p[i] - p[j]).norm2())
+        return sqrt(mx)
+    def convex_cut(self, p, p0, p1):
+        p = self.convex_hull(p)
+        res = []
+        l = len(p)
+        for i in range(l):
+            if self.ccw(p0, p1, p[i]) != -1:
+                res.append(p[i])
+            if self.ccw(p0, p1, p[i]) * self.ccw(p0, p1, p[(i + 1) % l]) == -1:
+                res.append(self.cross_p(p0, p1, p[i], p[(i + 1) % l]))
+        return self.area(res)
+    def intersection_c(self, c1, c2):
+        d = (c1.p - c2.p).norm()
+        if d - c1.r - c2.r > self.eps:
+            return 4  
+        if abs(d - c1.r - c2.r) < self.eps:
+            return 3  
+        if d - abs(c1.r - c2.r) > self.eps:
+            return 2  
+        if abs(d - abs(c1.r - c2.r)) < self.eps:
+            return 1  
+        return 0  
+    def rotate(self, p0, p1, r):
+        return p0 + (p1 - p0) * Point(cos(r), sin(r))
+    def bisector(self, p0, p1, p2):
+        r = ((p2 - p0).arg() - (p1 - p0).arg()) / 2
+        return self.rotate(p0, p1, r)
+    def incircle(self, p0, p1, p2):
+        p = self.cross_p(p0, self.bisector(p0, p1, p2), p1, self.bisector(p1, p0, p2))
+        r = self.dist_str_p(p0, p1, p)
+        return Circle(p, r)
+    def outcircle(self, p0, p1, p2):
+        h1 = (p1 - p0) / 2 + p0
+        h2 = (p2 - p0) / 2 + p0
+        p = self.cross_p(
+            h1,
+            h1 + Point(p0.y - p1.y, p1.x - p0.x),
+            h2,
+            h2 + Point(p0.y - p2.y, p2.x - p0.x),
+        )
+        r = (p0 - p).norm()
+        return Circle(p, r)
+    def cross_c_str(self, c, p0, p1):
+        ref = self.refl(p0, p1, c.p)
+        base = (ref + c.p) / 2
+        d = (p0 - p1) * sqrt(c.r**2 - (ref - base).norm2()) / (p0 - p1).norm()
+        if d.x < -self.eps or (abs(d.x) < self.eps and d.y < -self.eps):
+            return base + d, base - d
+        return base - d, base + d
+    def cross_c_c(self, c1, c2):
+        a = 2 * (c1.p.x - c2.p.x)
+        b = 2 * (c1.p.y - c2.p.y)
+        c = (
+            c2.r**2
+            - c1.r**2
+            + c1.p.x**2
+            - c2.p.x**2
+            + c1.p.y**2
+            - c2.p.y**2
+        )
+        return self.cross_c_str(c1, *self.str_from_coef(a, b, c))
+    def str_from_coef(self, a, b, c):
+        if abs(a) < self.eps:
+            return Point(0, c / b), Point(1, c / b)
+        return Point(c / a, 0), Point((c - b) / a, 1)
+    def tan_to_circle(self, c, p):
+        return self.cross_c_c(c, Circle(p, sqrt((c.p - p).norm2() - c.r**2)))
+    def common_tan(self, c1: Circle, c2: Circle):
+        dp = c2.p - c1.p
+        r1 = c1.r
+        r2 = c2.r
+        r = dp.norm2()
+        yr = [r1 + r2, -r1 - r2, r1 - r2, -r1 + r2]
+        t = [r1, -r1, r1, -r1]
+        res = []
+        f = False
+        for i in range(4):
+            if f:
+                f = False
+                continue
+            if r - yr[i] ** 2 < -self.eps:
+                continue
+            if abs(r - yr[i] ** 2) < self.eps:
+                xr = 0
+            else:
+                xr = sqrt(r - yr[i] ** 2)
+            c1_t = Point(0, t[i]) * dp / Point(xr, yr[i])
+            c2_t = Point(xr, t[i]) * dp / Point(xr, yr[i])
+            if not xr:
+                f = 1
+            res.append([c1_t + c1.p, c2_t + c2.p])
+        return res
+    def sort_xy(self, ps):
+        def cmp(p1, p2):
+            if p1.x - p2.x < -self.eps:
+                return -1
+            if abs(p1.x - p2.x) < self.eps and p1.y - p2.y < -self.eps:
+                return -1
+            return 1
+        ps.sort(key=cmp_to_key(cmp))
+pg = PlainGeometry()
+x, y, r = map(float, input().split())
+c1 = Circle(Point(x, y), r)
+x, y, r = map(float, input().split())
+c2 = Circle(Point(x, y), r)
+res = pg.common_tan(c1, c2)
+ans = [i[0] for i in res]
+pg.sort_xy(ans)
+print(*ans, sep=""\n"")"
+3872904,CGL_7_G,Common Tangent,"from math import acos, atan2, cos, hypot, isclose, pi, sin
+from typing import List, Tuple
+def tangent_points(c1x: float, c1y: float, c1r: float,
+                   c2x: float, c2y: float, c2r: float) -> List[Tuple[float, float]]:
+    c1c2 = hypot(c2x - c1x, c2y - c1y)
+    t0 = atan2(c2y - c1y, c2x - c1x)
+    ps: List[Tuple[float, float]] = []
+    r1r2 = c1r + c2r
+    if isclose(c1c2, r1r2):
+        ps.append((c1x + c1r * cos(t0), c1y + c1r * sin(t0)))
+    elif c1c2 > r1r2:
+        t1 = acos(r1r2 / c1c2)
+        ps.append((c1x + c1r * cos(t0 + t1), c1y + c1r * sin(t0 + t1)))
+        ps.append((c1x + c1r * cos(t0 - t1), c1y + c1r * sin(t0 - t1)))
+    r1r2 = c1r - c2r
+    if isclose(c1c2, abs(r1r2)):
+        if r1r2 > 0.0:
+            t1 = 0.0
+        else:
+            t1 = pi
+        ps.append((c1x + c1r * cos(t0 + t1), c1y + c1r * sin(t0 + t1)))
+    elif c1c2 > abs(r1r2):
+        if r1r2 > 0.0:
+            t1 = acos(r1r2 / c1c2)
+        else:
+            t1 = pi - acos(-r1r2 / c1c2)
+        ps.append((c1x + c1r * cos(t0 + t1), c1y + c1r * sin(t0 + t1)))
+        ps.append((c1x + c1r * cos(t0 - t1), c1y + c1r * sin(t0 - t1)))
+    return ps
+if __name__ == ""__main__"":
+    c1x, c1y, c1r = map(lambda x: float(x), input().split())
+    c2x, c2y, c2r = map(lambda x: float(x), input().split())
+    ps = tangent_points(c1x, c1y, c1r, c2x, c2y, c2r)
+    for p in sorted(ps):
+        print(""{:.6f} {:.6f}"".format(*p))"
+7447184,CGL_7_G,Common Tangent,"from math import sqrt
+from typing import List, Tuple
+def commonTangent(
+    x1: int, y1: int, r1: int, x2: int, y2: int, r2: int
+) -> List[Tuple[float, float]]:
+    res = []
+    xd = x2 - x1
+    yd = y2 - y1
+    rr0 = xd * xd + yd * yd
+    if (r1 - r2) * (r1 - r2) <= rr0:
+        cv = r1 - r2
+        if rr0 == (r1 - r2) * (r1 - r2):
+            res.append((x1 + r1 * cv * xd / rr0, y1 + r1 * cv * yd / rr0))
+        else:
+            sv = sqrt(rr0 - cv * cv)
+            res.append((x1 + r1 * (cv * xd - sv * yd) / rr0, y1 + r1 * (sv * xd + cv * yd) / rr0))
+            res.append((x1 + r1 * (cv * xd + sv * yd) / rr0, y1 + r1 * (-sv * xd + cv * yd) / rr0))
+    if (r1 + r2) * (r1 + r2) <= rr0:
+        cv = r1 + r2
+        if rr0 == (r1 + r2) * (r1 + r2):
+            res.append((x1 + r1 * cv * xd / rr0, y1 + r1 * cv * yd / rr0))
+        else:
+            sv = sqrt(rr0 - cv * cv)
+            res.append((x1 + r1 * (cv * xd - sv * yd) / rr0, y1 + r1 * (sv * xd + cv * yd) / rr0))
+            res.append((x1 + r1 * (cv * xd + sv * yd) / rr0, y1 + r1 * (-sv * xd + cv * yd) / rr0))
+    return sorted(res)
+if __name__ == ""__main__"":
+    x1, y1, r1 = map(int, input().split())
+    x2, y2, r2 = map(int, input().split())
+    res = commonTangent(x1, y1, r1, x2, y2, r2)
+    if res:
+        print(""\n"".join(""%.08f %.08f"" % p for p in res))"
+7927464,CGL_7_G,Common Tangent,"from functools import cmp_to_key
+from typing import List
+from math import*
+Point=complex
+def point(a,b)->Point:
+  return a+b*1j
+def print_Point(p:Point):
+  x,y=p.real,p.imag
+  print('{:.10f}'.format(x),'{:.10f}'.format(y))
+def print_float(x:float):
+  print('{:.10f}'.format(x))
+def str_float(x:float)->str:
+  return '{:.10f}'.format(x)
+def norm(p:Point):
+  return p.real**2+p.imag**2
+def cmp(a:Point,b:Point)->bool:
+  if not equal(a.real,b.real):
+    if a.real<b.real:return -1
+    else:return 1
+  else:
+    if a.imag<b.imag:return -1
+    else:return 1
+eps=1e-9
+def equal(a:Point,b:Point)->float:
+  return abs(a-b)<eps
+def unitVector(a:Point)->Point:
+  return a/abs(a)
+def dot(a:Point,b:Point)->float:
+  return a.real*b.real+a.imag*b.imag
+def cross(a:Point,b:Point)->float:
+  return a.real*b.imag-a.imag*b.real
+def rotate(p:Point,theta:float)->Point:
+  return (cos(theta)*p.real-sin(theta)*p.imag)+(sin(theta)*p.real+cos(theta)*p.imag)*1j
+class Line:
+  def __init__(self,a,b,c=False):
+    if c==False:
+      self.a=a
+      self.b=b
+    else:
+      if equal(a,0):
+        self.a=(c/b)*1j
+        self.b=1+(c/b)*1j
+      elif equal(b,0):
+        self.a=(c/a)+0j
+        self.b=(c/a)+1j
+      else:
+        self.a=(c/b)*1j
+        self.b=(c/a)+0j
+class Segment:
+  def __init__(self,a:Point,b:Point):
+    self.a=a
+    self.b=b
+class Circle:
+  def __init__(self,p:Point,r:float):
+    self.p=p
+    self.r=r
+def projection(L:Line,p:Point)->Point:
+  t=dot(p-L.a,L.a-L.b)/norm(L.a-L.b)
+  return L.a+(L.a-L.b)*t
+def reflection(L:Line,p:Point)->Point:
+  return p+(projection(L,p)-p)*2
+def CounterClockWise(a:Point,b:Point,c:Point)->int:
+  p=b-a
+  q=c-a
+  if cross(p,q)>eps:
+    return 1
+  if cross(p,q)<-eps:
+    return -1
+  if dot(p,q)<0:
+    return 2
+  if norm(p)<norm(q):
+    return -2
+  return 0
+def isOrthiogonal(a:Line,b:Line)->bool:
+  return equal(dot(a.b-a.a,b.b-b.a),0)
+def isParallel(a:Line,b:Line)->bool:
+  return equal(cross(a.b-a.a,b.b-b.a),0)
+def isIntersect(s:Segment,t:Segment)->bool:
+  return CounterClockWise(s.a,s.b,t.a)*CounterClockWise(s.a,s.b,t.b)<=0 and CounterClockWise(t.a,t.b,s.a)*CounterClockWise(t.a,t.b,s.b)<=0
+def crossPoint(s:Line,t:Line)->Point:
+  d1=cross(s.b-s.a,t.b-t.a)
+  d2=cross(s.b-s.a,s.b-t.a)
+  if equal(abs(d1),0) and equal(abs(d2),0):
+    return t.a
+  return t.a+(t.b-t.a)*(d2/d1)
+def distanceBetweenLineAndPoint(l:Segment,p:Point)->float:
+  return abs(cross(l.b-l.a,p-l.a))/abs(l.b-l.a)
+def distanceBetweenSegmentAndPoint(l:Segment,p:Point)->float:
+  if dot(l.b-l.a,p-l.a)<eps:
+    return abs(p-l.a)
+  if dot(l.a-l.b,p-l.b)<eps:
+    return abs(p-l.b)
+  return abs(cross(l.b-l.a,p-l.a))/abs(l.b-l.a)
+def distanceBetweenSegments(s:Segment,t:Segment)->float:
+  if(isIntersect(s,t)):
+    return 0
+  ans=distanceBetweenSegmentAndPoint(s,t.a)
+  ans=min(ans,distanceBetweenSegmentAndPoint(s,t.b))
+  ans=min(ans,distanceBetweenSegmentAndPoint(t,s.a))
+  ans=min(ans,distanceBetweenSegmentAndPoint(t,s.b))
+  return ans
+def PolygonArea(p:List[Point])->float:
+  res=0
+  n=len(p)
+  for i in range(n):
+    res+=cross(p[i],p[(i+1)%n])
+  return res/2
+def isConvex(p:List[Point])->float:
+  n=len(p)
+  for i in range(n):
+    if CounterClockWise(p[(i-1)%n],p[i],p[(i+1)%n])==-1:
+      return False
+  return True
+def isContained(g:List[Point],p:Point)->int:
+  IN=False
+  n=len(g)
+  for i in range(n):
+    a=g[i]-p
+    b=g[(i+1)%n]-p
+    if a.imag>b.imag:
+      a,b=b,a
+    if a.imag<=0 and 0<b.imag and cross(a,b)<0:
+      IN^=1
+    if cross(a,b)==0 and dot(a,b)<=0:
+      return 1
+  if IN:
+    return 2
+  return 0
+def ConvexHull(g:List[Point])->List[Point]:        
+  g.sort(key=cmp_to_key(cmp))
+  CH=[]
+  n=len(g)
+  for p in g:
+    while len(CH)>1 and cross(CH[-1]-CH[-2],p-CH[-1])<-eps:
+      CH.pop()
+    CH.append(p)
+  t=len(CH)
+  for i in range(n-2,-1,-1):
+    p=g[i]
+    while len(CH)>t and cross(CH[-1]-CH[-2],p-CH[-1])<-eps:
+      CH.pop()
+    CH.append(p)
+  return CH[:-1]
+def ConvexDiameter(p:List[Point])->float:
+  n=len(p)
+  i0,j0=0,0
+  for i in range(1,n):
+    if p[i].imag>p[i0].imag:
+      i0=i
+    if p[i].imag<p[j0].imag:
+      j0=i
+  mx=abs(p[i0]-p[j0])
+  i=i0
+  j=j0
+  while i!=j0 or j!=i0:
+    if(cross(p[(i+1)%n]-p[i],p[(j+1)%n]-p[j])>=0):
+      j=(j+1)%n
+    else:
+      i=(i+1)%n
+    if abs(p[i]-p[j])>mx:
+      mx=abs(p[i]-p[j])
+  return mx
+def ConvexCut(P:List[Point],L:Line)->List[Point]:
+  ret=[]
+  n=len(P)
+  for i in range(n):
+    now,nxt=P[i],P[(i+1)%n]
+    if CounterClockWise(L.a,L.b,now)!=-1:
+      ret.append(now)
+    if CounterClockWise(L.a,L.b,now)*CounterClockWise(L.a,L.b,nxt)<0:
+      ret.append(crossPoint(Line(now,nxt),L))
+  return ret
+def IsIntersectCircle(c1:Circle,c2:Circle)->int:
+  d=abs(c1.p-c2.p)
+  if d>c1.r+c2.r+eps:
+    return 4
+  if equal(d,c1.r+c2.r):
+    return 3
+  if equal(d,abs(c1.r-c2.r)):
+    return 1
+  if d<abs(c1.r-c2.r)-eps:
+    return 0
+  return 2
+def InscribedCircle(a:Point,b:Point,c:Point)->Circle:
+  A,B,C=abs(b-c),abs(c-a),abs(b-a)
+  p=point(A*a.real+B*b.real+C*c.real,A*a.imag+B*b.imag+C*c.imag)
+  p/=(A+B+C)
+  r=distanceBetweenSegmentAndPoint(Line(a,b),p)
+  return Circle(p,r)
+def CircumscribedCircle(a:Point,b:Point,c:Point)->Circle:
+  p=(a-b)*norm(c)+(b-c)*norm(a)+(c-a)*norm(b)
+  p/=(a-b)*c.conjugate()+(b-c)*a.conjugate()+(c-a)*b.conjugate()
+  r=abs(p-a)
+  return Circle(p,r)
+def CrossPoint_Circle_Line(C:Circle,L:Line)->List[Point]:
+  res=[]
+  d=distanceBetweenLineAndPoint(L,C.p)
+  if d>C.r+eps:
+    return res
+  h=projection(L,C.p)
+  if equal(d,C.r):
+    return [h]
+  e=unitVector(L.b-L.a)
+  ph=sqrt(C.r**2-d**2)
+  res.append(h-e*ph)
+  res.append(h+e*ph)
+  return res
+def CrossPointCircles(C1:Circle,C2:Circle)->List[Point]:
+  res=[]
+  mode=IsIntersectCircle(C1,C2)
+  d=abs(C1.p-C2.p)
+  if mode==4 or mode==0:
+    return res
+  if mode==3:
+    t=C1.r/(C1.r+C2.r)
+    res.append(C1.p+(C2.p-C1.p)*t)
+    return res
+  if mode==1:
+    if C2.r<C1.r-eps:
+      res.append(C1.p+(C2.p-C1.p)*(C1.r/d))
+    else:
+      res.append(C2.p+(C1.p-C2.p)*(C2.r/d))
+    return res
+  rc1=(C1.r**2+d**2-C2.r**2)/(2*d)
+  rs1=sqrt(C1.r**2-rc1**2)
+  if C1.r-abs(rc1)<eps:
+    rs1=0
+  e12=(C2.p-C1.p)/abs(C2.p-C1.p)
+  res.append(C1.p+rc1*e12+rs1*e12*point(0,1))
+  res.append(C1.p+rc1*e12+rs1*e12*point(0,-1))
+  return res
+def tangentToCircle(p:Point,c:Circle)->List[Point]:
+  return CrossPointCircles(c,Circle(p,sqrt(norm(c.p-p)-c.r**2)))
+def tangent(c1:Circle,c2:Circle)->List[Line]:
+  res=[]
+  d=abs(c1.p-c2.p)
+  if equal(d,0):
+    return []
+  u=unitVector(c2.p-c1.p)
+  v=rotate(u,pi/2)
+  for s in [-1,1]:
+    h=(c1.r+c2.r*s)/d
+    if equal(h**2,1):
+      res.append(Line(c1.p+h*u*c1.r,c1.p+h*u*c1.r+v))
+    elif 1-h*h>0:
+      U=u*h
+      V=v*sqrt(1-h*h)
+      res.append(Line(c1.p+(U+V)*c1.r,c2.p-(U+V)*c2.r*s))
+      res.append(Line(c1.p+(U-V)*c1.r,c2.p-(U-V)*c2.r*s))
+  return res
+x1,y1,r1=map(int,input().split())
+x2,y2,r2=map(int,input().split())
+C1=Circle(point(x1,y1),r1)
+C2=Circle(point(x2,y2),r2)
+res=tangent(C1,C2)
+ans=[]
+for L in res:
+  p=CrossPoint_Circle_Line(C1,L)
+  ans.append(p[0])
+ans.sort(key=cmp_to_key(cmp))
+for p in ans:
+  print_Point(p)"

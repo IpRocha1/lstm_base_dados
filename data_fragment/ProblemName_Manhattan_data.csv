@@ -1,0 +1,211 @@
+judgeId,problemId,problemName,sourceCode
+2179084,2629,Manhattan,"n=float(input())
+print(n//1+1 if n*2**0.5<n//1+1 else n*2**0.5)"
+2971703,2629,Manhattan,"d=float(input());print(max(int(d)+1,d*2**0.5))"
+3679857,2629,Manhattan,"d = float(input())
+ans = max(2**0.5 * d, int(d) + 1)
+print(ans)"
+4889489,2629,Manhattan,"d = float(input())
+ans = 2**(1/2) * d
+for x in range(int(d)+1):
+    y = (d**2 - x**2)**(1/2)
+    if y < 1:
+        y += 1 - y
+    ans = max(ans, x+y)
+print(ans)"
+4942053,2629,Manhattan,"import sys
+readline = sys.stdin.readline
+write = sys.stdout.write
+def solve():
+    d = float(readline())
+    ans = d * 2**.5
+    di = int(d)
+    if di <= d < (di**2+1)**.5:
+        ans = max(di+1, ans)
+    write(""%.16f\n"" % ans)
+solve()"
+5104949,2629,Manhattan,"import sys
+sys.setrecursionlimit(10**6)
+int1 = lambda x: int(x)-1
+p2D = lambda x: print(*x, sep=""\n"")
+def II(): return int(sys.stdin.buffer.readline())
+def MI(): return map(int, sys.stdin.buffer.readline().split())
+def MI1(): return map(int1, sys.stdin.buffer.readline().split())
+def LI(): return list(map(int, sys.stdin.buffer.readline().split()))
+def LI1(): return list(map(int1, sys.stdin.buffer.readline().split()))
+def LLI(rows_number): return [LI() for _ in range(rows_number)]
+def BI(): return sys.stdin.buffer.readline().rstrip()
+def SI(): return sys.stdin.buffer.readline().rstrip().decode()
+dij = [(1, 1), (-1, 1), (1, -1), (-1, -1)]
+inf = 10**16
+md = 998244353
+d=float(input())
+ans=0
+if 1<=d<2**0.5:
+    ans=2
+elif 2<=d<5**0.5:
+    ans=3
+ans=max(ans,d*2**0.5)
+print(ans)"
+7896988,2629,Manhattan,"import math
+d = float(input())
+print(max(d * 2 ** 0.5, math.floor(d) + 1))"
+2293494,2629,Manhattan,"d = float(input())
+ans = d * pow(2, 0.5)
+for i in range(1, 11):
+    if i <= d <= pow(1 + i ** 2, 0.5):
+        ans = max(ans, i + 1)
+print(""{:.020f}"".format(ans))"
+4890637,2629,Manhattan,"from collections import defaultdict, deque
+from heapq import heappush, heappop
+from itertools import permutations, accumulate
+import sys
+import math
+import bisect
+def LI(): return [int(x) for x in sys.stdin.readline().split()]
+def I(): return int(sys.stdin.readline())
+def LS():return [list(x) for x in sys.stdin.readline().split()]
+def S():
+    res = list(sys.stdin.readline())
+    if res[-1] == ""\n"":
+        return res[:-1]
+    return res
+def IR(n):
+    return [I() for _ in range(n)]
+def LIR(n):
+    return [LI() for _ in range(n)]
+def SR(n):
+    return [S() for _ in range(n)]
+def LSR(n):
+    return [LS() for _ in range(n)]
+sys.setrecursionlimit(1000000)
+mod = 1000000007
+def solve():
+    d = float(input())
+    sq = 2**0.5
+    ans = sq*d
+    D = d**2
+    for x in range(11):
+        Y = D-x**2
+        if Y < 0:
+            break
+        y = Y**0.5
+        if y < sq:
+            y = 1
+        d = x+y
+        if ans < d:
+            ans = d
+    print(ans)
+    return
+if __name__ == ""__main__"":
+    solve()"
+5688118,2629,Manhattan,"x, y = input().split(""."")
+d = int(x) * 1000 + int(y)
+dd = d * d
+ans = 0
+def f(x):
+    return x + (dd - x*x) ** 0.5
+h = 0
+while h*h <= dd:
+    ww = dd - h * h
+    if 1000 * 1000 > ww:
+        ww = 1000 * 1000
+    dist = h + ww ** 0.5
+    ans = max(ans, dist)
+    h += 1000
+l = 0
+r = d
+for _ in range(100):
+    ml = (l + l + r) / 3
+    mr = (l + r + r) / 3
+    if f(ml) > f(mr):
+        r = mr
+    else:
+        l = ml
+ans = max(ans, f((r+l)/2))
+print(""{:.18f}"".format(ans/1000))"
+8133134,2629,Manhattan,"from math import sqrt
+d = float(input())
+ans = d * sqrt(2)
+di = int(d)
+if di <= d < sqrt(di**2 + 1):
+    ans = max(di + 1, ans)
+print(ans)"
+6020954,2629,Manhattan,"import sys
+sys.setrecursionlimit(10**6)
+input=sys.stdin.readline
+from math import floor,sqrt,factorial,hypot,log 
+from heapq import heappop, heappush, heappushpop
+from collections import Counter,defaultdict,deque
+from itertools import accumulate,permutations,combinations,product,combinations_with_replacement
+from bisect import bisect_left,bisect_right
+from copy import deepcopy
+from fractions import gcd
+from random import randint
+def ceil(a,b): return (a+b-1)//b
+inf=float('inf')
+mod = 10**9+7
+def pprint(*A): 
+    for a in A:     print(*a,sep='\n')
+def INT_(n): return int(n)-1
+def MI(): return map(int,input().split())
+def MF(): return map(float, input().split())
+def MI_(): return map(INT_,input().split())
+def LI(): return list(MI())
+def LI_(): return [int(x) - 1 for x in input().split()]
+def LF(): return list(MF())
+def LIN(n:int): return [I() for _ in range(n)]
+def LLIN(n: int): return [LI() for _ in range(n)]
+def LLIN_(n: int): return [LI_() for _ in range(n)]
+def LLI(): return [list(map(int, l.split() )) for l in input()]
+def I(): return int(input())
+def F(): return float(input())
+def ST(): return input().replace('\n', '')
+def main():
+    d = float(input()) 
+    ans = 0
+    for y in range(11):
+        if(y > d):
+            continue
+        dx = sqrt(d**2 - y**2)
+        if(dx > d):
+            continue
+        if(dx < 1):
+            ans = max( ans, y + 1 )
+        else:
+            ans = max( ans, y + dx )
+    ans = max( ans, d * sqrt(2) )
+    print(""{:.10f}"".format(ans))
+if __name__ == '__main__':
+    main()"
+2939384,2629,Manhattan,"import math,string,itertools,fractions,heapq,collections,re,array,bisect,sys,random,time,copy,functools
+sys.setrecursionlimit(10**7)
+inf = 10**20
+eps = 1.0 / 10**10
+mod = 998244353
+dd = [(0,-1),(1,0),(0,1),(-1,0)]
+ddn = [(0,-1),(1,-1),(1,0),(1,1),(0,1),(-1,-1),(-1,0),(-1,1)]
+def LI(): return [int(x) for x in sys.stdin.readline().split()]
+def LI_(): return [int(x)-1 for x in sys.stdin.readline().split()]
+def LF(): return [float(x) for x in sys.stdin.readline().split()]
+def LS(): return sys.stdin.readline().split()
+def I(): return int(sys.stdin.readline())
+def F(): return float(sys.stdin.readline())
+def S(): return input()
+def pf(s): return print(s, flush=True)
+def main():
+    n = F()
+    nn = n**2
+    r = n * (2**0.5)
+    for i in range(int(n)+1):
+        kk = nn - i**2
+        if kk < 0:
+            break
+        k = kk ** 0.5
+        tr = i + k
+        if k < 1:
+            tr += 1-k
+        if r < tr:
+            r = tr
+    return r
+print(main())"

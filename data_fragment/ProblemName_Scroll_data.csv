@@ -1,0 +1,127 @@
+judgeId,problemId,problemName,sourceCode
+8660349,0702,Scroll,"def main():
+    N,K = map(int, input().split())
+    T = input().strip()
+    front = T[:K-1]
+    back = T[K-1:]
+    back = back.swapcase()
+    ans = front + back
+    print(ans)
+if __name__ == '__main__':
+    main()"
+8736622,0702,Scroll,"n, k = map(int, input().split())
+t = input()
+s = """".join([t[i] if i < k - 1 else t[i].upper() if t[i].islower() else t[i].lower() for i in range(n)])
+print(s)"
+8795170,0702,Scroll,"N,K=map(int,input().split())
+s=input()
+print(s[:K-1]+s[K-1:].swapcase())"
+9033113,0702,Scroll,"N, K = map(int, input().split())
+T = str(input())
+ans = T[:K-1]
+for i in range(K-1,len(T)):
+    if T[i].isupper():
+        ans+=T[i].lower()
+    else:
+        ans+=T[i].upper()
+print(ans)"
+6229684,0702,Scroll,"N, K = map(int, input().split())
+T = list(input())
+T_h = []
+T_f = []
+T_fn = []
+for i in range(K-1):
+    T_h.append(T[i])
+for i in range(K-1, N):
+    T_f.append(T[i])
+for i in T_f:
+    T_fn.append(i.swapcase())
+print("""".join(T_h + T_fn))"
+6277849,0702,Scroll,"n, k = map(int, input().split())
+s = input()
+print(s[:k-1]+s[k-1:].swapcase())"
+6358013,0702,Scroll,"import sys
+READ_FROM_FILE = False
+def main():
+    if READ_FROM_FILE:
+        f = open('test0.txt', 'r')
+    else:
+        f = sys.stdin
+    n, k = map(int, f.readline().split())
+    k -= 1
+    t_str = f.readline().rstrip('\n')
+    print(t_str[:k] + t_str[k:].swapcase())
+    if READ_FROM_FILE:
+        f.close()
+    return
+if __name__ == '__main__':
+    main()"
+6398902,0702,Scroll,"N, K = map(int, input().split())
+T = input()
+K -= 1
+print(T[0:K] + T[K:].swapcase())"
+6477978,0702,Scroll,"N,K = map(int,input().split())
+T = input()
+K -= 1
+print(T[0:K] + T[K:].swapcase())"
+6553923,0702,Scroll,"n, k = map(int, input().split())
+t = input()
+s = t[:k - 1]
+for i in range(k - 1, n):
+    if t[i] == 'J' or t[i] == 'O' or t[i] == 'I':
+        s += t[i].lower()
+    elif t[i] == 'j' or t[i] == 'o' or t[i] == 'i':
+        s += t[i].upper()
+print(s)"
+6874694,0702,Scroll,"def main():
+    _, k = map(lambda x: int(x) - 1, input().split())
+    t = input()
+    ans = []
+    for idx, ch in enumerate(t):
+        if k <= idx:
+            if ch.isupper():
+                ans.append(ch.lower())
+            else:
+                ans.append(ch.upper())
+        else:
+            ans.append(ch)
+    print("""".join(ans))
+if __name__ == ""__main__"":
+    main()"
+6943054,0702,Scroll,"def solve():
+    from sys import stdin
+    conv = {'j': 'J', 'o': 'O', 'i': 'I', 'J': 'j', 'O': 'o', 'I': 'i'}
+    f_i = stdin
+    N, K = map(int, f_i.readline().split())
+    K -= 1
+    T = f_i.readline().rstrip()
+    ans = T[:K] + ''.join(conv[k] for k in T[K:])
+    print(ans)
+solve()"
+7133300,0702,Scroll,"N,K=map(int,input().split())
+S=input()
+for u in range(K-1,N-1):
+    if S[u].islower():
+        S=S[:u]+S[u].upper()+S[u+1:]
+    else:
+        S=S[:u]+S[u].lower()+S[u+1:]
+if S[-1].islower():
+    S=S[:-1]+S[-1].upper()
+else:
+    S=S[:-1]+S[-1].lower()
+print(S)"
+7585865,0702,Scroll,"N, K = list(map(int, input().split()))
+S = input()
+print("""".join([j if i<K-1 else j.swapcase() for i,j in enumerate(S)]))"
+8158889,0702,Scroll,"n,k = map(int,input().split())
+t = input()
+print(t[:k-1] + str.swapcase(t[k-1:]))"
+6215666,0702,Scroll,"L = [[""J"", ""O"", ""I"", ""j"", ""o"", ""i""],[""j"", ""o"", ""i"", ""J"", ""O"", ""I""]]
+N, K = map(int, input().split())
+S = list(input())
+for j in range(K-1, N):
+    for i in range(6):
+        if S[j] == L[0][i]:
+            S[j] = L[1][i]
+            break
+print("""".join(S))"

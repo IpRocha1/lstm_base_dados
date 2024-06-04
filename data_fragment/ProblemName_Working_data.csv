@@ -1,0 +1,163 @@
+judgeId,problemId,problemName,sourceCode
+3307808,2921,Working,"N=int(input())
+A=list(map(int,input().split()))
+SUM=[A[0]]
+for i in range(1,N):
+    SUM.append(SUM[-1]+A[i])
+B=[SUM[i]//(i+1) for i in range(N)]
+print(min(B))"
+3308100,2921,Working,"n = int(input())
+a = list(map(int, input().split()))
+r = 100
+for i in range(n):
+  r = min(r, sum(a[:i+1])//(i+1))
+print(r)"
+3308380,2921,Working,"N = int(input())
+A = [int(x) for x in input().split()]
+def check(x):
+    work = 0
+    for a in A:
+        work += a
+        if work < x:
+            return 0
+        work -= x
+    return 1
+ans = 0
+for i in range(101):
+    if check(i):
+        ans = i
+print(ans)"
+3358530,2921,Working,"from itertools import accumulate
+n=int(input())
+a=list(accumulate(map(int,input().split())))
+for i in range(100,0,-1):
+    for j in range(n):
+        if i*(j+1)>a[j]:break
+    else:
+        print(i)
+        break"
+3388375,2921,Working,"n = int(input())
+li = list(map(int, input().split()))
+ans = 1000
+s = 0
+for i in range(n):
+    s += li[i]
+    ans = min(ans, s//(i+1))
+print(ans)"
+3416807,2921,Working,"n = int(input())
+li = list(map(int,input().split()))
+fl = False
+for i in range(1,200):
+    task = 0
+    if fl == True:
+        break
+    for a in li:
+        task += a
+        if task >= i:
+            task -= i
+        else:
+            print(i-1)
+            fl = True
+            break"
+3456215,2921,Working,"n=int(input())
+a=list(map(int,input().split()))
+ans=float(""inf"")
+s=0
+for i in range(n):
+    s+=a[i]
+    ans=min(ans,int(s/(i+1)))
+print(ans)"
+3463634,2921,Working,"n = int(input())
+a = list(map(int,input().split()))
+ans = 10 ** 7
+sum = 0
+for i in range(n):
+	sum+=a[i]
+	ans = min(ans,sum // (i + 1))
+print(ans)"
+3571820,2921,Working,"n=int(input())
+ls=list(map(int,input().split()))
+ans=0
+for i in range(1,sum(ls)//n+1):
+    am=0
+    ans+=1
+    for j in range(0,n-1):
+        am=am+ls[j]-i
+        if am<0:
+            break
+    else:
+        continue
+    if am!=0:
+        ans=ans-1
+    break
+print(ans)"
+3641049,2921,Working,"n=int(input())
+a=[int(x) for x in input().split()] 
+x=100
+for i in range(n):
+  x=min(x,sum(a[:i+1])//(i+1))
+print(x)"
+4259921,2921,Working,"N = int(input())
+A = [int(x) for x in input().split()]
+sum = A[0]
+ans = A[0]
+for i in range(1, N):
+    sum += A[i]
+    ans = min(ans, sum // (i + 1))
+print(ans)"
+5180322,2921,Working,"import sys
+readline = sys.stdin.readline
+write = sys.stdout.write
+def solve():
+    N = int(readline())
+    *A, = map(int, readline().split())
+    s = 0
+    ans = 10000
+    for i in range(N):
+        s += A[i]
+        ans = min(ans, s // (i+1))
+    write(""%d\n"" % ans)
+solve()"
+5630930,2921,Working,"input()
+A=list(map(int,input().split()))
+from itertools import accumulate
+A=list(accumulate(A))
+print(min(x//(i+1) for i,x in enumerate(A)))"
+3320052,2921,Working,"n = map(int,input().split())
+a = list(map(int,input().split()))
+ok,ng = 1,10000
+while ng-ok > 1:
+    mid = (ok+ng)//2
+    valid = True
+    now = 0
+    for i in a:
+        now += i
+        now -= mid
+        if now < 0:
+            valid = False
+    if valid:
+        ok = mid
+    else:
+        ng = mid
+print(ok)"
+6597662,2921,Working,"n = int(input())
+A = list(map(int, input().split()))
+for i in range(1, 101):
+    temp = 0
+    for j in range(n):
+        temp += A[j]
+        temp -= i
+        if temp < 0:
+            print(i - 1)
+            exit()
+print(100)"
+7084553,2921,Working,"N=int(input())
+A=list(map(int,input().split()))
+ans=167
+sum=0
+for i in range(N):
+  sum+=A[i]
+  tmp=sum//(i+1)
+  if ans>tmp:
+    ans=tmp
+print(ans)"

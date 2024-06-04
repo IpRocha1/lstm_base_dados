@@ -1,0 +1,106 @@
+judgeId,problemId,problemName,sourceCode
+3417768,1574,Gossip,"n, m = map(int, input().split())
+li = list(map(int, input().split()))
+print(max(li[0]-1, n-li[-1], *[(li[i]-li[i-1])//2 for i in range(1,m)]))"
+1693663,1574,Gossip,"n, m = map(int, input().split())
+a = list(map(int, input().split()))
+ma = a[0] - 1
+for i in range(m-1):
+    ma = max(ma, (a[i + 1] - a[i]) // 2)
+ma = max(ma, n - a[-1])
+print(ma)"
+3090050,1574,Gossip,"n,m=map(int,input().split("" ""))
+a=list(map(int,input().split("" "")))
+print(max(a[0]-1,n-a[-1],*[(a[i+1]-a[i])//2 for i in range(m-1)]))"
+2875804,1574,Gossip,"n, m = map(int, input().split())
+a =list(map(int, input().split()))
+t = max(a[0] - 1, n - a[-1])
+for i in range(1, m):t = max(t, (a[i] - a[i - 1]) // 2)
+print(t)"
+3024626,1574,Gossip,"n, m = map(int, input().split())
+a = list(map(int, input().split()))
+pre = a[0]; d = 0
+for x in a[1:]:
+	d = max(d, x-pre)
+	pre = x
+print(max(n-pre, max(d>>1, a[0]-1)))"
+4109106,1574,Gossip,"n,m = map(int,input().split())
+a = list(map(int,input().split()))
+c = [a[0]-1, n-a[m-1]]
+for i in range(m-1):
+    c.append((a[i+1]-a[i])//2)
+print(max(c))"
+4949943,1574,Gossip,"import math
+n,m = map(int,input().split())
+a = list(map(int,input().split()))
+ans = max(a[0]-1,n-a[m-1])
+for i in range(m-1):
+    l = (a[i+1] - a[i])//2
+    ans = max(l,ans)
+print(ans)"
+7354579,1574,Gossip,"n, m = map(int, input().split())
+A = list(map(int, input().split()))
+A.sort()
+ans = 0
+for i in range(m):
+    if i == 0:
+        ans = max(ans, A[i] - 1)
+    else:
+        ans = max(ans, (A[i] - A[i - 1]) // 2)
+    if i == m - 1:
+        ans = max(ans, n - A[i])
+    else:
+        ans = max(ans, (A[i + 1] - A[i]) // 2)
+print(ans)"
+1693808,1574,Gossip,"def solve(n, received):
+    not_relayed = received.copy()
+    for t in range(n + 1):
+        if len(received) >= n:
+            return t
+        new_not_relayed = set()
+        for person in not_relayed:
+            if person >= 1:
+                if (person - 1) not in received:
+                    received.add(person - 1)
+                    new_not_relayed.add(person - 1)
+            if person <= n - 2:
+                if (person + 1) not in received:
+                    received.add(person + 1)
+                    new_not_relayed.add(person + 1)
+        not_relayed = new_not_relayed
+def main():
+    n, m = map(int, input().split())
+    received_people = set(map(lambda x: int(x) - 1, input().split()))
+    print(solve(n, received_people.copy()))
+if __name__ == '__main__':
+    main()"
+3343090,1574,Gossip,"n, m = map(int, input().split())
+lst = [100000 for _ in range(n)]
+a_lst = list(map(int, input().split()))
+for a in a_lst:
+    lst[a - 1] = 0
+for i in range(n - 1):
+    lst[i + 1] = min(lst[i] + 1, lst[i + 1])
+for i in range(n - 1, 0, -1):
+    lst[i - 1] = min(lst[i - 1], lst[i] + 1)
+print(max(lst))"
+6895014,1574,Gossip,"n,m = map(int,input().split())
+a = list(map(int,input().split()))
+rp = [10**20 for i in range(n)]
+hi = 10**20
+p = 0
+for i in range(n):
+    if a[p] == i+1:
+        hi = 0
+        if p < m-1:
+            p += 1
+    rp[i] = min(rp[i],hi)
+    hi += 1
+for i in range(n-1,-1,-1):
+    if a[p] == i+1:
+        hi = 0
+        if p > 0:
+            p -= 1
+    rp[i] = min(rp[i],hi)
+    hi += 1
+print(max(rp))"

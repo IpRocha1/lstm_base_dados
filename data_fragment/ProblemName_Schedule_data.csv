@@ -1,0 +1,418 @@
+judgeId,problemId,problemName,sourceCode
+8483759,0595,Schedule,"def main():
+    N = int(input())
+    mod = 10**4 + 7
+    Mozi = input().strip()
+    dp = [[0]*2**3 for _ in range(N)]
+    for i in range(2**3):
+        member = []
+        for j in range(3):
+            if (i >> j) & 1:
+                if j == 0:
+                    member.append('J')
+                elif j == 1:
+                    member.append('O')
+                else:
+                    member.append('I')
+        if 'J' in member and Mozi[0] in member:
+            dp[0][i] = 1
+    for n in range(N-1):
+        for k in range(2**3):
+            if dp[n][k] != 0:
+                for i in range(2**3):
+                    member = []
+                    for j in range(3):
+                        if (i >> j) & 1:
+                            if j == 0:
+                                member.append('J')
+                            elif j == 1:
+                                member.append('O')
+                            else:
+                                member.append('I')
+                    if Mozi[n+1] in member:
+                        if k & i:
+                            dp[n+1][i] += dp[n][k]
+                            dp[n+1][i] %= mod
+    print(sum(dp[-1]) % mod)
+if __name__ == '__main__':
+    main()"
+8956511,0595,Schedule,"def P2N(P):
+    S = 0
+    if 'J' in P: S += 1
+    if 'O' in P: S += 2
+    if 'I' in P: S += 4
+    return S
+def N2P(N):
+    S = set()
+    if N & 1 == 1: S.add('J')
+    if N & 2 == 2: S.add('O')
+    if N & 4 == 4: S.add('I') 
+    return S
+def remove_repetition(iterable):
+    result = []
+    for item in iterable:
+        if item not in result:
+            result.append(item)
+    return result
+N = int(input())
+P = input()
+MC = [0,1,0,0,0,0,0,0]
+for p in P:
+    MC1 = [0,0,0,0,0,0,0,0]
+    for i in range(1,8):
+        if MC[i] == 0: continue
+        MM = []
+        M = N2P(i)
+        for m in M:
+            MM.append({m,p})
+            MM.append({m,p,'J'})
+            MM.append({m,p,'O'})
+            MM.append({m,p,'I'})
+            MM.append({'J','O','I'})
+        MM = remove_repetition(MM)
+        for mm in MM: MC1[P2N(mm)] += MC[i]
+    MC = MC1[:]
+print(sum(MC)%10007)"
+9233933,0595,Schedule,"n = int(input())
+s = input()
+mod = 10_007
+num = {""J"": 0, ""O"": 1, ""I"": 2}
+dp = [[0] * (1 << 3) for _ in range(n + 1)]
+dp[0][1 << 0] = 1
+for i in range(1, n + 1):
+    r = s[i - 1]  
+    rn = num[r]
+    for S in range(1, 1 << 3):
+        if (S >> rn) & 1 == 0:
+            continue
+        for T in range(1, 1 << 3):
+            if S & T == 0:
+                continue
+            dp[i][S] += dp[i - 1][T]
+            dp[i][S] %= mod
+ans = 0
+for x in dp[n]:
+    ans += x
+    ans %= mod
+print(ans)"
+1596527,0595,Schedule,"N = int(input())
+C = input()
+S = list(C)
+dp = [[0 for i in range(8)] for j in range(N + 1)]
+dp[0][1] = 1
+for i in range(N):
+    if C[i] == ""J"":
+        dp[i + 1][1] = dp[i][1] + dp[i][2] + dp[i][3] + dp[i][4];
+        dp[i + 1][2] = dp[i][1] + dp[i][2] + dp[i][3] + dp[i][4] + dp[i][5] + dp[i][6];
+        dp[i + 1][3] = dp[i][1] + dp[i][2] + dp[i][3] + dp[i][4] + dp[i][6] + dp[i][7];
+        dp[i + 1][4] = dp[i][1] + dp[i][2] + dp[i][3] + dp[i][4] + dp[i][5] + dp[i][6] + dp[i][7];
+        dp[i + 1][5] = 0;
+        dp[i + 1][6] = 0;
+        dp[i + 1][7] = 0;
+    if C[i] == 'O':
+        dp[i + 1][1] = 0;
+        dp[i + 1][2] = dp[i][1] + dp[i][2] + dp[i][3] + dp[i][4] + dp[i][5] + dp[i][6];
+        dp[i + 1][3] = 0;
+        dp[i + 1][4] = dp[i][1] + dp[i][2] + dp[i][3] + dp[i][4] + dp[i][5] + dp[i][6] + dp[i][7];
+        dp[i + 1][5] = dp[i][2] + dp[i][4] + dp[i][5] + dp[i][6];
+        dp[i + 1][6] = dp[i][2] + dp[i][3] + dp[i][4] + dp[i][5] + dp[i][6] + dp[i][7];
+        dp[i + 1][7] = 0;
+    if C[i] == 'I':
+        dp[i + 1][1] = 0;
+        dp[i + 1][2] = 0;
+        dp[i + 1][3] = dp[i][1] + dp[i][2] + dp[i][3] + dp[i][4] + dp[i][6] + dp[i][7];
+        dp[i + 1][4] = dp[i][1] + dp[i][2] + dp[i][3] + dp[i][4] + dp[i][5] + dp[i][6] + dp[i][7];
+        dp[i + 1][5] = 0;
+        dp[i + 1][6] = dp[i][2] + dp[i][3] + dp[i][4] + dp[i][5] + dp[i][6] + dp[i][7];
+        dp[i + 1][7] = dp[i][3] + dp[i][4] + dp[i][6] + dp[i][7];
+print((dp[N][1] + dp[N][2] + dp[N][3] + dp[N][4] + dp[N][5] + dp[N][6] + dp[N][7]) % 10007)"
+3977115,0595,Schedule,"mod = 10007
+N = int(input())
+S = list(str(input()))
+dp = [[0 for i in range(7)] for j in range(N)]
+for i in range(N):
+    s = S[i]
+    if i == 0:
+        if s == ""J"":
+            dp[0][0]+=1
+            dp[0][3]+=1
+            dp[0][5]+=1
+            dp[0][6]+=1
+        elif s == ""O"":
+            dp[0][3]+=1
+            dp[0][6]+=1
+        else:
+            dp[0][5]+=1
+            dp[0][6]+=1
+    else:
+        if s == ""J"":
+            dp[i][0] = dp[i-1][0]+dp[i-1][3]+dp[i-1][5]+dp[i-1][6]
+            dp[i][3] = dp[i-1][0]+dp[i-1][1]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+            dp[i][5] = dp[i-1][0]+dp[i-1][2]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+            dp[i][6] = dp[i-1][0]+dp[i-1][1]+dp[i-1][2]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+        elif s == ""O"":
+            dp[i][1] = dp[i-1][1]+dp[i-1][3]+dp[i-1][4]+dp[i-1][6]
+            dp[i][3] = dp[i-1][0]+dp[i-1][1]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+            dp[i][4] = dp[i-1][1]+dp[i-1][2]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+            dp[i][6] = dp[i-1][0]+dp[i-1][1]+dp[i-1][2]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+        elif s == ""I"":
+            dp[i][2] = dp[i-1][2]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+            dp[i][4] = dp[i-1][1]+dp[i-1][2]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+            dp[i][5] = dp[i-1][0]+dp[i-1][2]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+            dp[i][6] = dp[i-1][0]+dp[i-1][1]+dp[i-1][2]+dp[i-1][3]+dp[i-1][4]+dp[i-1][5]+dp[i-1][6]
+print(sum(dp[N-1])%mod)"
+6740849,0595,Schedule,"mod = 10007
+n = int(input())
+se = input()
+dp = [[0] * 8 for i in range(n + 1)]
+ind = {""J"": [4,5,6,7], ""O"":[2,3,6,7], ""I"":[1,3,5,7]}
+inds = {""JJ"":[], ""JO"":[], ""JI"":[], ""OJ"":[], ""OO"":[], ""OI"":[], ""IJ"":[], ""IO"":[], ""II"":[]}
+for i in ""JOI"":
+    for j in ""JOI"":
+        for k in ind[i]:
+            for l in ind[j]:
+                if k & l > 0:
+                    inds[i + j].append([k, l])
+for i in set(ind[se[0]]) & set(ind[""J""]):
+    dp[0][i] = 1
+for i in range(1, len(se)):
+    for j, l in inds[se[i] + se[i - 1]]:
+        dp[i][j] += dp[i - 1][l] % mod
+print(sum(dp[n - 1]) % mod)"
+2881882,0595,Schedule,"n = int(input())
+res = input()
+dic = {""J"":0, ""O"":1, ""I"":2}
+zo = [0,1]
+dp =[[[0 for j in zo] for o in zo] for i in zo]
+res1 = dic[res[0]]
+if res1 == 0:
+  for o in zo:
+    for i in zo:
+      dp[1][o][i] = 1
+elif res1 == 1:
+  for i in zo:
+    dp[1][1][i] = 1
+else:
+  for o in zo:
+    dp[1][o][1] = 1
+for d in range(1, n):
+  resd = dic[res[d]]
+  new = [[[0 for i in zo] for o in zo] for j in zo]
+  new[0][0][0] = 0
+  new[1][1][1] = sum([dp[x][y][z] for x in zo for y in zo for z in zo])
+  new[0][0][1] = sum([dp[x][y][1] for x in zo for y in zo]) if resd == 2 else 0
+  new[0][1][0] = sum([dp[x][1][y] for x in zo for y in zo]) if resd == 1 else 0
+  new[1][0][0] = sum([dp[1][x][y] for x in [0,1] for y in [0,1]]) if resd == 0 else 0
+  new[0][1][1] = sum([dp[x][1][y] + dp[x][y][1] for x in zo for y in zo]) - sum(dp[x][1][1] for x in zo) if resd in [1, 2] else 0
+  new[1][0][1] = sum([dp[1][x][y] + dp[x][y][1] for x in zo for y in zo]) - sum(dp[1][x][1] for x in zo) if resd in [0, 2] else 0
+  new[1][1][0] = sum([dp[x][1][y] + dp[1][x][y] for x in zo for y in zo]) - sum(dp[1][1][x] for x in zo) if resd in [0, 1] else 0
+  dp = new
+ans = 0
+for i in zo:
+  for j in zo:
+    for k in zo:
+      ans += dp[i][j][k]
+print(ans % 10007)"
+7136104,0595,Schedule,"n = int(input())
+s = input()
+mod = 10007
+dp = {""J"":1, ""O"":0, ""I"":0, ""JO"":0, ""JI"":0, ""OI"":0, ""JOI"":0}
+for s_i in s:
+    new_dp = {""J"":0, ""O"":0, ""I"":0, ""JO"":0, ""JI"":0, ""OI"":0, ""JOI"":0}
+    if s_i == ""J"":
+        new_dp[""J""] += dp[""J""] + dp[""JO""] + dp[""JI""] + dp[""JOI""]
+        new_dp[""JO""] += dp[""J""] + dp[""O""] + dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+        new_dp[""JI""] += dp[""J""] + dp[""I""] + dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+        new_dp[""JOI""] += dp[""J""] + dp[""O""] + dp[""I""]+ dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+    elif s_i == ""O"":
+        new_dp[""O""] += dp[""O""] + dp[""JO""] + dp[""OI""] + dp[""JOI""]
+        new_dp[""JO""] += dp[""J""] + dp[""O""] + dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+        new_dp[""OI""] += dp[""O""] + dp[""I""] + dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+        new_dp[""JOI""] += dp[""J""] + dp[""O""] + dp[""I""] + dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+    else: 
+        new_dp[""I""] += dp[""I""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+        new_dp[""JI""] += dp[""J""]  + dp[""I""] + dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+        new_dp[""OI""] += dp[""O""] + dp[""I""] + dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+        new_dp[""JOI""] += dp[""J""] + dp[""O""] + dp[""I""] + dp[""JO""] + dp[""JI""] + dp[""OI""] + dp[""JOI""]
+    for k in new_dp.keys():
+        new_dp[k] %= mod
+    dp = new_dp
+print(sum(v for v in dp.values()) % mod)"
+7331915,0595,Schedule,"import sys
+READ_FROM_FILE = False
+def main():
+    if READ_FROM_FILE:
+        f = open('test0.txt', 'r')
+    else:
+        f = sys.stdin
+    n = int(f.readline())
+    n_str = f.readline().rstrip('\n')
+    responsible_person_list = []
+    for i in range(n):
+        if n_str[i] == 'J':
+            responsible_person_list.append(0)
+        elif n_str[i] == 'O':
+            responsible_person_list.append(1)
+        else:
+            responsible_person_list.append(2)
+    dp = [[0] * 8 for _ in range(n)]
+    mod = 10007
+    r = responsible_person_list[0]
+    for i in range(1, 8):
+        if i & 1 > 0 and i & (1 << r) > 0:
+            dp[0][i] = 1
+    for i in range(1, n):
+        r = responsible_person_list[i]
+        for j in range(1, 8):
+            if j & (1 << r) == 0:
+                dp[i][j] = 0
+                continue
+            for k in range(1, 8):
+                if j & k > 0:
+                    dp[i][j] += dp[i - 1][k]
+                    if dp[i][j] >= mod:
+                        dp[i][j] -= mod
+    print(sum(dp[-1]) % mod)
+    if READ_FROM_FILE:
+        f.close()
+    return
+if __name__ == '__main__':
+    main()"
+2851180,0595,Schedule,"def plus(s):
+    global c
+    d = [0] * 7
+    for i in range(7):
+        if s in g[i]:
+            for j in range(7):
+                if g[i] & g[j] != set():
+                    d[i] += c[j]
+    c = d
+n = int(input())
+s = input()
+g = [set([""J""]), set([""O""]), set([""I""]), set([""J"", ""O""]), set([""J"", ""I""]), set([""O"", ""I""]), set([""J"", ""O"", ""I""])]
+c = [1, 0, 0, 0, 0, 0, 0, 0]
+for i in range(n):
+    plus(s[i])
+print(sum(c) % 10007)"
+6148012,0595,Schedule,"N = int(input())
+S = 'J'+input()
+T = 'JOI'
+MOD = 10007
+dp = [[0]*8 for _ in range(N+1)]
+dp[0][1] = 1
+for i in range(1, N+1):
+    s = T.index(S[i])
+    for j in range(8):
+        if not (j >> s) & 1:
+            continue
+        for k in range(8):
+            if j & k:
+                dp[i][j] += dp[i-1][k]
+                dp[i][j] %= MOD
+print(sum(dp[N]) % MOD)"
+7564828,0595,Schedule,"import sys
+readline = sys.stdin.readline
+write = sys.stdout.write
+def solve():
+    N = int(readline())
+    dp = [[0]*8 for i in range(N+1)]
+    dp[0][1] = 1
+    S = readline().strip()
+    JOI = ""JOI""
+    MOD = 10007
+    for i in range(N):
+        r = JOI.index(S[i])
+        for q in range(8):
+            if not q & (1 << r):
+                continue
+            for p in range(8):
+                if not p & q:
+                    continue
+                dp[i+1][q] += dp[i][p]
+            dp[i+1][q] %= MOD
+    ans = sum(dp[N]) % MOD
+    write(""%d\n"" % ans)
+solve()"
+4962069,0595,Schedule,"n = int(input())
+s = input()
+to_i = {""J"": 0, ""O"": 1, ""I"": 2}
+pattern = [
+    (),
+    (0,),
+    (1,),
+    (0, 1),
+    (2,),
+    (0, 2),
+    (1, 2),
+    (0, 1, 2)
+]
+dp = [[0] * 8 for _ in range(n+1)]
+dp[0][1] = 1
+in_v = [[1, 3, 5, 7],
+        [2, 3, 6, 7],
+        [4, 5, 6, 7]]
+nxt_t = [None] * 8
+for j in range(8):
+    nxt = set()
+    for c in pattern[j]:
+        for x in in_v[c]:
+            nxt.add(x)
+    nxt_t[j] = nxt
+MOD = 10007
+for i in range(n):
+    for j in range(8):
+        for nj in nxt_t[j]:
+            t = to_i[s[i]]
+            if nj >> t & 1:
+                dp[i+1][nj] += dp[i][j]
+                dp[i+1][nj] %= MOD
+ans = 0
+for x in dp[-1]:
+    ans += x
+    ans %= MOD
+print(ans)"
+7625065,0595,Schedule,"n = int(input())
+s = input()
+dp = [[0] * 8 for _ in range(n + 1)]
+dic = {""J"": 4, ""O"": 2, ""I"": 1}
+dp[0][dic[""J""]] = 1
+for i in range(1, n + 1):
+    p = dic[s[i - 1]]
+    for j in range(8):
+        if dp[i - 1][j] > 0:
+            z = set()
+            for k in range(1, j + 1):
+                if j & k != 0:
+                    y = (j & k) | p
+                    for l in range(8):
+                        if l & y == y and l not in z:
+                            dp[i][l] += dp[i - 1][j]
+                            z.add(l)
+ans = 0
+mod = 10007
+for x in dp[n]:
+    ans += x
+    ans %= mod
+print(ans)"
+3940431,0595,Schedule,"import sys
+from collections import Counter
+from itertools import product
+def solve(n, data):
+    status = Counter({(1, 0, 0): 1})
+    for ch in data:
+        u = Counter()
+        for j, o, i in product((0, 1), repeat=3):
+            if {'J': j, 'O': o, 'I': i}[ch]:
+                for k, v in status.items():
+                    pj, po, pi = k
+                    if any([(j and pj), (o and po), (i and pi)]):
+                        u[(j, o, i)] += v
+        status = Counter({k: v % 10007 for k, v in u.items()})
+    return sum(status.values()) % 10007
+def main(args):
+    n = int(input())
+    data = input()
+    ans = solve(n, data)
+    print(ans)
+if __name__ == '__main__':
+    main(sys.argv[1:])"

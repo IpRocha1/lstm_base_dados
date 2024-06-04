@@ -1,0 +1,437 @@
+judgeId,problemId,problemName,sourceCode
+8273823,0749,Painting,"from collections import deque
+dx = [1, 0, -1, 0]
+dy = [0, 1, 0, -1]
+H, W = map(int, input().split())
+A = [list(map(int, input().split())) for _ in range(H)]
+C = [[-1 for _ in range(W)] for _ in range(H)]
+N = 0
+for i in range(H):
+    for j in range(W):
+        if C[i][j] == -1:
+            C[i][j] = N
+            Q = deque()
+            Q.append((i, j))
+            while len(Q) > 0:
+                x, y = Q.pop()
+                for k in range(4):
+                    x2 = x + dx[k]
+                    y2 = y + dy[k]
+                    if 0 <= x2 < H and 0 <= y2 < W:
+                        if C[x2][y2] == -1 and A[x2][y2] == A[x][y]:
+                            C[x2][y2] = N
+                            Q.append((x2, y2))
+            N += 1
+B = [0] * N
+S = [0] * N
+for i in range(H):
+    for j in range(W):
+        B[C[i][j]] = A[i][j]
+        S[C[i][j]] += 1
+E = [set() for _ in range(N)]
+for i in range(H):
+    for j in range(W):
+        if i < H - 1:
+            if C[i][j] != C[i + 1][j]:
+                E[C[i][j]].add(C[i + 1][j])
+                E[C[i + 1][j]].add(C[i][j])
+        if j < W - 1:
+            if C[i][j] != C[i][j + 1]:
+                E[C[i][j]].add(C[i][j + 1])
+                E[C[i][j + 1]].add(C[i][j])
+ans = 0
+for i in range(N):
+    D = dict()
+    ans = max(ans, S[i])
+    for j in E[i]:
+        if B[j] not in D:
+            D[B[j]] = S[j]
+        else:
+            D[B[j]] += S[j]
+        ans = max(ans, S[i] + D[B[j]])
+print(ans)"
+8908102,0749,Painting,"from collections import deque
+dx = [1, 0, -1, 0]
+dy = [0, 1, 0, -1]
+H, W = map(int, input().split())
+A = [list(map(int, input().split())) for i in range(H)]
+C = [[-1 for j in range(W)] for i in range(H)]
+N = 0
+for i in range(H):
+  for j in range(W):
+    if C[i][j] == -1:
+      C[i][j] = N
+      Q = deque()
+      Q.append((i, j))
+      while len(Q) > 0:
+        x, y = Q.pop()
+        for k in range(4):
+          x2 = x + dx[k]
+          y2 = y + dy[k]
+          if 0 <= x2 < H and 0 <= y2 < W:
+            if C[x2][y2] == -1 and A[x2][y2] == A[x][y]:
+              C[x2][y2] = N
+              Q.append((x2, y2))
+      N += 1
+B = [0] * N
+S = [0] * N
+for i in range(H):
+  for j in range(W):
+    B[C[i][j]] = A[i][j]
+    S[C[i][j]] += 1
+E = [set() for i in range(N)]
+for i in range(H):
+  for j in range(W):
+    if i < H - 1:
+      if C[i][j] != C[i + 1][j]:
+        E[C[i][j]].add(C[i + 1][j])
+        E[C[i + 1][j]].add(C[i][j])
+    if j < W - 1:
+      if C[i][j] != C[i][j + 1]:
+        E[C[i][j]].add(C[i][j + 1])
+        E[C[i][j + 1]].add(C[i][j])
+ans = 0
+for i in range(N):
+  D = dict()
+  ans = max(ans, S[i])
+  for j in E[i]:
+    if B[j] not in D:
+      D[B[j]] = S[j]
+    else:
+      D[B[j]] += S[j]
+    ans = max(ans, S[i] + D[B[j]])
+print(ans)"
+8711704,0749,Painting,"from collections import defaultdict
+class UnionFind():
+    def __init__(self, n):
+        self.n = n
+        self.root = [-1] * n
+        self.rank = [0] * n
+    def find(self, x):
+        if self.root[x] < 0:
+            return x
+        else:
+            self.root[x] = self.find(self.root[x])
+            return self.root[x]
+    def unite(self, x, y):
+        x = self.find(x)
+        y = self.find(y)
+        if x == y:
+            return
+        elif self.rank[x] > self.rank[y]:
+            self.root[x] += self.root[y]
+            self.root[y] = x
+        else:
+            self.root[y] += self.root[x]
+            self.root[x] = y
+            if self.rank[x] == self.rank[y]:
+                self.rank[y] += 1
+    def same(self, x, y):
+        return self.find(x) == self.find(y)
+    def size(self, x):
+        return -self.root[self.find(x)]
+    def roots(self):
+        return [i for i, x in enumerate(self.root) if x < 0]
+    def group_size(self):
+        return len(self.roots())
+    def group_members(self):
+        group_members = defaultdict(list)
+        for member in range(self.n):
+            group_members[self.find(member)].append(member)
+        return group_members
+h, w = map(int, input().split())
+al = [list(map(int, input().split())) for _ in range(h)]
+uf = UnionFind(h*w)
+for i in range(h):
+    for j in range(w):
+        a = al[i][j]
+        for p, q in ((0, 1), (1, 0)):
+            u, v = i + p, j + q
+            if 0 > u or u >= h or 0 > v or v >= w:
+                continue
+            if a == al[u][v]:
+                uf.unite(i*w + j, u*w + v)
+gm = uf.group_members()
+edges = dict()
+for k in gm.keys():
+    edges[k] = set()
+    for m in gm[k]:
+        i = m // w
+        j = m % w
+        a = al[i][j]
+        for p, q in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+            u, v = i + p, j + q
+            if 0 > u or u >= h or 0 > v or v >= w:
+                continue
+            if a != al[u][v]:
+                edges[k].add(uf.find(u*w + v))
+ans = 0
+for k in edges.keys():
+    dd = defaultdict(int)
+    for nxt in edges[k]:
+        u = nxt // w
+        v = nxt % w
+        dd[al[u][v]] += len(gm[nxt])
+    tmp = len(gm[k])
+    if dd:
+        tmp += max(dd.values())
+    ans = max(ans, tmp)
+print(ans)"
+6307222,3045,Painting,"from collections import Counter
+import sys
+input = sys.stdin.buffer.readline
+N, M = map(int, input().split())
+AB = list(tuple(map(int, input().split())) for _ in range(M))
+C = Counter(AB)
+add = [0] * (N + 1)
+for (a, b), c in C.items():
+    add[0] += c * a
+    for i in range(b - a - 1, N, b):
+        add[i] -= b * c
+for i in range(N):
+    print((i + 1) * M + add[i])
+    add[i + 1] += add[i]"
+7412777,3045,Painting,"from collections import Counter
+n, m = map(int, input().split())
+AB = [tuple(map(int, input().split())) for _ in range(m)]
+counter = Counter(AB)
+ADD = [0 for _ in range(n + 1)]
+for (a, b), c in counter.items():
+    ADD[0] += c * a
+    for i in range(b - a - 1, n, b):
+        ADD[i] -= b * c
+for i in range(n):
+    print((i + 1) * m + ADD[i])
+    ADD[i + 1] += ADD[i]"
+5028270,3045,Painting,"import sys
+input = lambda : sys.stdin.readline().rstrip()
+sys.setrecursionlimit(max(1000, 10**9))
+write = lambda x: sys.stdout.write(x+""\n"")
+n,m = list(map(int, input().split()))
+dp = [0]*(n+1)
+B = 200
+count = 0
+ans = [0]*(n+1)
+bs = [[0]*i for i in range(B+1)]
+for i in range(m):
+    a,b = map(int, input().split())
+    k = a%b
+    if b>B:
+        count += 1
+        dp[0] += k
+        for j in range(b-k, n+1, b):
+            dp[j] -= b
+    else:
+        bs[b][k] += 1
+for i in range(1,n+1):
+    dp[i] += count
+    dp[i] += dp[i-1]
+for b in range(1,B+1):
+    l = bs[b]
+    v = 0
+    c = 0
+    for ind, num in enumerate(l):
+        c += num
+        v += ind*num
+    for i in range(1,n+1):
+        v += c - l[(b-i)%b]*b
+        dp[i] += v
+write(""\n"".join(map(str, dp[1:])))"
+4845856,3177,Painting,"from collections import Counter
+N = int(input())
+S = input()
+T = input()
+CS = Counter(S)
+CT = Counter(T)
+R1 = CS['R']
+G1 = CS['G']
+B1 = CS['B']
+Y1 = CS['Y']
+R2 = CT['R']
+G2 = CT['G']
+B2 = CT['B']
+Y2 = CT['Y']
+if R1 == N or G1 == N or B1 == N or Y1 == N:
+    Sall = True
+else:
+    Sall = False
+if R2 == N or G2 == N or B2 == N or Y2 == N:
+    Tall = True
+else:
+    Tall = False
+if Sall or Tall:
+    if S == T:
+        print('Yes')
+    else:
+        print('No')
+else:
+    if (R1+G1) % 2 == (R2+G2) % 2 and (R1+B1) % 2 == (R2+B2) % 2 and (R1+Y1) % 2 == (R2+Y2) % 2:
+        print('Yes')
+    else:
+        print('No')"
+4845834,3177,Painting,"from collections import Counter
+N = int(input())
+S = list(input())
+T = list(input())
+ans= ""Yes""
+SC = Counter(S)
+TC = Counter(T)
+if (len(TC) == 1 or len(SC) == 1) and S != T:
+    ans = ""No""
+X = -((TC[""R""]-SC[""R""])+(TC[""G""]-SC[""G""]))/2
+Y = -((TC[""R""]-SC[""R""]+X)+(TC[""B""]-SC[""B""]-X))/2
+Z = -(TC[""Y""]-SC[""Y""]-X-Y)
+if -X-Y-Z != (TC[""R""]-SC[""R""]):
+    ans = ""No""
+if -X+Y+Z != (TC[""G""]-SC[""G""]):
+    ans = ""No""
+if X-Y+Z != (TC[""B""]-SC[""B""]):
+    ans = ""No""
+if X+Y-Z != (TC[""Y""]-SC[""Y""]):
+    ans = ""No""
+if not X%1 == Y%1 == Z%1 == 0:
+    ans = ""No""
+print(ans)"
+4959560,3177,Painting,"import sys
+input = lambda : sys.stdin.readline().rstrip()
+sys.setrecursionlimit(max(1000, 10**9))
+write = lambda x: sys.stdout.write(x+""\n"")
+n = int(input())
+s = input()
+t = input()
+def sub(s):
+    d = {""R"": 0, ""G"": 0, ""B"": 0, ""Y"": 0}
+    for c in s:
+        d[c] += 1
+    return d
+def pa(c):
+    return [c[""R""]%2, c[""G""]%2, c[""B""]%2, c[""Y""]%2]
+cs = sub(s)
+ct = sub(t)
+if pa(cs)==pa(ct) or all(pa(cs)[i]!=pa(ct)[i] for i in range(4)):
+    if n in cs.values() or n in ct.values():
+        if s==t:
+            ans = ""Yes""
+        else:
+            ans = ""No""
+    else:
+        ans = ""Yes""
+else:
+    ans = ""No""
+print(ans)"
+4846053,3177,Painting,"from sys import stdin
+from collections import deque
+import sys
+alp = ""RBYG""
+al = {}
+for i in range(4):
+    al[alp[i]] = i
+def nuse(a,b):
+    ret = [] 
+    for i in alp:
+        if a != i and b != i:
+            ret.append(i)
+    return ret
+N = int(stdin.readline())
+S = stdin.readline()[:-1]
+T = stdin.readline()[:-1]
+if N <= 4:
+    q = deque([S])
+    dic = {}
+    dic[S] = 0
+    while len(q) > 0:
+        now = q.popleft()
+        for i in range(N-1):
+            if now[i] == now[i+1]:
+                continue
+            x,y = nuse(now[i],now[i+1])
+            nex = now[:i] + x + y + now[i+2:]
+            if nex not in dic:
+                dic[nex] = 1
+                q.append(nex)
+            nex = now[:i] + y + x + now[i+2:]
+            if nex not in dic:
+                dic[nex] = 1
+                q.append(nex)
+    if T in dic:
+        print (""Yes"")
+    else:
+        print (""No"")
+else:
+    same = True
+    for i in range(N-1):
+        if S[i] != S[i+1]:
+            same = False
+            break
+    if same:
+        if S == T:
+            print (""Yes"")
+        else:
+            print (""No"")
+        sys.exit()
+    ss = [0] * 4
+    tt = [0] * 4
+    for i in S:
+        ss[al[i]] += 1
+    for i in T:
+        tt[al[i]] += 1
+    flag = True
+    for i in range(1,3):
+        if (ss[i]-ss[0]) % 2 != (tt[i]-tt[0]) % 2:
+            flag = False
+    if flag:
+        print (""Yes"")
+    else:
+        print (""No"")"
+4845113,3177,Painting,"N = int(input())
+d = {'R':0, 'B':1, 'Y':2, 'G':3}
+S = input()
+T = input()
+if len(set(S)) == 1 or len(set(T)) == 1:
+    print(""Yes"" if S == T else ""No"")
+    exit()
+sxor = 0
+txor = 0
+for a, b in zip(S, T):
+    sxor ^= d[a]
+    txor ^= d[b]
+print(""Yes"" if sxor == txor else ""No"")"
+4848067,3177,Painting,"N=int(input())
+S=input()
+T=input()
+X=[0,0,0,0]
+Y=[0,0,0,0]
+D={""R"":0,""G"":1,""B"":2,""Y"":3}
+for i in range(N):
+    X[D[S[i]]]+=1
+    Y[D[T[i]]]+=1
+for i in range(4):
+    if X[i]==N and Y[i]!=N:
+        print(""No"")
+        exit()
+    if X[i]!=N and Y[i]==N:
+        print(""No"")
+        exit()
+Z=[(X[i]-Y[i])%2 for i in range(4)]
+if min(Z)==max(Z):
+    print(""Yes"")
+else:
+    print(""No"")"
+7826177,3177,Painting,"n = int(input())
+s = input()
+t = input()
+D = {'R': 0, 'B': 1, 'Y': 2, 'G': 3}
+if len(set(s)) == 1 or len(set(t)) == 1:
+    if s == t:
+        print(""Yes"")
+    else:
+        print(""No"")
+    exit()
+s_, t_ = 0, 0
+for i in range(n):
+    s_ ^= D[s[i]]
+    t_ ^= D[t[i]]
+if s_ == t_:
+    print(""Yes"")
+else:
+    print(""No"")"
